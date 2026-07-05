@@ -9220,13 +9220,16 @@ def _v155_apply_fast_setting_preview(summary: dict[str, Any]) -> None:
         {"항목": "치명 스탯", "아크그리드 제외 기준": round(crit_stat, 2), "아크그리드 포함 최종": round(crit_stat, 2)},
         {"항목": "치명 스탯 치적", "아크그리드 제외 기준": f"{stat_rate:.2f}%", "아크그리드 포함 최종": f"{stat_rate:.2f}%"},
         {"항목": "백어택 스킬 기준 치명", "아크그리드 제외 기준": f"{stat_rate:.2f}%", "아크그리드 포함 최종": f"{stat_rate:.2f}%"},
-        {"항목": "평균 치명타 피해량", "아크그리드 제외 기준": "200.00%", "아크그리드 포함 최종": "200.00%"},
-    ])
-    summary["loawa_like_breakdown"] = pd.DataFrame([
-        {"피해군": "치명타 적중률", "합계": round(stat_rate, 2)},
-        {"피해군": "치명타 피해", "합계": 200},
-        {"피해군": "진화형 피해", "합계": 0},
-        {"피해군": "적에게 주는 피해", "합계": 0},
+        {"항목": "전역 치명타 피해량(스킬 전용 제외/방향성 기준)", "아크그리드 제외 기준": "200.00%", "아크그리드 포함 최종": "200.00%"},
+        {"항목": "평균 치명타 피해량(스킬 전용 포함)", "아크그리드 제외 기준": "200.00%", "아크그리드 포함 최종": "200.00%"},
+        {"항목": "평균 진화형 피해", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
+        {"항목": "전역 적피 합계", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
+        {"항목": "스킬 포함 적피 평균", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
+        {"항목": "평균 스킬 피해", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
+        {"항목": "평균 보석 피해(전체 스킬)", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
+        {"항목": "평균 예상 최종 배율", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
+        {"항목": "기습 각인 감지", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
+        {"항목": "결투 각인 감지", "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"},
     ])
     summary["_fast_setting_preview_v155"] = True
 
@@ -9243,7 +9246,32 @@ def _v121_combat_overview(summary: dict[str, Any]) -> pd.DataFrame:
     if df.empty:
         return df
     keep = [c for c in ["항목", "아크그리드 제외 기준", "아크그리드 포함 최종"] if c in df.columns]
-    return df[keep].copy() if keep else df
+    out = df[keep].copy() if keep else df
+    if "항목" not in out.columns:
+        return out
+    wanted = [
+        "치명 스탯",
+        "치명 스탯 치적",
+        "백어택 스킬 기준 치명",
+        "전역 치명타 피해량(스킬 전용 제외/방향성 기준)",
+        "평균 치명타 피해량(스킬 전용 포함)",
+        "평균 진화형 피해",
+        "전역 적피 합계",
+        "스킬 포함 적피 평균",
+        "평균 스킬 피해",
+        "평균 보석 피해(전체 스킬)",
+        "평균 예상 최종 배율",
+        "기습 각인 감지",
+        "결투 각인 감지",
+    ]
+    by_name = {str(row.get("항목")): row for _, row in out.iterrows()}
+    rows = []
+    for name in wanted:
+        if name in by_name:
+            rows.append(dict(by_name[name]))
+        else:
+            rows.append({"항목": name, "아크그리드 제외 기준": "-", "아크그리드 포함 최종": "-"})
+    return pd.DataFrame(rows)
 
 
 def _v121_breakdown(summary: dict[str, Any]) -> pd.DataFrame:
@@ -9294,17 +9322,20 @@ def _v121_final_calc(summary: dict[str, Any]) -> pd.DataFrame:
     name_col = _v121_pick_col(df, ["스킬명", "name"])
     level_col = _v121_pick_col(df, ["스킬레벨", "레벨"])
     crit_col = _v121_pick_col(df, [
+        "예상 치명 확률",
         "예상 치명 확률(백어택 기준)(%)",
         "예상 치명 확률(조건부 포함)(%)",
         "치명 증가 합계(조건부)(%)",
         "기준 치명(백어택)(%)",
     ])
     crit_dmg_col = _v121_pick_col(df, [
+        "예상 치피",
         "예상 치피(조건부 포함)(%)",
         "예상 치피(상시)(%)",
         "기준 치피(%)",
     ])
     evo_col = _v121_pick_col(df, [
+        "진화형 피해",
         "진화형 피해(조건부)(%)",
         "기준 진화형 피해(%)",
         "진화형 피해(%)",
@@ -12266,7 +12297,6 @@ def api_tab() -> None:  # type: ignore[override]
     if not isinstance(final_df, pd.DataFrame) or final_df.empty:
         _v121_render_table("최종 계산표", _v121_final_calc(summary), 1000, "예상 치명 확률은 백어택 기준/시너지/조건부를 포함한 최종 계산표 기준입니다.", full_height=True)
         _v121_render_table("전투/캐릭터 요약", _v121_combat_overview(summary), 80)
-        _v121_render_table("효과 합산표", _v121_breakdown(summary), 40)
         _v121_render_table("전투 스킬 - 채용 스킬만", _v121_adopted_skills(summary), 60)
         timing = st.session_state.get("api_last_timing_v120") or {}
         if isinstance(timing, dict):
@@ -12282,7 +12312,6 @@ def api_tab() -> None:  # type: ignore[override]
         full_height=True,
     )
     _v121_render_table("전투/캐릭터 요약", _v121_combat_overview(summary), 80)
-    _v121_render_table("효과 합산표", _v121_breakdown(summary), 40)
     _v121_render_table("전투 스킬 - 채용 스킬만", _v121_adopted_skills(summary), 60)
 
     timing = st.session_state.get("api_last_timing_v120") or {}
