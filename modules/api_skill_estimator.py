@@ -155,6 +155,11 @@ def _safe_data(bundle: Dict[str, Any], key: str) -> Any:
 _BUNDLE_ALL_TEXT_CACHE_V158: Dict[int, Tuple[Tuple[Any, ...], str]] = {}
 _BUNDLE_RAW_TEXT_CACHE_V158: Dict[int, Tuple[Tuple[Any, ...], str]] = {}
 _BUNDLE_SKILL_REF_TEXT_CACHE_V158: Dict[int, Tuple[Tuple[Any, ...], str]] = {}
+_SOURCE_ROWS_CACHE_V159: Dict[int, Tuple[Tuple[Any, ...], List[Dict[str, Any]]]] = {}
+_SOURCE_SUM_CACHE_V159: Dict[Tuple[Any, ...], float] = {}
+_SOURCE_MAX_CACHE_V159: Dict[Tuple[Any, ...], float] = {}
+_SOURCE_NAMES_CACHE_V159: Dict[Tuple[Any, ...], str] = {}
+_SOURCE_NO_BASE_CACHE_V159: Dict[int, Tuple[Tuple[Any, ...], pd.DataFrame]] = {}
 
 
 def _bundle_text_signature_v158(bundle: Dict[str, Any]) -> Tuple[Any, ...]:
@@ -189,6 +194,31 @@ def _bundle_text_cache_set_v158(cache: Dict[int, Tuple[Tuple[Any, ...], str]], b
         cache.clear()
     cache[id(bundle)] = (_bundle_text_signature_v158(bundle), text)
     return text
+
+
+def _df_cache_signature_v159(df: pd.DataFrame) -> Tuple[Any, ...]:
+    if df is None or not isinstance(df, pd.DataFrame):
+        return (id(df), 0)
+    return (len(df), tuple(str(c) for c in df.columns), id(df.index))
+
+
+def _source_rows_v159(df: pd.DataFrame) -> List[Dict[str, Any]]:
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return []
+    key = id(df)
+    signature = _df_cache_signature_v159(df)
+    cached = _SOURCE_ROWS_CACHE_V159.get(key)
+    if cached and cached[0] == signature:
+        return cached[1]
+    rows = df.to_dict("records")
+    if len(_SOURCE_ROWS_CACHE_V159) > 64:
+        _SOURCE_ROWS_CACHE_V159.clear()
+    _SOURCE_ROWS_CACHE_V159[key] = (signature, rows)
+    return rows
+
+
+def _source_cache_key_v159(df: pd.DataFrame, *parts: Any) -> Tuple[Any, ...]:
+    return (id(df), _df_cache_signature_v159(df), *parts)
 
 
 def _clean_text(text: Any) -> str:
@@ -6598,3 +6628,95 @@ def _extract_effect_values_cached_v156(text: str, source_type: str = "", target_
 
 def _extract_effect_values(text: str, source_type: str = "", target_skill: str | None = None) -> Dict[str, float]:  # type: ignore[override]
     return dict(_extract_effect_values_cached_v156(str(text or ""), str(source_type or ""), str(target_skill or "")))
+
+
+_old_sum_sources_v158_for_v159 = _sum_sources
+_old_max_sources_v158_for_v159 = _max_sources
+_old_source_names_for_skill_v158_for_v159 = _source_names_for_skill
+_old_v64_sources_without_base_stat_v158_for_v159 = _v64_sources_without_base_stat
+
+
+def _sum_sources(df: pd.DataFrame, column: str, attack_type: str, skill_name: str, include_conditional: bool) -> float:  # type: ignore[override]
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty or column not in df.columns:
+        return 0.0
+    cache_key = _source_cache_key_v159(df, "sum", column, attack_type, skill_name, bool(include_conditional))
+    cached = _SOURCE_SUM_CACHE_V159.get(cache_key)
+    if cached is not None:
+        return cached
+    condition_col = SOURCE_COLUMNS[-2]
+    total = 0.0
+    for row in _source_rows_v159(df):
+        if not include_conditional and str(row.get(condition_col)) != "상시":
+            continue
+        if not _scope_applies(row, attack_type, skill_name):
+            continue
+        total += _num(row.get(column)) or 0.0
+    value = float(total)
+    if len(_SOURCE_SUM_CACHE_V159) > 50000:
+        _SOURCE_SUM_CACHE_V159.clear()
+    _SOURCE_SUM_CACHE_V159[cache_key] = value
+    return value
+
+
+def _max_sources(df: pd.DataFrame, column: str, attack_type: str, skill_name: str, include_conditional: bool) -> float:  # type: ignore[override]
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty or column not in df.columns:
+        return 0.0
+    cache_key = _source_cache_key_v159(df, "max", column, attack_type, skill_name, bool(include_conditional))
+    cached = _SOURCE_MAX_CACHE_V159.get(cache_key)
+    if cached is not None:
+        return cached
+    condition_col = SOURCE_COLUMNS[-2]
+    values: List[float] = []
+    for row in _source_rows_v159(df):
+        if not include_conditional and str(row.get(condition_col)) != "상시":
+            continue
+        if not _scope_applies(row, attack_type, skill_name):
+            continue
+        value = _num(row.get(column)) or 0.0
+        if value:
+            values.append(float(value))
+    result = max(values) if values else 0.0
+    if len(_SOURCE_MAX_CACHE_V159) > 20000:
+        _SOURCE_MAX_CACHE_V159.clear()
+    _SOURCE_MAX_CACHE_V159[cache_key] = result
+    return result
+
+
+def _source_names_for_skill(df: pd.DataFrame, attack_type: str, skill_name: str) -> str:  # type: ignore[override]
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return ""
+    cache_key = _source_cache_key_v159(df, "names", attack_type, skill_name)
+    cached = _SOURCE_NAMES_CACHE_V159.get(cache_key)
+    if cached is not None:
+        return cached
+    source_col = SOURCE_COLUMNS[0]
+    name_col = SOURCE_COLUMNS[1]
+    names: List[str] = []
+    for row in _source_rows_v159(df):
+        if not _scope_applies(row, attack_type, skill_name):
+            continue
+        if not any((_num(row.get(c)) or 0.0) for c in EFFECT_COLUMNS):
+            continue
+        label = f"{row.get(source_col)}:{row.get(name_col)}"
+        if label not in names:
+            names.append(label)
+    result = " / ".join(names[:10])
+    if len(_SOURCE_NAMES_CACHE_V159) > 10000:
+        _SOURCE_NAMES_CACHE_V159.clear()
+    _SOURCE_NAMES_CACHE_V159[cache_key] = result
+    return result
+
+
+def _v64_sources_without_base_stat(sources: pd.DataFrame) -> pd.DataFrame:  # type: ignore[override]
+    if sources is None or not isinstance(sources, pd.DataFrame) or sources.empty:
+        return _empty_source_df()
+    key = id(sources)
+    signature = _df_cache_signature_v159(sources)
+    cached = _SOURCE_NO_BASE_CACHE_V159.get(key)
+    if cached and cached[0] == signature:
+        return cached[1]
+    result = _old_v64_sources_without_base_stat_v158_for_v159(sources)
+    if len(_SOURCE_NO_BASE_CACHE_V159) > 64:
+        _SOURCE_NO_BASE_CACHE_V159.clear()
+    _SOURCE_NO_BASE_CACHE_V159[key] = (signature, result)
+    return result
