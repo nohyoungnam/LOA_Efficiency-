@@ -9145,6 +9145,92 @@ def _v155_render_character_source_tables(summary: dict[str, Any]) -> None:
         _v121_render_table("전투/캐릭터 요약", _v121_combat_overview(summary), 80)
 
 
+def _v155_pick_col(df: pd.DataFrame, names: list[str]) -> str | None:
+    for name in names:
+        if name in df.columns:
+            return name
+    lowered = {str(c).lower(): c for c in df.columns}
+    for name in names:
+        hit = lowered.get(str(name).lower())
+        if hit is not None:
+            return hit
+    return None
+
+
+def _v155_float(value: Any, default: float = 0.0) -> float:
+    try:
+        text = re.sub(r"[^0-9.\-]", "", str(value or ""))
+        return float(text) if text else default
+    except Exception:
+        return default
+
+
+def _v155_fast_preview_stats(summary: dict[str, Any]) -> tuple[float, float]:
+    stats = _v121_as_df(summary.get("stats"))
+    crit_stat = 0.0
+    if not stats.empty:
+        type_col = _v155_pick_col(stats, ["스탯", "Type", "type"])
+        value_col = _v155_pick_col(stats, ["값", "Value", "value"])
+        if (not type_col or not value_col) and len(stats.columns) >= 2:
+            type_col = type_col or stats.columns[0]
+            value_col = value_col or stats.columns[1]
+        if type_col and value_col:
+            for _, row in stats.iterrows():
+                if "치명" in str(row.get(type_col, "")):
+                    crit_stat = _v155_float(row.get(value_col), 0.0)
+                    break
+    stat_rate = crit_stat * 0.03579
+    return crit_stat, stat_rate
+
+
+def _v155_apply_fast_setting_preview(summary: dict[str, Any]) -> None:
+    final_df = _v121_as_df(summary.get("arkgrid_final_skill_estimates"))
+    if final_df.empty:
+        final_df = _v121_as_df(summary.get("skill_crit_estimates"))
+    if not final_df.empty:
+        return
+
+    crit_stat, stat_rate = _v155_fast_preview_stats(summary)
+    skills = _v121_adopted_skills(summary)
+    if skills.empty:
+        skills = _v121_as_df(summary.get("skills"))
+
+    name_col = _v155_pick_col(skills, ["스킬명", "이름", "Name", "name"])
+    level_col = _v155_pick_col(skills, ["스킬레벨", "레벨", "Level", "level"])
+    if not name_col and len(skills.columns) >= 1:
+        name_col = skills.columns[0]
+    if not level_col and len(skills.columns) >= 2:
+        level_col = skills.columns[1]
+    rows: list[dict[str, Any]] = []
+    if name_col:
+        for _, row in skills.head(24).iterrows():
+            name = str(row.get(name_col) or "").strip()
+            if not name:
+                continue
+            rows.append({
+                "스킬명": name,
+                "스킬레벨": row.get(level_col) if level_col else "",
+                "예상 치명 확률": round(stat_rate, 2),
+                "예상 치피": 200,
+                "진화형 피해": 0,
+            })
+
+    summary["skill_crit_estimates"] = pd.DataFrame(rows)
+    summary["combat_overview"] = pd.DataFrame([
+        {"항목": "치명 스탯", "아크그리드 제외 기준": round(crit_stat, 2), "아크그리드 포함 최종": round(crit_stat, 2)},
+        {"항목": "치명 스탯 치적", "아크그리드 제외 기준": f"{stat_rate:.2f}%", "아크그리드 포함 최종": f"{stat_rate:.2f}%"},
+        {"항목": "백어택 스킬 기준 치명", "아크그리드 제외 기준": f"{stat_rate:.2f}%", "아크그리드 포함 최종": f"{stat_rate:.2f}%"},
+        {"항목": "평균 치명타 피해량", "아크그리드 제외 기준": "200.00%", "아크그리드 포함 최종": "200.00%"},
+    ])
+    summary["loawa_like_breakdown"] = pd.DataFrame([
+        {"피해군": "치명타 적중률", "합계": round(stat_rate, 2)},
+        {"피해군": "치명타 피해", "합계": 200},
+        {"피해군": "진화형 피해", "합계": 0},
+        {"피해군": "적에게 주는 피해", "합계": 0},
+    ])
+    summary["_fast_setting_preview_v155"] = True
+
+
 def _v121_cards(items: list[tuple[str, Any]]) -> None:
     html_cards = []
     for k, v in items:
@@ -12173,11 +12259,15 @@ def api_tab() -> None:  # type: ignore[override]
         ("직업", profile.get("직업") or "-"),
         ("아이템 레벨", profile.get("아이템레벨") or "-"),
     ])
+    _v155_apply_fast_setting_preview(summary)
     final_df = summary.get("arkgrid_final_skill_estimates")
     if not isinstance(final_df, pd.DataFrame) or final_df.empty:
         final_df = summary.get("skill_crit_estimates")
     if not isinstance(final_df, pd.DataFrame) or final_df.empty:
-        _v155_render_character_source_tables(summary)
+        _v121_render_table("최종 계산표", _v121_final_calc(summary), 1000, "예상 치명 확률은 백어택 기준/시너지/조건부를 포함한 최종 계산표 기준입니다.", full_height=True)
+        _v121_render_table("전투/캐릭터 요약", _v121_combat_overview(summary), 80)
+        _v121_render_table("효과 합산표", _v121_breakdown(summary), 40)
+        _v121_render_table("전투 스킬 - 채용 스킬만", _v121_adopted_skills(summary), 60)
         timing = st.session_state.get("api_last_timing_v120") or {}
         if isinstance(timing, dict):
             timing["api_tab_render_ms_v153"] = round((_time_v120_app.perf_counter() - t0) * 1000.0, 3)
