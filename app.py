@@ -6204,15 +6204,23 @@ def _build_speed_debug_download_v154() -> tuple[bytes, str, bool]:
         if isinstance(endpoint_timings, dict) and endpoint_timings:
             slowest = sorted(endpoint_timings.items(), key=lambda item: float(item[1] or 0), reverse=True)[:3]
             recommendations.append(f"가장 느린 API 요청 TOP3: {slowest}")
+        estimator_detail = timing.get("estimate_skill_crit_tables_detail_v157") if isinstance(timing, dict) else {}
+        if isinstance(estimator_detail, dict) and estimator_detail.get("top_stages"):
+            recommendations.append(f"estimator internal TOP: {estimator_detail.get('top_stages')[:5]}")
         if not recommendations:
             recommendations.append("큰 단일 병목은 기록되지 않았습니다. total_ms, endpoint_timings_ms, summarize_detail_v117을 함께 비교하세요.")
 
     payload = {
-        "debug_version": "v154_search_speed_download",
+        "debug_version": "v157_search_speed_estimator_detail",
         "created_at_epoch": _time_v120_app.time(),
         "character_name": st.session_state.get("character_name", ""),
         "profile_summary": profile,
         "timing": timing,
+        "estimator_timing": (
+            (timing.get("estimate_skill_crit_tables_detail_v157") if isinstance(timing, dict) else None)
+            or (summary.get("_estimator_timing_v157") if isinstance(summary, dict) else None)
+            or {}
+        ),
         "endpoint_status": endpoint_status,
         "summary_keys": list(summary.keys()) if isinstance(summary, dict) else [],
         "recommendations": recommendations,
@@ -7855,6 +7863,8 @@ def _summarize_all_detailed_v115(bundle: dict[str, Any]) -> tuple[dict[str, Any]
         from modules.api_skill_estimator import estimate_skill_crit_tables
         crit_tables = estimate_skill_crit_tables(bundle)
         timings["estimate_skill_crit_tables_ms"] = round((_time_v115.perf_counter() - t) * 1000.0, 3)
+        if isinstance(crit_tables, dict) and isinstance(crit_tables.get("_estimator_timing_v157"), dict):
+            timings["estimate_skill_crit_tables_detail_v157"] = crit_tables.get("_estimator_timing_v157")
     except Exception as e:
         timings["estimate_skill_crit_tables_error"] = repr(e)
         crit_tables = {

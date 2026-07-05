@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import math
 import re
+import time as _time_v157
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
@@ -2332,36 +2333,54 @@ def estimate_skill_crit_tables(bundle: Dict[str, Any]) -> Dict[str, Any]:  # typ
     효과 출처가 없어도 채용 스킬 기준의 기본 계산표는 반드시 생성합니다.
     """
     try:
-        crit_stat, stat_rate, stat_raw, stat_source = _profile_stats(bundle)
-        skill_names = _skill_names(bundle)
+        estimator_timings: Dict[str, Any] = {"version": "v157_estimator_detail"}
+        estimator_t0 = _time_v157.perf_counter()
 
-        all_global_sources = _collect_global_sources(bundle)
-        identity_sources = _identity_sources(bundle)
-        tripod_sources = _collect_skill_tripod_sources(bundle)
-        gem_sources = _collect_gem_sources(bundle)
+        def timed(name: str, fn, *args, **kwargs):
+            t = _time_v157.perf_counter()
+            value = fn(*args, **kwargs)
+            estimator_timings[f"{name}_ms"] = round((_time_v157.perf_counter() - t) * 1000.0, 3)
+            try:
+                if isinstance(value, pd.DataFrame):
+                    estimator_timings[f"{name}_rows"] = int(len(value))
+                elif isinstance(value, (list, tuple, set, dict)):
+                    estimator_timings[f"{name}_count"] = int(len(value))
+            except Exception:
+                pass
+            return value
 
+        crit_stat, stat_rate, stat_raw, stat_source = timed("profile_stats", _profile_stats, bundle)
+        skill_names = timed("skill_names", _skill_names, bundle)
+
+        all_global_sources = timed("collect_global_sources", _collect_global_sources, bundle)
+        identity_sources = timed("identity_sources", _identity_sources, bundle)
+        tripod_sources = timed("tripod_sources", _collect_skill_tripod_sources, bundle)
+        gem_sources = timed("gem_sources", _collect_gem_sources, bundle)
+
+        t_force = _time_v157.perf_counter()
         all_global_sources = _force_skill_scopes(all_global_sources, skill_names) if isinstance(all_global_sources, pd.DataFrame) and not all_global_sources.empty else _empty_source_df()
         identity_sources = _force_skill_scopes(identity_sources, skill_names) if isinstance(identity_sources, pd.DataFrame) and not identity_sources.empty else _empty_source_df()
         tripod_sources = _force_skill_scopes(tripod_sources, skill_names) if isinstance(tripod_sources, pd.DataFrame) and not tripod_sources.empty else _empty_source_df()
         gem_sources = _force_skill_scopes(gem_sources, skill_names) if isinstance(gem_sources, pd.DataFrame) and not gem_sources.empty else _empty_source_df()
+        estimator_timings["force_skill_scopes_ms"] = round((_time_v157.perf_counter() - t_force) * 1000.0, 3)
 
         arkgrid_sources = _filter_source_type(all_global_sources, include=["아크그리드"])
         base_global_sources = _filter_source_type(all_global_sources, exclude=["아크그리드"])
 
-        base_effect_sources = _concat_sources(identity_sources, base_global_sources, tripod_sources, gem_sources)
-        final_effect_sources = _concat_sources(base_effect_sources, arkgrid_sources)
-        source_df = _concat_sources(stat_source, identity_sources, base_global_sources, arkgrid_sources, tripod_sources, gem_sources)
+        base_effect_sources = timed("concat_base_effect_sources", _concat_sources, identity_sources, base_global_sources, tripod_sources, gem_sources)
+        final_effect_sources = timed("concat_final_effect_sources", _concat_sources, base_effect_sources, arkgrid_sources)
+        source_df = timed("concat_source_df", _concat_sources, stat_source, identity_sources, base_global_sources, arkgrid_sources, tripod_sources, gem_sources)
         unresolved_sources = source_df[source_df["적용범위"].astype(str) == "검수 필요"].copy() if isinstance(source_df, pd.DataFrame) and not source_df.empty else _empty_source_df()
 
-        back_engraving = _has_back_attack_engraving(bundle)
-        head_engraving = _has_head_attack_engraving(bundle)
+        back_engraving = timed("has_back_attack_engraving", _has_back_attack_engraving, bundle)
+        head_engraving = timed("has_head_attack_engraving", _has_head_attack_engraving, bundle)
 
-        base_skill_df = _build_skill_table(bundle, base_effect_sources, crit_stat, stat_rate, back_engraving, head_engraving)
-        final_skill_df = _build_skill_table(bundle, final_effect_sources, crit_stat, stat_rate, back_engraving, head_engraving)
-        arkgrid_delta_df = _metric_delta(final_skill_df, base_skill_df)
-        merged_skill_df = _merged_base_final_table(base_skill_df, final_skill_df, arkgrid_delta_df)
+        base_skill_df = timed("build_base_skill_table", _build_skill_table, bundle, base_effect_sources, crit_stat, stat_rate, back_engraving, head_engraving)
+        final_skill_df = timed("build_final_skill_table", _build_skill_table, bundle, final_effect_sources, crit_stat, stat_rate, back_engraving, head_engraving)
+        arkgrid_delta_df = timed("metric_delta", _metric_delta, final_skill_df, base_skill_df)
+        merged_skill_df = timed("merged_base_final_table", _merged_base_final_table, base_skill_df, final_skill_df, arkgrid_delta_df)
 
-        overview = _overview_from_tables(
+        overview = timed("overview_from_tables", _overview_from_tables,
             crit_stat,
             stat_rate,
             base_skill_df,
@@ -2374,11 +2393,14 @@ def estimate_skill_crit_tables(bundle: Dict[str, Any]) -> Dict[str, Any]:  # typ
 
         back_final = final_skill_df[final_skill_df["공격타입"].astype(str).str.contains("백", na=False)] if isinstance(final_skill_df, pd.DataFrame) and not final_skill_df.empty else pd.DataFrame()
         back_base = base_skill_df[base_skill_df["공격타입"].astype(str).str.contains("백", na=False)] if isinstance(base_skill_df, pd.DataFrame) and not base_skill_df.empty else pd.DataFrame()
+        t_summary_metrics = _time_v157.perf_counter()
         global_final = _non_skill_sources(final_effect_sources)
         non_skill_for_cd = global_final[~global_final["적용범위"].astype(str).isin(["스킬 전용", "스킬 그룹", "계열 전용", "스킬 계열", "검수 필요"])] if not global_final.empty else _empty_source_df()
         global_crit_damage_no_skill = BASE_CRIT_DAMAGE_PERCENT + _sum_sources(
             non_skill_for_cd, "치명타 피해량 증가(%)", "백어택" if back_engraving else "일반/확인필요", "", include_conditional=True
         )
+
+        estimator_timings["final_summary_metrics_ms"] = round((_time_v157.perf_counter() - t_summary_metrics) * 1000.0, 3)
 
         result = {
             "estimator_version": ESTIMATOR_VERSION,
@@ -2417,6 +2439,16 @@ def estimate_skill_crit_tables(bundle: Dict[str, Any]) -> Dict[str, Any]:  # typ
             "has_back_attack_engraving": back_engraving,
             "has_head_attack_engraving": head_engraving,
         }
+        estimator_timings["total_ms"] = round((_time_v157.perf_counter() - estimator_t0) * 1000.0, 3)
+        timing_rows = []
+        for k, v in estimator_timings.items():
+            if k.endswith("_ms"):
+                try:
+                    timing_rows.append({"stage": k, "ms": float(v)})
+                except Exception:
+                    pass
+        estimator_timings["top_stages"] = sorted(timing_rows, key=lambda x: x["ms"], reverse=True)[:12]
+        result["_estimator_timing_v157"] = estimator_timings
         return _add_v12_summary(result, bundle)
     except Exception as e:  # noqa: BLE001
         return {
