@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import math
 import re
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 
@@ -28,6 +29,7 @@ def _project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+@lru_cache(maxsize=1)
 def _load_class_rules() -> Dict[str, Any]:
     """configs/class_rules.yaml을 읽습니다.
 
@@ -45,6 +47,7 @@ def _load_class_rules() -> Dict[str, Any]:
         return {}
 
 
+@lru_cache(maxsize=1)
 def _config_skill_aliases() -> Dict[str, str]:
     rules = _load_class_rules()
     aliases: Dict[str, str] = {}
@@ -61,6 +64,7 @@ def _config_skill_aliases() -> Dict[str, str]:
     return aliases
 
 
+@lru_cache(maxsize=1)
 def _all_skill_aliases() -> Dict[str, str]:
     merged = dict(SKILL_ALIAS_TO_CANONICAL)
     merged.update(_config_skill_aliases())
@@ -160,15 +164,20 @@ def _clean_text(text: Any) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+@lru_cache(maxsize=4096)
+def _flatten_str_cached(value: str) -> str:
+    try:
+        parsed = json.loads(value)
+        return _flatten(parsed)
+    except Exception:
+        return _clean_text(value)
+
+
 def _flatten(value: Any) -> str:
     if value is None:
         return ""
     if isinstance(value, str):
-        try:
-            parsed = json.loads(value)
-            return _flatten(parsed)
-        except Exception:
-            return _clean_text(value)
+        return _flatten_str_cached(value)
     if isinstance(value, dict):
         return _clean_text(" ".join(_flatten(v) for v in value.values()))
     if isinstance(value, list):
@@ -5620,6 +5629,7 @@ import sys as _sys
 import importlib as _importlib
 
 
+@lru_cache(maxsize=1)
 def _load_loa_db_optional():
     """tools.calculator_db_loader를 임포트합니다 (없으면 None 반환)."""
     try:
@@ -6473,3 +6483,16 @@ def _v705_resolve_both_direction(attack_type: str, back_engraving: bool, head_en
             parts[0] = "백어택"
         return " / ".join(parts)
     return attack_type
+
+
+_extract_effect_values_uncached_v156 = _extract_effect_values
+
+
+@lru_cache(maxsize=8192)
+def _extract_effect_values_cached_v156(text: str, source_type: str = "", target_skill: str = "") -> tuple[tuple[str, float], ...]:
+    result = _extract_effect_values_uncached_v156(text, source_type, target_skill or None)
+    return tuple(sorted((str(k), float(v or 0.0)) for k, v in result.items()))
+
+
+def _extract_effect_values(text: str, source_type: str = "", target_skill: str | None = None) -> Dict[str, float]:  # type: ignore[override]
+    return dict(_extract_effect_values_cached_v156(str(text or ""), str(source_type or ""), str(target_skill or "")))
