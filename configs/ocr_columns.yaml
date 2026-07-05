@@ -1,0 +1,30 @@
+# 전투분석기 표 헤더 OCR 매핑.
+# OCR이 오타를 내면 aliases에 후보를 추가하면 됩니다.
+columns:
+  name:
+    label: 이름
+    aliases: ["이름", "스킬명", "스킬 이름", "Name"]
+  damage_text:
+    label: 피해량
+    aliases: ["피해량", "피해", "대미지", "데미지", "Damage"]
+  dps_text:
+    label: 초당 피해량
+    aliases: ["초당 피해량", "초당피해량", "초당", "DPS"]
+  back_attack_rate:
+    label: 백어택 적중률
+    aliases: ["백어택 적중률", "백어택적중률", "백어택", "Back"]
+  head_attack_rate:
+    label: 헤드어택 적중률
+    aliases: ["헤드어택 적중률", "헤드어택적중률", "헤드어택", "Head"]
+  crit_rate:
+    label: 치명타 적중률
+    aliases: ["치명타 적중률", "치명타적중률", "치명타", "치명", "Crit"]
+  casts:
+    label: 사용 횟수
+    aliases: ["사용 횟수", "사용횟수", "횟수", "Casts"]
+  cooldown_rate:
+    label: 쿨타임 비율
+    aliases: ["쿨타임 비율", "쿨타임비율", "쿨타임", "Cooldown"]
+  share_rate:
+    label: 피해량 지분
+    aliases: ["피해량 지분", "피해량지분", "지분", "Share"]

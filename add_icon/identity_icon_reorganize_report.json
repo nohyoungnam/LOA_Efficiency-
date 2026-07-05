@@ -1,0 +1,622 @@
+{
+  "copied_or_existing_count": 66,
+  "new_mapping_rows": 66,
+  "missing_count": 12,
+  "skipped_count": 2,
+  "missing": [
+    {
+      "section": "서머너",
+      "file_name": "sm_zahia.png",
+      "skill_name_kr": "자히아",
+      "class_folder": "summoner",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "스트라이커",
+      "file_name": "st_tiger_emergence.png",
+      "skill_name_kr": "호랑이 출현",
+      "class_folder": "striker",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "스트라이커",
+      "file_name": "st_true_heavenly.png",
+      "skill_name_kr": "진 : 천군",
+      "class_folder": "striker",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "기공사",
+      "file_name": "gk_naejong.png",
+      "skill_name_kr": "내종선공",
+      "class_folder": "soulmaster",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "기공사",
+      "file_name": "gk_oejong.png",
+      "skill_name_kr": "외종선공",
+      "class_folder": "soulmaster",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "블레이드",
+      "file_name": "blade_arts.png",
+      "skill_name_kr": "블레이드 아츠",
+      "class_folder": "blade",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "소울이터",
+      "file_name": "se_sasha.png",
+      "skill_name_kr": "사신화",
+      "class_folder": "souleater",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "스카우터",
+      "file_name": "sc_draven.png",
+      "skill_name_kr": "드라번 킥",
+      "class_folder": "scouter",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "스카우터",
+      "file_name": "sc_hyper_sync.png",
+      "skill_name_kr": "하이퍼 싱크",
+      "class_folder": "scouter",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "아르카나",
+      "file_name": "arc_card_deck.png",
+      "skill_name_kr": "카드 덱",
+      "class_folder": "arcana",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "아르카나",
+      "file_name": "arc_judgment.png",
+      "skill_name_kr": "심판",
+      "class_folder": "arcana",
+      "reason": "source_file_not_found"
+    },
+    {
+      "section": "데빌헌터",
+      "file_name": "dh2_quick_stance.png",
+      "skill_name_kr": "퀵 스탠스",
+      "class_folder": "devilhunter",
+      "reason": "source_file_not_found"
+    }
+  ],
+  "copied": [
+    {
+      "section": "기상술사",
+      "file_name": "gs_kongangari.png",
+      "skill_name_kr": "공간가르기",
+      "class_folder": "aeromancer",
+      "source": "gs_kongangari.png",
+      "target": "aeromancer/gs_kongangari.png"
+    },
+    {
+      "section": "기상술사",
+      "file_name": "gs_nunbushin.png",
+      "skill_name_kr": "눈부신 나날들",
+      "class_folder": "aeromancer",
+      "source": "gs_nunbushin.png",
+      "target": "aeromancer/gs_nunbushin.png"
+    },
+    {
+      "section": "기상술사",
+      "file_name": "Fox Rain.png",
+      "skill_name_kr": "여우비",
+      "class_folder": "aeromancer",
+      "source": "Fox Rain.png",
+      "target": "aeromancer/Fox Rain.png"
+    },
+    {
+      "section": "가디언나이트",
+      "file_name": "gn_inferno.png",
+      "skill_name_kr": "인페르노 버스트",
+      "class_folder": "skill_class_a91e45bc",
+      "source": "gn_inferno.png",
+      "target": "skill_class_a91e45bc/gn_inferno.png"
+    },
+    {
+      "section": "가디언나이트",
+      "file_name": "gn_guardian_fear.png",
+      "skill_name_kr": "가디언 피어",
+      "class_folder": "skill_class_a91e45bc",
+      "source": "gn_guardian_fear.png",
+      "target": "skill_class_a91e45bc/gn_guardian_fear.png"
+    },
+    {
+      "section": "가디언나이트",
+      "file_name": "gn_guardian_scale.png",
+      "skill_name_kr": "가디언 스케일",
+      "class_folder": "skill_class_a91e45bc",
+      "source": "gn_guardian_scale.png",
+      "target": "skill_class_a91e45bc/gn_guardian_scale.png"
+    },
+    {
+      "section": "발키리",
+      "file_name": "vk_light_knight.png",
+      "skill_name_kr": "빛의 기사",
+      "class_folder": "valkyrie",
+      "source": "vk_light_knight.png.webp",
+      "target": "valkyrie/vk_light_knight.png"
+    },
+    {
+      "section": "발키리",
+      "file_name": "vk_final_light.png",
+      "skill_name_kr": "종언의 빛",
+      "class_folder": "valkyrie",
+      "source": "vk_final_light.png.png",
+      "target": "valkyrie/vk_final_light.png"
+    },
+    {
+      "section": "발키리",
+      "file_name": "vk_light_release.png",
+      "skill_name_kr": "빛의 해방",
+      "class_folder": "valkyrie",
+      "source": "vk_light_release.png",
+      "target": "valkyrie/vk_light_release.png"
+    },
+    {
+      "section": "발키리",
+      "file_name": "vk_faith_light.png",
+      "skill_name_kr": "신념의 빛",
+      "class_folder": "valkyrie",
+      "source": "vk_faith_light.png",
+      "target": "valkyrie/vk_faith_light.png"
+    },
+    {
+      "section": "블래스터",
+      "file_name": "bl_overheat.png",
+      "skill_name_kr": "오버히트",
+      "class_folder": "blaster",
+      "source": "bl_overheat.png",
+      "target": "blaster/bl_overheat.png"
+    },
+    {
+      "section": "블래스터",
+      "file_name": "bl_bombardment.png",
+      "skill_name_kr": "포화 공격",
+      "class_folder": "blaster",
+      "source": "bl_bombardment.png",
+      "target": "blaster/bl_bombardment.png"
+    },
+    {
+      "section": "블래스터",
+      "file_name": "bl_Artillerist_Barrage-_Energy_Cannon.png",
+      "skill_name_kr": "포격 에너지포",
+      "class_folder": "blaster",
+      "source": "bl_Artillerist_Barrage-_Energy_Cannon.png",
+      "target": "blaster/bl_Artillerist_Barrage-_Energy_Cannon.png"
+    },
+    {
+      "section": "서머너",
+      "file_name": "sm_osh.png",
+      "skill_name_kr": "오쉬",
+      "class_folder": "summoner",
+      "source": "sm_osh.png",
+      "target": "summoner/sm_osh.png"
+    },
+    {
+      "section": "서머너",
+      "file_name": "sm_alimaji.png",
+      "skill_name_kr": "알리마지",
+      "class_folder": "summoner",
+      "source": "sm_alimaji.png",
+      "target": "summoner/sm_alimaji.png"
+    },
+    {
+      "section": "서머너",
+      "file_name": "sm_phoenix.png",
+      "skill_name_kr": "피닉스",
+      "class_folder": "summoner",
+      "source": "sm_phoenix.png",
+      "target": "summoner/sm_phoenix.png"
+    },
+    {
+      "section": "서머너",
+      "file_name": "sm_akir.png",
+      "skill_name_kr": "아키르",
+      "class_folder": "summoner",
+      "source": "sm_akir.png",
+      "target": "summoner/sm_akir.png"
+    },
+    {
+      "section": "슬레이어",
+      "file_name": "sl_bloodlust.png",
+      "skill_name_kr": "블러드러스트",
+      "class_folder": "slayer",
+      "source": "sl_bloodlust.png",
+      "target": "slayer/sl_bloodlust.png"
+    },
+    {
+      "section": "리퍼",
+      "file_name": "rp_nightmare.png",
+      "skill_name_kr": "나이트메어",
+      "class_folder": "reaper",
+      "source": "rp_nightmare.png",
+      "target": "reaper/rp_nightmare.png"
+    },
+    {
+      "section": "홀리나이트",
+      "file_name": "hn_divine_justice.png",
+      "skill_name_kr": "신의 집행자",
+      "class_folder": "holyknight",
+      "source": "hn_divine_justice.png",
+      "target": "holyknight/hn_divine_justice.png"
+    },
+    {
+      "section": "홀리나이트",
+      "file_name": "hn_judgment_blade.png",
+      "skill_name_kr": "심판의 칼날",
+      "class_folder": "holyknight",
+      "source": "hn_judgment_blade.png",
+      "target": "holyknight/hn_judgment_blade.png"
+    },
+    {
+      "section": "홀리나이트",
+      "file_name": "hn_holy_aura.png",
+      "skill_name_kr": "신성의 오라",
+      "class_folder": "holyknight",
+      "source": "hn_holy_aura.png",
+      "target": "holyknight/hn_holy_aura.png"
+    },
+    {
+      "section": "홀리나이트",
+      "file_name": "hn_holy_wave.png",
+      "skill_name_kr": "신성 파도",
+      "class_folder": "holyknight",
+      "source": "hn_holy_wave.png",
+      "target": "holyknight/hn_holy_wave.png"
+    },
+    {
+      "section": "환수사",
+      "file_name": "hs_goldbear.png",
+      "skill_name_kr": "금술 : 찢 곰",
+      "class_folder": "wildsoul",
+      "source": "hs_goldbear.png",
+      "target": "wildsoul/hs_goldbear.png"
+    },
+    {
+      "section": "환수사",
+      "file_name": "hs_goldfox.png",
+      "skill_name_kr": "금술 : 여우 별 소나기",
+      "class_folder": "wildsoul",
+      "source": "hs_goldfox.png",
+      "target": "wildsoul/hs_goldfox.png"
+    },
+    {
+      "section": "환수사",
+      "file_name": "hs_beast_awaken.png",
+      "skill_name_kr": "환수 각성",
+      "class_folder": "wildsoul",
+      "source": "hs_beast_awaken.png",
+      "target": "wildsoul/hs_beast_awaken.png"
+    },
+    {
+      "section": "인파이터",
+      "file_name": "if_earth_slash.png",
+      "skill_name_kr": "대지 가르기",
+      "class_folder": "infighter",
+      "source": "if_earth_slash.png",
+      "target": "infighter/if_earth_slash.png"
+    },
+    {
+      "section": "바드",
+      "file_name": "bd_courage.png",
+      "skill_name_kr": "용맹의 세레나데",
+      "class_folder": "bard",
+      "source": "bd_courage.png",
+      "target": "bard/bd_courage.png"
+    },
+    {
+      "section": "바드",
+      "file_name": "bd_salvation.png",
+      "skill_name_kr": "구원의 세레나데",
+      "class_folder": "bard",
+      "source": "bd_salvation.png",
+      "target": "bard/bd_salvation.png"
+    },
+    {
+      "section": "바드",
+      "file_name": "bd_tempest.png",
+      "skill_name_kr": "템페스트",
+      "class_folder": "bard",
+      "source": "bd_tempest.png",
+      "target": "bard/bd_tempest.png"
+    },
+    {
+      "section": "도화가",
+      "file_name": "dh_setting_moon.png",
+      "skill_name_kr": "저무는 달",
+      "class_folder": "artist",
+      "source": "dh_setting_moon.png",
+      "target": "artist/dh_setting_moon.png"
+    },
+    {
+      "section": "도화가",
+      "file_name": "dh_rising_sun.png",
+      "skill_name_kr": "떠오르는 해",
+      "class_folder": "artist",
+      "source": "dh_rising_sun.png",
+      "target": "artist/dh_rising_sun.png"
+    },
+    {
+      "section": "도화가",
+      "file_name": "dh_Sun_Well.png",
+      "skill_name_kr": "묵법 파죽",
+      "class_folder": "artist",
+      "source": "dh_Sun_Well.png",
+      "target": "artist/dh_Sun_Well.png"
+    },
+    {
+      "section": "디스트로이어",
+      "file_name": "ds_gravity_zone.png",
+      "skill_name_kr": "중력 가중 영역",
+      "class_folder": "destroyer",
+      "source": "ds_gravity_zone.png",
+      "target": "destroyer/ds_gravity_zone.png"
+    },
+    {
+      "section": "디스트로이어",
+      "file_name": "ds_vortex.png",
+      "skill_name_kr": "볼텍스 그라비티",
+      "class_folder": "destroyer",
+      "source": "ds_vortex.png",
+      "target": "destroyer/ds_vortex.png"
+    },
+    {
+      "section": "워로드",
+      "file_name": "wl_shield_stance.png",
+      "skill_name_kr": "방어태세",
+      "class_folder": "warlord",
+      "source": "wl_shield_stance.png",
+      "target": "warlord/wl_shield_stance.png"
+    },
+    {
+      "section": "워로드",
+      "file_name": "wl_shield_of_war.png",
+      "skill_name_kr": "전장의 방패",
+      "class_folder": "warlord",
+      "source": "wl_shield_of_war.png",
+      "target": "warlord/wl_shield_of_war.png"
+    },
+    {
+      "section": "워로드",
+      "file_name": "wl_advance.png",
+      "skill_name_kr": "진격태세",
+      "class_folder": "warlord",
+      "source": "wl_advance.png",
+      "target": "warlord/wl_advance.png"
+    },
+    {
+      "section": "워로드",
+      "file_name": "wl_spear_of_war.png",
+      "skill_name_kr": "전장의 창",
+      "class_folder": "warlord",
+      "source": "wl_spear_of_war.png",
+      "target": "warlord/wl_spear_of_war.png"
+    },
+    {
+      "section": "소서리스",
+      "file_name": "sor_discharge.png",
+      "skill_name_kr": "마력 방출",
+      "class_folder": "sorceress",
+      "source": "sor_discharge.png",
+      "target": "sorceress/sor_discharge.png"
+    },
+    {
+      "section": "소서리스",
+      "file_name": "sor_blink.png",
+      "skill_name_kr": "점멸",
+      "class_folder": "sorceress",
+      "source": "sor_blink.png",
+      "target": "sorceress/sor_blink.png"
+    },
+    {
+      "section": "호크아이",
+      "file_name": "hk_storm_wing.png",
+      "skill_name_kr": "폭풍의 날개",
+      "class_folder": "hawkeye",
+      "source": "hk_storm_wing.png",
+      "target": "hawkeye/hk_storm_wing.png"
+    },
+    {
+      "section": "호크아이",
+      "file_name": "hk_final_strike.png",
+      "skill_name_kr": "최후의 습격",
+      "class_folder": "hawkeye",
+      "source": "hk_final_strike.png",
+      "target": "hawkeye/hk_final_strike.png"
+    },
+    {
+      "section": "호크아이",
+      "file_name": "hk_silverhawk.png",
+      "skill_name_kr": "실버호크 강습",
+      "class_folder": "hawkeye",
+      "source": "hk_silverhawk.png",
+      "target": "hawkeye/hk_silverhawk.png"
+    },
+    {
+      "section": "호크아이",
+      "file_name": "hk_Silverhawk_MK-II .png",
+      "skill_name_kr": "실버호크 MK2",
+      "class_folder": "hawkeye",
+      "source": "hk_Silverhawk_MK-II .png",
+      "target": "hawkeye/hk_Silverhawk_MK-II .png"
+    },
+    {
+      "section": "건슬링어",
+      "file_name": "gun_rose_blossom.png",
+      "skill_name_kr": "로즈 블로썸",
+      "class_folder": "gunslinger",
+      "source": "gun_rose_blossom.png",
+      "target": "gunslinger/gun_rose_blossom.png"
+    },
+    {
+      "section": "창술사",
+      "file_name": "ch_yungabi.png",
+      "skill_name_kr": "연가비기",
+      "class_folder": "lancemaster",
+      "source": "ch_yungabi.png",
+      "target": "lancemaster/ch_yungabi.png"
+    },
+    {
+      "section": "버서커",
+      "file_name": "bs_bloody_rush.png",
+      "skill_name_kr": "블러디 러쉬",
+      "class_folder": "berserker",
+      "source": "bs_bloody_rush.png",
+      "target": "berserker/bs_bloody_rush.png"
+    },
+    {
+      "section": "버서커",
+      "file_name": "bs_dark_rush.png",
+      "skill_name_kr": "다크 러쉬",
+      "class_folder": "berserker",
+      "source": "bs_dark_rush.png",
+      "target": "berserker/bs_dark_rush.png"
+    },
+    {
+      "section": "브레이커",
+      "file_name": "br_geonwang.png",
+      "skill_name_kr": "권왕태세",
+      "class_folder": "breaker",
+      "source": "br_geonwang.png",
+      "target": "breaker/br_geonwang.png"
+    },
+    {
+      "section": "브레이커",
+      "file_name": "br_geonwang_final.png",
+      "skill_name_kr": "권왕파천무",
+      "class_folder": "breaker",
+      "source": "br_geonwang_final.png",
+      "target": "breaker/br_geonwang_final.png"
+    },
+    {
+      "section": "브레이커",
+      "file_name": "br_sura.png",
+      "skill_name_kr": "수라의 길",
+      "class_folder": "breaker",
+      "source": "br_sura.png",
+      "target": "breaker/br_sura.png"
+    },
+    {
+      "section": "브레이커",
+      "file_name": "br_Asura_Destruction_Basic_Attack.png",
+      "skill_name_kr": "수라결 기본 공격",
+      "class_folder": "breaker",
+      "source": "br_Asura_Destruction_Basic_Attack.png",
+      "target": "breaker/br_Asura_Destruction_Basic_Attack.png"
+    },
+    {
+      "section": "브레이커",
+      "file_name": "br_Fist _of_King_12_Storm.png",
+      "skill_name_kr": "권왕십이식 풍랑",
+      "class_folder": "breaker",
+      "source": "br_Fist _of_King_12_Storm.png",
+      "target": "breaker/br_Fist _of_King_12_Storm.png"
+    },
+    {
+      "section": "브레이커",
+      "file_name": "br_Twelve_Forms_Falling_Blossoms.png",
+      "skill_name_kr": "권왕십이식 낙화",
+      "class_folder": "breaker",
+      "source": "br_Twelve_Forms_Falling_Blossoms.png.png",
+      "target": "breaker/br_Twelve_Forms_Falling_Blossoms.png"
+    },
+    {
+      "section": "기공사",
+      "file_name": "gk_musangsingwon.png",
+      "skill_name_kr": "무상신권",
+      "class_folder": "soulmaster",
+      "source": "gk_musangsingwon.png",
+      "target": "soulmaster/gk_musangsingwon.png"
+    },
+    {
+      "section": "기공사",
+      "file_name": "gk_musangsinjang.png",
+      "skill_name_kr": "무상신장",
+      "class_folder": "soulmaster",
+      "source": "gk_musangsinjang.png",
+      "target": "soulmaster/gk_musangsinjang.png"
+    },
+    {
+      "section": "기공사",
+      "file_name": "gk_musangsingag.png",
+      "skill_name_kr": "무상신각",
+      "class_folder": "soulmaster",
+      "source": "gk_musangsingag.png",
+      "target": "soulmaster/gk_musangsingag.png"
+    },
+    {
+      "section": "데모닉",
+      "file_name": "dm_demon_form.png",
+      "skill_name_kr": "악마화",
+      "class_folder": "demonic",
+      "source": "dm_demon_form.png",
+      "target": "demonic/dm_demon_form.png"
+    },
+    {
+      "section": "데모닉",
+      "file_name": "dm_Fatal_Step.png",
+      "skill_name_kr": "페이탈 스텝",
+      "class_folder": "demonic",
+      "source": "dm_Fatal_Step.png",
+      "target": "demonic/dm_Fatal_Step.png"
+    },
+    {
+      "section": "데모닉",
+      "file_name": "dm_Blood_Genocide.png",
+      "skill_name_kr": "블러드 제노사이드",
+      "class_folder": "demonic",
+      "source": "dm_Blood_Genocide.png",
+      "target": "demonic/dm_Blood_Genocide.png"
+    },
+    {
+      "section": "블레이드",
+      "file_name": "bl_Beyblade_Burst.png",
+      "skill_name_kr": "블레이드 버스트",
+      "class_folder": "blade",
+      "source": "bl_Beyblade_Burst.png",
+      "target": "blade/bl_Beyblade_Burst.png"
+    },
+    {
+      "section": "소울이터",
+      "file_name": "se_Soul_Decapitation.png",
+      "skill_name_kr": "영혼 참수",
+      "class_folder": "souleater",
+      "source": "se_Soul_Decapitation.png",
+      "target": "souleater/se_Soul_Decapitation.png"
+    },
+    {
+      "section": "아르카나",
+      "file_name": "arc_emperor.png",
+      "skill_name_kr": "황제",
+      "class_folder": "arcana",
+      "source": "arc_emperor.png",
+      "target": "arcana/arc_emperor.png"
+    },
+    {
+      "section": "아르카나",
+      "file_name": "arc_Knight_of_the_Empress.png",
+      "skill_name_kr": "황후의 기사",
+      "class_folder": "arcana",
+      "source": "arc_Knight_of_the_Empress.png",
+      "target": "arcana/arc_Knight_of_the_Empress.png"
+    },
+    {
+      "section": "데빌헌터",
+      "file_name": "dh2_Secret_Weapon.png",
+      "skill_name_kr": "비밀병기",
+      "class_folder": "devilhunter",
+      "source": "dh2_Secret_Weapon.png",
+      "target": "devilhunter/dh2_Secret_Weapon.png"
+    }
+  ]
+}

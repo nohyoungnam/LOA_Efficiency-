@@ -1,0 +1,152 @@
+{
+  "exported_at": "2026-06-28T22:12:00+09:00",
+  "total_skills": 706,
+  "total_classes": 29,
+  "classes": [
+    {
+      "class_folder": "aeromancer",
+      "class_name_kr": "기상술사",
+      "skill_count": 22
+    },
+    {
+      "class_folder": "arcana",
+      "class_name_kr": "아르카나",
+      "skill_count": 23
+    },
+    {
+      "class_folder": "artist",
+      "class_name_kr": "도화가",
+      "skill_count": 22
+    },
+    {
+      "class_folder": "bard",
+      "class_name_kr": "바드",
+      "skill_count": 23
+    },
+    {
+      "class_folder": "battlemaster",
+      "class_name_kr": "배틀마스터",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "berserker",
+      "class_name_kr": "버서커",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "blade",
+      "class_name_kr": "블레이드",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "blaster",
+      "class_name_kr": "블래스터",
+      "skill_count": 27
+    },
+    {
+      "class_folder": "breaker",
+      "class_name_kr": "브레이커",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "demonic",
+      "class_name_kr": "데모닉",
+      "skill_count": 32
+    },
+    {
+      "class_folder": "destroyer",
+      "class_name_kr": "디스트로이어",
+      "skill_count": 23
+    },
+    {
+      "class_folder": "devilhunter",
+      "class_name_kr": "데빌헌터",
+      "skill_count": 29
+    },
+    {
+      "class_folder": "gunslinger",
+      "class_name_kr": "건슬링어",
+      "skill_count": 28
+    },
+    {
+      "class_folder": "hawkeye",
+      "class_name_kr": "호크아이",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "holyknight",
+      "class_name_kr": "홀리나이트",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "infighter",
+      "class_name_kr": "인파이터",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "lancemaster",
+      "class_name_kr": "창술사",
+      "skill_count": 26
+    },
+    {
+      "class_folder": "reaper",
+      "class_name_kr": "리퍼",
+      "skill_count": 23
+    },
+    {
+      "class_folder": "scouter",
+      "class_name_kr": "스카우터",
+      "skill_count": 30
+    },
+    {
+      "class_folder": "skill_class_a91e45bc",
+      "class_name_kr": "가디언나이트",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "slayer",
+      "class_name_kr": "슬레이어",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "sorceress",
+      "class_name_kr": "소서리스",
+      "skill_count": 22
+    },
+    {
+      "class_folder": "souleater",
+      "class_name_kr": "소울이터",
+      "skill_count": 22
+    },
+    {
+      "class_folder": "soulmaster",
+      "class_name_kr": "기공사",
+      "skill_count": 22
+    },
+    {
+      "class_folder": "striker",
+      "class_name_kr": "스트라이커",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "summoner",
+      "class_name_kr": "서머너",
+      "skill_count": 23
+    },
+    {
+      "class_folder": "valkyrie",
+      "class_name_kr": "발키리",
+      "skill_count": 24
+    },
+    {
+      "class_folder": "warlord",
+      "class_name_kr": "워로드",
+      "skill_count": 23
+    },
+    {
+      "class_folder": "wildsoul",
+      "class_name_kr": "환수사",
+      "skill_count": 22
+    }
+  ]
+}

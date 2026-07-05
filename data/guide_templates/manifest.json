@@ -1,0 +1,54 @@
+{
+  "tab_attack.png": {
+    "source_korean_name": "공격 정보_가이드.png",
+    "size": 15354
+  },
+  "tab_summary.png": {
+    "source_korean_name": "종합 정보_가이드.png",
+    "size": 15610
+  },
+  "mode_dummy.png": {
+    "source_korean_name": "허수_가이드.png",
+    "size": 5228
+  },
+  "col_damage.png": {
+    "source_korean_name": "공격 정보_피해량_가이드.png",
+    "size": 2938
+  },
+  "col_back_hit.png": {
+    "source_korean_name": "공격 정보_백어택 적중률_가이드.png",
+    "size": 4966
+  },
+  "col_back_share.png": {
+    "source_korean_name": "공격 정보_백어택 비중_가이드.png",
+    "size": 4077
+  },
+  "col_head_hit.png": {
+    "source_korean_name": "공격 정보_헤드어택 적중률_가이드.png",
+    "size": 5434
+  },
+  "col_head_share.png": {
+    "source_korean_name": "공격 정보_헤드어택 비중_가이드.png",
+    "size": 4505
+  },
+  "col_crit_hit.png": {
+    "source_korean_name": "공격 정보_치명타 적중률_가이드.png",
+    "size": 5012
+  },
+  "col_crit_share.png": {
+    "source_korean_name": "공격 정보_치명타 비중_가이드.png",
+    "size": 4192
+  },
+  "col_casts.png": {
+    "source_korean_name": "공격 정보_사용 횟수_가이드.png",
+    "size": 3889
+  },
+  "col_cooldown.png": {
+    "source_korean_name": "공격 정보_쿨타임 비율_가이드.png",
+    "size": 3984
+  },
+  "col_name.png": {
+    "source_korean_name": "공격 정보_이름_가이드.png",
+    "size": 2106
+  }
+}

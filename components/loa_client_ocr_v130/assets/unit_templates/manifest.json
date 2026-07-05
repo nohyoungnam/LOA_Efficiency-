@@ -1,0 +1,34 @@
+{
+  "attack_empty.png": {
+    "source_uploaded_name": "#Uacf5#Uaca9#Uc815#Ubcf4_empty.png",
+    "description": "attack_empty"
+  },
+  "attack_unit_man.png": {
+    "source_uploaded_name": "#Uacf5#Uaca9#Uc815#Ubcf4_#Ub9cc.png",
+    "description": "attack_unit_man"
+  },
+  "attack_unit_eok.png": {
+    "source_uploaded_name": "#Uacf5#Uaca9#Uc815#Ubcf4_#Uc5b5.png",
+    "description": "attack_unit_eok"
+  },
+  "attack_unit_jo.png": {
+    "source_uploaded_name": "#Uacf5#Uaca9#Uc815#Ubcf4_#Uc870.png",
+    "description": "attack_unit_jo"
+  },
+  "summary_empty.png": {
+    "source_uploaded_name": "#Uc885#Ud569#Uc815#Ubcf4_empty.png",
+    "description": "summary_empty"
+  },
+  "summary_unit_eok.png": {
+    "source_uploaded_name": "#Uc885#Ud569#Uc815#Ubcf4_#Uc5b5.png",
+    "description": "summary_unit_eok"
+  },
+  "summary_unit_jo.png": {
+    "source_uploaded_name": "#Uc885#Ud569#Uc815#Ubcf4_#Uc870.png",
+    "description": "summary_unit_jo"
+  },
+  "summary_percent.png": {
+    "source_uploaded_name": "#Uc885#Ud569#Uc815#Ubcf4_#Ud37c#Uc13c#Ud2b8.png",
+    "description": "summary_percent"
+  }
+}

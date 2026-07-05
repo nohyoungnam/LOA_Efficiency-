@@ -1,0 +1,93 @@
+기상술사
+Fox Rain.png = 여우비 <- 누락된 내용
+
+블래스터
+bl_Artillerist_Barrage-_Energy_Cannon.png = 포격 에너지포 <- 누락된 내용
+
+도화가
+dh_Sun_Well.png = 묵법 파죽 <- 누락된 내용
+
+워로드
+
+wl_advance.png = 진격태세
+wl_shield_stance.png = 방어태세
+
+진격태세 와 방어태세 아이콘이 서로 같음, 클래스 워로드 직업이 "고독한 기사"면 -> 진격태세
+"전투 태세"면 -> 방어태세 이렇게 적용되게 해 줘
+
+호크아이
+hk_Silverhawk_MK-II .png = 실버호크 MK2 <- 누락된 내용
+
+브레이커
+
+br_Fist _of_King_12_Storm.png = 권왕십이식 풍랑 <- 누락된 내용
+br_Asura_Destruction_Basic_Attack.png = 수라결 기본 공격 <- 누락된 내용
+br_Twelve_Forms_Falling_Blossoms.png = 권왕십이식 낙화 <- 누락된 내용
+
+br_geonwang_final.png = 권왕파천무 와 br_geonwang.png = 권왕태세 이거는 서로 아이콘 모양은 같은데 색만 다른데 이점 유의해야 돼
+
+스트라이커
+st_tiger_emergence.png = 호랑이 출현 <- 전투분석기엔 사용하지 않는 자료
+st_true_heavenly.png = 진 : 천군 <- 전투분석기엔 사용하지 않는 자료
+
+기공사
+gk_musangsingwon.png = 무상신권 <- 누락된 내용
+gk_musangsinjang.png  = 무상신장 <- 누락된 내용
+gk_musangsingag.png = 무상신각 <- 누락된 내용
+
+gk_naejong.png = 내종선공 <- 전투분석기엔 사용하지 않는 자료
+gk_oejong.png = 외종선공 <- 전투분석기엔 사용하지 않는 자료
+
+데모닉
+
+dm_Fatal_Step.png = 페이탈 스텝 <- 누락된 내용
+dm_Blood_Genocide.png = 블러드 제노사이드 <- 누락된 내용
+
+
+블레이드
+blade_arts.png = 블레이드 아츠 <- 전투분석기엔 사용하지 않는 자료
+bl_Beyblade_Burst.png = 블레이드 버스트 <- 누락된 내용
+
+소울이터
+se_Soul_Decapitation.png = 영혼 참수 <- 누락된 내용
+
+스카우터
+sc_draven.png = 드라번 킥 <- 전투분석기엔 사용하지 않는 자료
+sc_hyper_sync.png = 하이퍼 싱크 <- 전투분석기엔 사용하지 않는 자료
+
+아르카나
+arc_card_deck.png = 카드 덱 <- 전투분석기엔 사용하지 않는 자료
+arc_judgment.png = 심판 <- 전투분석기엔 사용하지 않는 자료
+arc_emperor.png = 황제 <- 누락된 내용
+arc_Knight_of_the_Empress.png = 황후의 기사 <- 누락된 내용
+
+데빌헌터
+dh2_quick_stance.png = 퀵 스탠스 <- 전투분석기엔 사용하지 않는 자료
+dh2_Secret_Weapon.png = 비밀병기 <- 누락된 내용
+
+위 내용들은 add_icon - class 안에 있는 이미지들을 설명한 내용이야 안에 mapping.csv 있을건데 이거 읽고
+각 클래스에 맞게 아이콘들을 lostark_skill_db_output여기 안에 클래스 별로 나뉘어 져있을건데 복사 붙여 넣어서 잘 들어가게 해줬으면 좋겠어 스킬아이콘으로 대조하고 이름을 찾는건 lostark_skill_db_output - 클래스 폴더안에서 찾겠끔. api에서 해당 캐릭터가 무슨 클래스인지 아니깐 이렇게 범위를 더 좁혀서 찾게 하면 더 빠르게 읽혀 질거야
+
+add_icon/class/ 읽히도록 스캔 설정
+class 폴더 안 각 클래스 이름을 읽고 api에서 읽은 같은 클래스의 폴더 읽히도록 설정
+
+add_icon 폴더 안에 있는 내가 설명하는 이미지들은 클래스 상관없이 모두 쓰는 아이콘
+etc_attack.png = 기타
+basic_attack.png = 기본 공격
+Bleed rune.png = 스킬룬 출혈
+Poison rune = 스킬룬 중독
+현재 위 4개의 모든 클래스가 쓰는 아이콘은 폴더 하나 만들어서 따로 모으는게 좋을거 같아
+
+battle time.jpg 이건 전투분석기 읽을때만 쓰는거니깐 이것도 공용으로 들어가면 좋을거 같아
+
+lostark_skill_db_output 폴더에는 현재 모든 직업의 스킬 아이콘 이미지가 있어
+all_skill_name_map.csv 파일을 열어보면 모든 클래스의 스킬명 그리고 스킬파일의 이미지 이름이 적혀져 있어
+현재 스킬아이콘 이미지를 api를 통해 불러와서 매칭하는 방식인데
+이제는 lostark_skill_db_output에서 각직업별 폴더로 나눠 놨으니
+api를 불러오고 해당 캐릭터의 클래스를 알거 잖아 그러면 해당 클래스의 폴더를 찾아가서 거기서 이미지를 가져와서 비교하는 거지 그러면 더 빠르게 될거 같아
+
+그리고 ocr에서 이미지 컷팅하는것도 지금 컷팅하고 나누는게 최적화가 되어 있는지 확인이 필요로해
+속도를 더 빠르게 인식할 수 있는 방법을 찾으려고 해
+
+
+그리고 지금 시너지들이 아직 제대로 적용안되고 있어 치명타 적중률 올려주는 트라이포트인데 해당 스킬에만 치명타 적중률이 올라가고 다른 스킬들은 올라가질 않았어 이거 확인하고 필요해

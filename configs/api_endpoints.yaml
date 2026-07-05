@@ -1,0 +1,38 @@
+# Lost Ark Open API endpoint 사용 여부.
+# 특정 API에서 오류가 나면 enabled를 false로 바꿔서 테스트할 수 있습니다.
+base_url: "https://developer-lostark.game.onstove.com"
+endpoints:
+  # v70.5: summary(/armories/characters/{name})는 프로필+장비+스킬+각인+카드+보석+
+  # 아크패시브+아바타+콜로세움+수집품을 '한 번에' 내려주는 매우 큰 응답입니다.
+  # 하지만 파서는 아래 개별 엔드포인트(profiles, equipment, combat_skills ...)를 쓰고,
+  # summary는 profiles 실패 시 폴백으로만 참조합니다. 즉 평소엔 통째로 중복 다운로드 +
+  # 직업/효과 텍스트 수집 시 같은 내용을 한 번 더 훑는 낭비가 발생합니다.
+  # 아바타/콜로세움/수집품은 계산에 불필요하므로 summary를 끄면 네트워크와 계산이 모두 빨라집니다.
+  # (profiles가 거의 항상 성공하므로 폴백 손실 위험은 사실상 없습니다.)
+  summary:
+    path: "/armories/characters/{characterName}"
+    enabled: false
+  profiles:
+    path: "/armories/characters/{characterName}/profiles"
+    enabled: true
+  equipment:
+    path: "/armories/characters/{characterName}/equipment"
+    enabled: true
+  combat_skills:
+    path: "/armories/characters/{characterName}/combat-skills"
+    enabled: true
+  engravings:
+    path: "/armories/characters/{characterName}/engravings"
+    enabled: true
+  cards:
+    path: "/armories/characters/{characterName}/cards"
+    enabled: true
+  gems:
+    path: "/armories/characters/{characterName}/gems"
+    enabled: true
+  arkpassive:
+    path: "/armories/characters/{characterName}/arkpassive"
+    enabled: true
+  arkgrid:
+    path: "/armories/characters/{characterName}/arkgrid"
+    enabled: true

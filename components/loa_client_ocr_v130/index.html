@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LOA Browser OCR v130</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:transparent; color:#e5e7eb; }
+    .wrap { border:1px solid rgba(148,163,184,.32); border-radius:12px; padding:14px 16px; background:rgba(15,23,42,.35); }
+    .head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
+    .title { font-weight:900; font-size:18px; color:#f8fafc; }
+    .badge { font-size:12px; border:1px solid rgba(96,165,250,.35); color:#bfdbfe; background:rgba(37,99,235,.16); border-radius:999px; padding:4px 9px; white-space:nowrap; }
+    .desc { font-size:13px; color:#cbd5e1; line-height:1.55; margin-bottom:12px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media (max-width:760px){ .grid{grid-template-columns:1fr;} }
+    .card { border:1px solid rgba(148,163,184,.20); border-radius:10px; padding:10px; background:rgba(2,6,23,.38); }
+    .card h4 { margin:0 0 6px 0; font-size:14px; }
+    .small { font-size:12px; color:#94a3b8; white-space:pre-line; }
+    button { width:100%; border:0; border-radius:10px; background:#2563eb; color:white; font-weight:900; padding:11px 12px; cursor:pointer; margin-top:10px; }
+    button:disabled { opacity:.55; cursor:not-allowed; }
+    .progress { height:8px; border-radius:999px; overflow:hidden; background:rgba(148,163,184,.18); margin:10px 0; }
+    .bar { height:100%; width:0%; background:#60a5fa; transition:width .15s ease; }
+    pre { max-height:210px; overflow:auto; background:rgba(2,6,23,.55); padding:10px; border-radius:10px; border:1px solid rgba(148,163,184,.18); font-size:12px; color:#dbeafe; }
+    .warn { color:#fde68a; font-size:12px; margin-top:8px; line-height:1.45; }
+    .ok { color:#86efac; }
+    .bad { color:#fca5a5; }
+    /* 화면 공유 캡처 버튼: 각 줄은 [캡처 버튼(넓게)] + [취소(고정폭)] */
+    #capBtns { display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+    #capBtns .capRow { display:flex; gap:8px; align-items:stretch; }
+    #capBtns button.capBtn { flex:1 1 auto; width:auto; margin-top:0; min-width:0; height:46px; font-size:14px; font-weight:800; padding:0 12px; background:#334155; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+    #capBtns button.capBtn:hover { background:#3f4d63; }
+    #capBtns button.capCancel { flex:0 0 84px; width:84px; margin-top:0; height:46px; font-size:13px; font-weight:700; padding:0; background:#7f1d1d; }
+    #capBtns button.capCancel:hover:not(:disabled) { background:#991b1b; }
+    #capBtns button.capCancel:disabled { background:#3f3f46; opacity:.5; }
+    #shareStartBtn, #shareStopBtn { flex:1 1 0; width:auto; margin-top:0; height:44px; }
+    /* '이미지 인식' 메인 버튼 */
+    #runBtn { height:52px; font-size:16px; letter-spacing:.5px; background:linear-gradient(180deg,#3b82f6,#2563eb); box-shadow:0 2px 10px rgba(37,99,235,.35); }
+    #runBtn:hover:not(:disabled) { background:linear-gradient(180deg,#2f6fe0,#1d4ed8); }
+    #runBtn:disabled { background:#334155; box-shadow:none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="title">화면 공유 이미지 인식</div>
+  </div>
+  <div class="desc">
+    게임 화면을 공유해 전투분석기 화면을 그대로 캡처하고, 브라우저에서 바로 숫자로 인식합니다. 파일 업로드 없이 진행됩니다.
+  </div>
+
+  <div id="shareBox" style="margin-top:12px;border-top:1px solid #333;padding-top:10px;">
+    <div style="font-weight:600;margin-bottom:4px;">화면 공유로 인식</div>
+    <div class="small" style="margin-bottom:6px;color:#9aa;">'화면 공유 시작'을 누르고 게임 창을 선택하세요. 공유는 켜둔 채로, 전투분석기의 종합정보/공격정보 화면을 띄운 뒤 아래 버튼으로 그 순간을 캡처합니다. 잘못 캡처했으면 '취소'로 지울 수 있어요.</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;">
+      <button id="shareStartBtn">화면 공유 시작</button>
+      <button id="shareStopBtn" disabled>공유 중지</button>
+    </div>
+    <video id="shareVideo" autoplay muted playsinline style="width:100%;max-height:240px;background:#000;border-radius:6px;display:none;"></video>
+    <div id="capBtns" style="display:none;flex-direction:column;gap:6px;margin-top:8px;">
+      <div class="capRow" style="display:flex;gap:6px;align-items:stretch;">
+        <button class="capBtn" data-cap="dummy_summary" style="flex:1;">허수 종합 정보</button>
+        <button class="capCancel" data-cap="dummy_summary" title="허수 종합 정보 캡처 취소">취소</button>
+      </div>
+      <div class="capRow" style="display:flex;gap:6px;align-items:stretch;">
+        <button class="capBtn" data-cap="dummy_attack" style="flex:1;">허수 공격 정보</button>
+        <button class="capCancel" data-cap="dummy_attack" title="허수 공격 정보 캡처 취소">취소</button>
+      </div>
+      <div class="capRow" style="display:flex;gap:6px;align-items:stretch;">
+        <button class="capBtn" data-cap="real_summary" style="flex:1;">실전 종합 정보</button>
+        <button class="capCancel" data-cap="real_summary" title="실전 종합 정보 캡처 취소">취소</button>
+      </div>
+      <div class="capRow" style="display:flex;gap:6px;align-items:stretch;">
+        <button class="capBtn" data-cap="real_attack" style="flex:1;">실전 공격 정보</button>
+        <button class="capCancel" data-cap="real_attack" title="실전 공격 정보 캡처 취소">취소</button>
+      </div>
+    </div>
+    <div id="shareStatus" class="small" style="margin-top:6px;color:#9aa;">공유 대기 중</div>
+  </div>
+
+  <!-- v143: 인식 버튼은 업로드/캡처 '다음'에 둡니다(순서: 이미지 넣기 → 인식). -->
+  <button id="runBtn" disabled>이미지 인식</button>
+  <div id="runHint" class="small" style="margin-top:6px;color:#fca5a5;">허수 종합 정보·허수 공격 정보·실전 종합 정보·실전 공격 정보가 각각 1장 이상 있어야 인식할 수 있습니다.</div>
+
+  <div class="progress"><div id="bar" class="bar"></div></div>
+  <div id="status" class="small">컴포넌트 준비 중...</div>
+  <div class="warn">첫 실행은 브라우저가 OCR 스크립트/WASM/model을 내려받아 느릴 수 있습니다. 이후에는 브라우저 캐시가 적용됩니다.</div>
+  <pre id="log"></pre>
+</div>
+<script>
+// Streamlit component lib를 외부 CDN에서 받지 않고, 필요한 postMessage 프로토콜만 직접 구현합니다.
+(function(){
+  const Streamlit = {
+    RENDER_EVENT: 'streamlit:render',
+    events: { addEventListener: function(type, cb){ window.addEventListener('message', function(e){ const d=e.data||{}; if(d.type===type){ cb({detail:d}); } }); } },
+    setComponentReady: function(){ window.parent.postMessage({isStreamlitMessage:true, type:'streamlit:componentReady', apiVersion:1}, '*'); },
+    setFrameHeight: function(height){ window.parent.postMessage({isStreamlitMessage:true, type:'streamlit:setFrameHeight', height:height}, '*'); },
+    setComponentValue: function(value){ window.parent.postMessage({isStreamlitMessage:true, type:'streamlit:setComponentValue', value:value, dataType:'json'}, '*'); }
+  };
+  window.Streamlit = Streamlit;
+})();
+</script>
+<script>
+const Streamlit = window.Streamlit;
+let latestArgs = {};
+let running = false;
+let worker = null;
+let logLines = [];
+const $ = (id) => document.getElementById(id);
+function log(msg){ logLines.push(`[${new Date().toLocaleTimeString()}] ${msg}`); if(logLines.length>100) logLines=logLines.slice(-100); $('log').textContent = logLines.join('\n'); }
+function setProgress(p, msg){ $('bar').style.width = `${Math.max(0, Math.min(100, p))}%`; if(msg) $('status').textContent = msg; Streamlit.setFrameHeight(document.body.scrollHeight + 20); }
+function summarizeInputs(args){
+  const real = [], dum = [];
+  const ra=_parseJsonArr(args.real_attack_data_urls), da=_parseJsonArr(args.dummy_attack_data_urls);
+  if(args.real_summary_data_url) real.push('종합정보');
+  if(args.real_attack_data_url||ra.length) real.push('공격정보'+(ra.length>1?` ${ra.length}장`:''));
+  if(args.dummy_summary_data_url) dum.push('종합정보');
+  if(args.dummy_attack_data_url||da.length) dum.push('공격정보'+(da.length>1?` ${da.length}장`:''));
+  // 상태 카드(realStatus/dummyStatus)는 화면공유 전용 개편에서 제거했으므로, 있으면만 갱신합니다.
+  const rs=$('realStatus'); if(rs) rs.textContent = real.length ? real.join(' + ') : '업로드 없음';
+  const ds=$('dummyStatus'); if(ds) ds.textContent = dum.length ? dum.join(' + ') : '업로드 없음';
+}
+function cleanText(t){ return String(t||'').replace(/[\n\r]+/g,' ').replace(/\s+/g,' ').trim(); }
+function loadScript(src){ return new Promise((resolve,reject)=>{ const s=document.createElement('script'); s.src=src; s.async=true; s.onload=resolve; s.onerror=()=>reject(new Error('script load failed: '+src)); document.head.appendChild(s); }); }
+async function ensureTesseract(){
+  if(window.Tesseract) return window.Tesseract;
+  const urls = [
+    'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js',
+    'https://unpkg.com/tesseract.js@5/dist/tesseract.min.js'
+  ];
+  let lastErr = null;
+  for(const url of urls){
+    try{ setProgress(2, 'Tesseract.js 로딩 중...'); log('load '+url); await loadScript(url); if(window.Tesseract) return window.Tesseract; }
+    catch(e){ lastErr=e; log('로드 실패: '+url); }
+  }
+  throw lastErr || new Error('Tesseract.js 로드 실패');
+}
+async function getWorker(){
+  if(worker) return worker;
+  const Tesseract = await ensureTesseract();
+  setProgress(4, '브라우저 OCR 엔진 초기화 중...');
+  worker = await Tesseract.createWorker('eng', 1, {
+    logger: m => { if(m && m.status){ const pct=m.progress?Math.round(m.progress*100):0; $('status').textContent=`${m.status} ${pct}%`; } }
+  });
+  try { await worker.setParameters({ tessedit_char_whitelist:'0123456789.,:%:- ', preserve_interword_spaces:'1' }); } catch(e) {}
+  log('Tesseract worker ready');
+  return worker;
+}
+function loadImage(dataUrl){ return new Promise((resolve,reject)=>{ if(!dataUrl) return resolve(null); const img=new Image(); img.onload=()=>resolve(img); img.onerror=reject; img.src=dataUrl; }); }
+
+const UNIT_TEMPLATE_URLS = {
+  attack: {
+    empty:'assets/unit_templates/attack_empty.png',
+    man:'assets/unit_templates/attack_unit_man.png',
+    eok:'assets/unit_templates/attack_unit_eok.png',
+    jo:'assets/unit_templates/attack_unit_jo.png'
+  },
+  summary: {
+    empty:'assets/unit_templates/summary_empty.png',
+    eok:'assets/unit_templates/summary_unit_eok.png',
+    jo:'assets/unit_templates/summary_unit_jo.png',
+    percent:'assets/unit_templates/summary_percent.png'
+  }
+};
+let unitTemplates = null;
+function loadImageUrl(url){ return new Promise((resolve,reject)=>{ const img=new Image(); img.onload=()=>resolve(img); img.onerror=()=>reject(new Error('template load failed: '+url)); img.src=url; }); }
+function canvasFromImage(img){ const c=document.createElement('canvas'); c.width=img.width; c.height=img.height; const ctx=c.getContext('2d',{willReadFrequently:true}); ctx.drawImage(img,0,0); return c; }
+async function ensureUnitTemplates(){
+  if(unitTemplates) return unitTemplates;
+  unitTemplates = {attack:{}, summary:{}};
+  for(const group of Object.keys(UNIT_TEMPLATE_URLS)){
+    for(const [name,url] of Object.entries(UNIT_TEMPLATE_URLS[group])){
+      try{ const img=await loadImageUrl(url); unitTemplates[group][name]=canvasFromImage(img); }
+      catch(e){ log(String(e)); }
+    }
+  }
+  log('unit templates loaded: '+Object.keys(unitTemplates.attack).join(',')+' / '+Object.keys(unitTemplates.summary).join(','));
+  return unitTemplates;
+}
+function maskFromCanvas(c, mode){
+  const ctx=c.getContext('2d',{willReadFrequently:true}); const w=c.width,h=c.height; const data=ctx.getImageData(0,0,w,h).data; const mask=new Uint8Array(w*h); let ones=0;
+  for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+    const i=(y*w+x)*4; const r=data[i],g=data[i+1],b=data[i+2],a=data[i+3]; const avg=(r+g+b)/3; let on=false;
+    if(a<12){ on=false; }
+    else if(mode==='summary'){ on=(r>120 && g>90 && b<135) || (avg>150 && r>g*0.9); }
+    else { on=(avg>115 && Math.max(r,g,b)-Math.min(r,g,b)<95); }
+    if(on){ mask[y*w+x]=1; ones++; }
+  }
+  return {mask,w,h,ones};
+}
+function cropCanvasOriginal(img, box){
+  const x1=Math.max(0,Math.round(box[0]*img.width)), y1=Math.max(0,Math.round(box[1]*img.height));
+  const x2=Math.min(img.width,Math.round(box[2]*img.width)), y2=Math.min(img.height,Math.round(box[3]*img.height));
+  const w=Math.max(1,x2-x1), h=Math.max(1,y2-y1); const c=document.createElement('canvas'); c.width=w; c.height=h; const ctx=c.getContext('2d',{willReadFrequently:true}); ctx.drawImage(img,x1,y1,w,h,0,0,w,h); return c;
+}
+function matchTemplateMask(cropMask, tplMask){
+  const cw=cropMask.w, ch=cropMask.h, tw=tplMask.w, th=tplMask.h; if(!tplMask.ones || tw>cw || th>ch) return {score:0,x:0,y:0};
+  let best={score:0,x:0,y:0}; const xStart=Math.max(0, cw-Math.max(90,tw+4));
+  for(let y=0;y<=ch-th;y++){
+    for(let x=xStart;x<=cw-tw;x++){
+      let hit=0;
+      for(let ty=0;ty<th;ty++){
+        const co=(y+ty)*cw+x, to=ty*tw;
+        for(let tx=0;tx<tw;tx++) if(tplMask.mask[to+tx] && cropMask.mask[co+tx]) hit++;
+      }
+      const score=hit/tplMask.ones;
+      if(score>best.score) best={score,x,y};
+    }
+  }
+  return best;
+}
+function unitLabelKo(unit){ if(unit==='man') return '만'; if(unit==='eok') return '억'; if(unit==='jo') return '조'; if(unit==='percent') return '%'; if(unit==='empty') return '-'; return ''; }
+async function detectUnitInBox(img, box, group='attack'){
+  const templates=await ensureUnitTemplates(); const crop=cropCanvasOriginal(img,box); const cropMask=maskFromCanvas(crop, group==='summary'?'summary':'attack');
+  const result={unit:'', text:'', score:0, x_ratio:null, y_ratio:null};
+  const candidates=templates[group]||{};
+  for(const [name,tc] of Object.entries(candidates)){
+    if(!tc || (group==='attack' && name==='empty')) continue;
+    const score=matchTemplateMask(cropMask, maskFromCanvas(tc, group==='summary'?'summary':'attack'));
+    if(score.score>result.score){ result.unit=name; result.score=score.score; result.x_ratio=score.x/Math.max(1,crop.width); result.y_ratio=score.y/Math.max(1,crop.height); result.text=unitLabelKo(name); }
+  }
+  if(result.score < 0.42){ result.unit=''; result.text=''; }
+  return result;
+}
+function trimBoxBeforeUnit(box, unit){
+  if(!unit || unit.x_ratio===null || !isFinite(unit.x_ratio)) return box;
+  const w=box[2]-box[0];
+  const right=box[0] + w * Math.max(0.05, Math.min(0.95, unit.x_ratio - 0.015));
+  return [box[0], box[1], Math.max(box[0]+w*0.35, right), box[3]];
+}
+
+function cropCanvas(img, box, scale=2.5, mode='normal'){
+  const x1=Math.max(0,Math.round(box[0]*img.width)), y1=Math.max(0,Math.round(box[1]*img.height));
+  const x2=Math.min(img.width,Math.round(box[2]*img.width)), y2=Math.min(img.height,Math.round(box[3]*img.height));
+  const w=Math.max(1,x2-x1), h=Math.max(1,y2-y1);
+  const src=document.createElement('canvas'); src.width=Math.max(1,Math.round(w*scale)); src.height=Math.max(1,Math.round(h*scale));
+  const sctx=src.getContext('2d',{willReadFrequently:true});
+  sctx.imageSmoothingEnabled=true;
+  sctx.drawImage(img,x1,y1,w,h,0,0,src.width,src.height);
+
+  // 숫자 전용 OCR은 Tesseract가 잘 보는 검은 글자/흰 배경으로 바꿉니다.
+  // 기존 v126은 어두운 배경+흰/노란 글자 그대로 OCR해서 종합정보가 크게 흔들렸습니다.
+  const imgData=sctx.getImageData(0,0,src.width,src.height);
+  const data=imgData.data;
+  for(let i=0;i<data.length;i+=4){
+    const r=data[i], g=data[i+1], b=data[i+2];
+    const mx=Math.max(r,g,b), mn=Math.min(r,g,b);
+    let v;
+    if(mode==='whitemin'){
+      // 공격정보 흰 숫자 전용. 하드 이진화(mn>=140)는 안티에일리어싱된 얇은 획을 깎아
+      // 숫자가 끊기고 깨졌습니다. 대신 min(R,G,B)를 '부드러운 그레이스케일'로 매핑해
+      // 획 가장자리를 살립니다. 흰 글자는 R,G,B가 모두 높아 mn이 크고(→ 진한 검정),
+      // 파란 지분 막대는 R,G가 낮아 mn이 작으므로(→ 흰 배경) 막대 위에서도 잘 분리됩니다.
+      let t=(mn-110)/(210-110); t=Math.max(0,Math.min(1,t));
+      v=Math.round(255*(1-t));   // t=1(글자)→0(검정), t=0(배경)→255(흰)
+    } else {
+      let isText=false;
+      if(mode==='yellow'){
+        // 전투시간/큰 노란 숫자: 노란 글자만 남김
+        isText = (r>120 && g>95 && b<115 && (r-g)<95);
+      } else if(mode==='white'){
+        // 카드 하단 원시 숫자: 흰 글자만 남김. 파란 빛/별 배경은 제거.
+        const avg=(r+g+b)/3;
+        isText = (avg>125 && (mx-mn)<70);
+      } else {
+        const avg=(r+g+b)/3;
+        isText = avg>135 || (r>120 && g>95 && b<120);
+      }
+      v=isText ? 0 : 255;
+    }
+    data[i]=v; data[i+1]=v; data[i+2]=v; data[i+3]=255;
+  }
+  sctx.putImageData(imgData,0,0);
+  return src;
+}
+
+async function ocrBox(img, box, label, scale=2.5, mode='normal'){
+  const w=await getWorker(); const c=cropCanvas(img,box,scale,mode); const t0=performance.now();
+  const ret=await w.recognize(c);
+  const text=cleanText(ret&&ret.data?ret.data.text:'');
+  const digits=(text.match(/\d/g)||[]).join('');
+  const ms=Math.round(performance.now()-t0);
+  log(`${label}: ${ms}ms → ${text || '-'} · digits=${digits || '-'}`); return {text, digits, ms, canvas:c};
+}
+// v143 자가 복구 OCR: 정규화 박스를 상하좌우로 살짝 넓혀 crop 잘림을 흡수합니다.
+function expandBoxNorm(box, exFrac){
+  const w=box[2]-box[0], h=box[3]-box[1];
+  return [Math.max(0,box[0]-w*exFrac), Math.max(0,box[1]-h*exFrac), Math.min(1,box[2]+w*exFrac), Math.min(1,box[3]+h*exFrac)];
+}
+// 셀 종류별 '숫자 유효성' 검증. 실패하면 재OCR합니다.
+function isValidCellText(kind, text, digits){
+  const t=String(text||''); const d=String(digits||'');
+  if(kind==='damage'){
+    if(!d) return false;                 // 숫자가 없으면 실패
+    if(t.indexOf('%')>=0) return false;   // 피해량에 % → 억을 %로 오독(예: 72.083.44%)
+    const dots=(t.match(/[.,]/g)||[]).length;
+    if(dots>=3) return false;             // 구두점 3개 이상 → 자릿수 꼬임 의심
+    return true;
+  }
+  if(kind==='casts'){ return true; }      // 사용횟수는 빈칸(0)도 정상
+  // 백/헤드/치명 등 퍼센트 칸: 빈칸('-')도 정상이므로 항상 통과(빈칸은 상위 로직이 N/A 처리)
+  return true;
+}
+// OCR → 검증 → (실패 시) 박스 확장 + 스케일 상향으로 재OCR. 더 그럴듯한 결과를 채택.
+async function ocrCellSmart(img, box, label, scale, mode, kind){
+  const r1=await ocrBox(img, box, label, scale, mode);
+  if(isValidCellText(kind, r1.text, r1.digits)) return r1;
+  // 재시도 1: 박스를 6% 넓히고 스케일을 올려 다시 인식.
+  const r2=await ocrBox(img, expandBoxNorm(box,0.06), label+'(retry)', Math.min(6.0, scale+1.0), mode);
+  if(isValidCellText(kind, r2.text, r2.digits)) return r2;
+  // 둘 다 실패면, 그나마 숫자가 있는 쪽(또는 첫 결과)을 반환.
+  if(kind==='damage'){
+    // 피해량은 %가 없는 쪽을 우선.
+    const c1=String(r1.text).indexOf('%')<0, c2=String(r2.text).indexOf('%')<0;
+    if(c2&&!c1) return r2; if(c1&&!c2) return r1;
+  }
+  return (r2.digits && !r1.digits) ? r2 : r1;
+}
+// v144 다중 스케일 다수결: 셀 종류별로 '복원된 최종값'을 기준으로 여러 배율의 결과를 투표해
+// 가장 많이 나온 값을 채택합니다. 단일 재시도(ocrCellSmart)보다 자릿수 오독에 강합니다.
+function _canonCell(kind, text){
+  // 배율마다 raw text가 달라도, 최종적으로 만들어지는 '값'이 같은지로 비교해야 정확합니다.
+  try{
+    if(kind==='damage') return reconstructFixed2(text);
+    if(kind==='casts')  return cleanCastsValue(text);
+    return cleanPercentValue(text);
+  }catch(e){ return String(text||''); }
+}
+async function ocrCellVote(img, box, label, scales, mode, kind){
+  const results=[], canons=[];
+  // 1) 앞의 두 배율을 먼저 인식.
+  const n0=Math.min(2, scales.length);
+  for(let i=0;i<n0;i++){
+    const r=await ocrBox(img, box, `${label}(s${scales[i]})`, scales[i], mode);
+    results.push(r); canons.push(_canonCell(kind, r.text));
+  }
+  const v0=isValidCellText(kind, results[0].text, results[0].digits);
+  const v1=results[1] && isValidCellText(kind, results[1].text, results[1].digits);
+  // 두 배율이 모두 유효하고 최종값이 같으면 바로 확정(불필요한 3번째 OCR 생략).
+  if(v0 && v1 && canons[0]===canons[1]) return results[0];
+  // 2) 불일치 → 세번째 배율 + 박스 6% 확장으로 타이브레이크.
+  if(scales.length>=3){
+    const r2=await ocrBox(img, expandBoxNorm(box,0.06), `${label}(s${scales[2]})`, scales[2], mode);
+    results.push(r2); canons.push(_canonCell(kind, r2.text));
+  }
+  // 3) 유효한 결과만 대상으로 '최종값' 다수결. 동률이면 먼저 시도한(=튜닝된 기본 배율) 쪽을 선호.
+  const tally={};
+  for(let i=0;i<results.length;i++){
+    if(!isValidCellText(kind, results[i].text, results[i].digits)) continue;
+    const c=canons[i]; if(c===undefined||c===null) continue;
+    if(!tally[c]) tally[c]={n:0, idx:i};
+    tally[c].n++;
+  }
+  let bestC=null, bestN=0, bestIdx=1e9;
+  for(const c in tally){ const t=tally[c];
+    if(t.n>bestN || (t.n===bestN && t.idx<bestIdx)){ bestN=t.n; bestC=c; bestIdx=t.idx; }
+  }
+  if(bestIdx<1e9){
+    if(bestN>=2) log(`${label}: 다수결 채택 "${bestC}" (${bestN}표)`);
+    return results[bestIdx];
+  }
+  // 유효한 게 하나도 없으면: 숫자가 있는 것 우선, 없으면 첫 결과.
+  const withDigit=results.find(r=>r.digits); return withDigit||results[0];
+}
+// v131 디버그: 행 경계가 피해량 컬럼 어디에 떨어졌는지 보여주는 오버레이 이미지를 만듭니다.
+function buildRowOverlay(img, win, rows, dmgRx1, dmgRx2){
+  const scale = Math.min(1, 820/img.width);
+  const c=document.createElement('canvas'); c.width=Math.round(img.width*scale); c.height=Math.round(img.height*scale);
+  const ctx=c.getContext('2d'); ctx.drawImage(img,0,0,c.width,c.height);
+  const dx1=(win.x1+(win.x2-win.x1)*dmgRx1)*img.width*scale;
+  const dx2=(win.x1+(win.x2-win.x1)*dmgRx2)*img.width*scale;
+  ctx.lineWidth=1.5; ctx.strokeStyle='#22d3ee'; ctx.strokeRect(dx1,0,dx2-dx1,c.height);
+  ctx.font='11px sans-serif';
+  rows.forEach(r=>{
+    const y1=r.y1*img.height*scale, y2=r.y2*img.height*scale;
+    ctx.lineWidth=1; ctx.strokeStyle='rgba(248,113,113,.95)'; ctx.strokeRect(dx1,y1,dx2-dx1,y2-y1);
+    ctx.fillStyle='#fde68a'; ctx.fillText('r'+r.idx, Math.max(2,dx1-24), (y1+y2)/2+4);
+  });
+  return c.toDataURL('image/png');
+}
+function onlyDigitsCount(s){ return (String(s||'').match(/\d/g)||[]).length; }
+function withThousands(intStr){ return String(intStr).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+// v131: 전투분석기 피해량/만/억 표기는 항상 소수 둘째 자리까지 고정입니다.
+// OCR이 소수점을 콤마로 읽거나(536.25→536,254) 끝에 단위 글자가 숫자로 새어들어와도
+// (억→4: 544.21억→"544.214"), "마지막 구두점=소수점, 그 뒤 2자리=소수부" 규칙으로 복구합니다.
+function reconstructFixed2(text){
+  const t = String(text||'').trim();
+  const puncts = []; for(let i=0;i<t.length;i++){ if(t[i]==='.'||t[i]===',') puncts.push(i); }
+  if(puncts.length){
+    const last = puncts[puncts.length-1];
+    const after = t.slice(last+1).replace(/\D/g,'');
+    const before = t.slice(0,last).replace(/\D/g,'');
+    if(after.length>=2 && before.length){
+      return withThousands(String(parseInt(before,10))) + '.' + after.slice(0,2);
+    }
+  }
+  // 구두점이 전혀 없을 때: 전체 숫자에서 마지막 2자리를 소수부로 간주합니다.
+  const d = t.replace(/\D/g,'');
+  if(d.length>2) return withThousands(String(parseInt(d.slice(0,-2),10))) + '.' + d.slice(-2);
+  return d;
+}
+function pickRawOrUnit(rawText, unitText, unit){
+  const raw=String(rawText||'').trim();
+  const uni=String(unitText||'').trim();
+  // 쉼표가 포함된 하단 원시 숫자가 가장 정확합니다.
+  if(onlyDigitsCount(raw)>=7) return raw;
+  // 하단 원시 숫자를 실패하면 큰 노란 숫자를 억 단위로 폴백합니다.
+  if(onlyDigitsCount(uni)>=2) return uni + unit;
+  return raw || uni;
+}
+
+function fixedWindow(img){ return {x1:214/1920, y1:68/1080, x2:1670/1920, y2:958/1080}; }
+function relBox(win, rx1, ry1, rx2, ry2){ return [win.x1+(win.x2-win.x1)*rx1, win.y1+(win.y2-win.y1)*ry1, win.x1+(win.x2-win.x1)*rx2, win.y1+(win.y2-win.y1)*ry2]; }
+function shrinkBox(box, left=0.06, top=0.12, right=0.08, bottom=0.12){
+  const w=box[2]-box[0], h=box[3]-box[1];
+  return [box[0]+w*left, box[1]+h*top, box[2]-w*right, box[3]-h*bottom];
+}
+function detectRowsByIcon(img,rowCount){
+  const win=fixedWindow(img); const sx1=Math.round((win.x1+(win.x2-win.x1)*0.006)*img.width), sx2=Math.round((win.x1+(win.x2-win.x1)*0.047)*img.width); const sy1=Math.round((win.y1+(win.y2-win.y1)*0.235)*img.height), sy2=Math.round((win.y1+(win.y2-win.y1)*0.94)*img.height);
+  const c=document.createElement('canvas'); c.width=img.width; c.height=img.height; const ctx=c.getContext('2d',{willReadFrequently:true}); ctx.drawImage(img,0,0); const ww=Math.max(1,sx2-sx1), hh=Math.max(1,sy2-sy1); const data=ctx.getImageData(sx1,sy1,ww,hh).data;
+  const counts=[]; for(let y=0;y<hh;y++){ let cnt=0; for(let x=0;x<ww;x++){ const i=(y*ww+x)*4; const r=data[i],g=data[i+1],b=data[i+2]; const mx=Math.max(r,g,b),mn=Math.min(r,g,b); if((mx-mn)>48 && mx>45) cnt++; } counts.push(cnt); }
+  const runs=[]; let inRun=false, st=0, gap=0; for(let y=0;y<hh;y++){ const active=counts[y]>7; if(active&&!inRun){inRun=true;st=y;gap=0;} else if(!active&&inRun){gap++; if(gap>4){runs.push([st,y-gap]); inRun=false; gap=0;}} else if(active&&inRun){gap=0;} } if(inRun) runs.push([st,hh-1]);
+  let centers=runs.filter(r=>(r[1]-r[0])>=14 && (r[1]-r[0])<=65).map(r=>sy1+(r[0]+r[1])/2).sort((a,b)=>a-b); const merged=[]; centers.forEach(cy=>{ if(merged.length && Math.abs(cy-merged[merged.length-1])<16) merged[merged.length-1]=(merged[merged.length-1]+cy)/2; else merged.push(cy); }); centers=merged.slice(0,rowCount);
+  let rowH=43/1080*img.height; if(centers.length>=2){ const diffs=[]; for(let i=0;i<centers.length-1;i++){ const d=centers[i+1]-centers[i]; if(d>=28&&d<=65) diffs.push(d); } if(diffs.length){ diffs.sort((a,b)=>a-b); rowH=diffs[Math.floor(diffs.length/2)]; } }
+  if(centers.length<Math.min(8,rowCount)){ centers=[]; const start=win.y1+(win.y2-win.y1)*0.2506, rh=(win.y2-win.y1)*0.04835; for(let i=0;i<rowCount;i++) centers.push((start+rh*(i+0.5))*img.height); rowH=rh*img.height; }
+  return centers.map((cy,idx)=>({idx,y1:(cy-rowH/2)/img.height,y2:(cy+rowH/2)/img.height}));
+}
+// ===== v132: 타이틀 템플릿 기준 고정 비율 그리드 =====
+let titleTemplateCanvas = null;
+async function ensureTitleTemplate(){
+  if(titleTemplateCanvas) return titleTemplateCanvas;
+  try{ const img=await loadImageUrl('assets/title_template.png'); titleTemplateCanvas=canvasFromImage(img); }
+  catch(e){ log('title template load fail: '+e); titleTemplateCanvas=null; }
+  return titleTemplateCanvas;
+}
+function brightMaskFromCanvas(c, thr){
+  const ctx=c.getContext('2d',{willReadFrequently:true}); const w=c.width,h=c.height;
+  const data=ctx.getImageData(0,0,w,h).data; const mask=new Uint8Array(w*h); let ones=0;
+  for(let i=0,p=0;i<data.length;i+=4,p++){ if(Math.min(data[i],data[i+1],data[i+2])>thr){ mask[p]=1; ones++; } }
+  return {mask,w,h,ones};
+}
+function scaledCanvas(src, sw, sh){
+  const c=document.createElement('canvas'); c.width=Math.max(1,Math.round(sw)); c.height=Math.max(1,Math.round(sh));
+  const ctx=c.getContext('2d',{willReadFrequently:true}); ctx.imageSmoothingEnabled=true; ctx.drawImage(src,0,0,c.width,c.height); return c;
+}
+// 전투분석기 타이틀("전투 분석기")을 찾아 창 위치(=그리드 원점)를 잡습니다.
+// cv2 없이 밝은 글자 마스크 상관도로 coarse→fine 검색합니다(이미지당 1회).
+async function matchTitleTemplate(img){
+  const tplC=await ensureTitleTemplate(); if(!tplC) return null;
+  const scale=img.width/1920;
+  const stpl=scaledCanvas(tplC, tplC.width*scale, tplC.height*scale);
+  const TM=brightMaskFromCanvas(stpl,150); if(!TM.ones) return null;
+  const big=document.createElement('canvas'); big.width=img.width; big.height=img.height;
+  big.getContext('2d',{willReadFrequently:true}).drawImage(img,0,0);
+  const IM=brightMaskFromCanvas(big,150);
+  const tw=TM.w, th=TM.h, W=IM.w, H=IM.h;
+  const x0=Math.max(0,Math.round(W*0.06)), x1=Math.min(W-tw,Math.round(W*0.94));
+  const y0=Math.max(0,Math.round(H*0.01)), y1=Math.min(H-th,Math.round(H*0.22));
+  function scoreAt(ox,oy){ let hit=0; for(let ty=0;ty<th;ty++){ const io=(oy+ty)*W+ox, to=ty*tw; for(let tx=0;tx<tw;tx++){ if(TM.mask[to+tx] && IM.mask[io+tx]) hit++; } } return hit; }
+  let best={s:-1,x:x0,y:y0}; const stride=3;
+  for(let y=y0;y<=y1;y+=stride) for(let x=x0;x<=x1;x+=stride){ const s=scoreAt(x,y); if(s>best.s) best={s,x,y}; }
+  for(let y=Math.max(y0,best.y-stride);y<=Math.min(y1,best.y+stride);y++) for(let x=Math.max(x0,best.x-stride);x<=Math.min(x1,best.x+stride);x++){ const s=scoreAt(x,y); if(s>best.s) best={s,x,y}; }
+  const ratio=best.s/Math.max(1,TM.ones);
+  log(`title match x=${best.x} y=${best.y} ratio=${ratio.toFixed(3)} scale=${scale.toFixed(3)}`);
+  return {x:best.x, y:best.y, scale, ratio};
+}
+// 측정 기준(1920×1080, 타이틀 좌상단=858,78)에서의 공격정보 그리드 비율
+const ATK_GRID={
+  title_ref:[858,78], first_center:315, step:45, n_rows:14, cell_hh:18,
+  cols:[
+    ['damage','피해량',478,648],
+    ['back_hit','백적중',652,818],
+    ['back_share','백비중',822,988],
+    ['crit_hit','치적',992,1161],
+    ['crit_share','치비중',1165,1331],
+    ['casts','횟수',1335,1502],
+    ['cooldown','쿨',1506,1666]
+  ]
+};
+function gridAnchorToBox(anchor, img, rx1, ry1, rx2, ry2){
+  const TRX=ATK_GRID.title_ref[0], TRY=ATK_GRID.title_ref[1];
+  return [
+    (anchor.x+(rx1-TRX)*anchor.scale)/img.width,
+    (anchor.y+(ry1-TRY)*anchor.scale)/img.height,
+    (anchor.x+(rx2-TRX)*anchor.scale)/img.width,
+    (anchor.y+(ry2-TRY)*anchor.scale)/img.height
+  ];
+}
+function buildAttackGrid(anchor, img, rowCount){
+  const n=rowCount||ATK_GRID.n_rows; const rows=[];
+  for(let i=0;i<n;i++){ const cy=ATK_GRID.first_center+ATK_GRID.step*i; rows.push({idx:i, ry1:cy-ATK_GRID.cell_hh, ry2:cy+ATK_GRID.cell_hh, cy}); }
+  return {rows, cols:ATK_GRID.cols, anchor};
+}
+function cleanPercentValue(text){
+  // %/비율 셀: 숫자만 추출, "-"나 빈값은 0.
+  const m=String(text||'').replace(',','.').match(/\d{1,3}(?:\.\d{1,2})?/);
+  return m? m[0] : '0';
+}
+function cleanCastsValue(text){
+  const d=String(text||'').replace(/\D/g,'');
+  return d? String(parseInt(d,10)) : '0';
+}
+function colCellBox(anchor,img,col,ry1,ry2){
+  if(col.xMode==='img'){ const yy=rowYNorm(anchor,img,ry1,ry2); return [col.x1,yy[0],col.x2,yy[1]]; }
+  return gridAnchorToBox(anchor,img,col.x1,ry1,col.x2,ry2);
+}
+function buildGridOverlay(img, anchor, rows, cols){
+  const scale=Math.min(1,820/img.width);
+  const c=document.createElement('canvas'); c.width=Math.round(img.width*scale); c.height=Math.round(img.height*scale);
+  const ctx=c.getContext('2d'); ctx.drawImage(img,0,0,c.width,c.height); ctx.lineWidth=1; ctx.font='10px sans-serif';
+  rows.forEach(r=>{
+    cols.forEach(col=>{
+      const b=colCellBox(anchor,img,col,r.ry1,r.ry2);
+      ctx.strokeStyle = col.key==='damage' ? '#22d3ee' : 'rgba(74,222,128,.9)';
+      ctx.strokeRect(b[0]*img.width*scale, b[1]*img.height*scale, (b[2]-b[0])*img.width*scale, (b[3]-b[1])*img.height*scale);
+    });
+    const yb=colCellBox(anchor,img,cols[0],r.ry1,r.ry2);
+    ctx.fillStyle='#fde68a'; ctx.fillText('r'+r.idx, Math.max(2, yb[0]*img.width*scale-22), (yb[1]+(yb[3]-yb[1])/2)*img.height*scale+3);
+  });
+  return c.toDataURL('image/png');
+}
+
+async function parseSummary(dataUrl,prefix,anchorJson){
+  const img=await loadImage(dataUrl); if(!img) return null; const t0=performance.now();
+  // v134: 종합정보도 같은 창이라, 서버가 준 타이틀 앵커(스케일+위치)로 1920-기준 박스를 변환합니다.
+  // 앵커가 없으면(폴백) 기존 1920 풀스크린 비율을 씁니다 → 16:9 풀스크린만 맞고 울트라와이드는 깨짐.
+  let anc=null;
+  try{ const j=(typeof anchorJson==='string'&&anchorJson)?JSON.parse(anchorJson):anchorJson; if(j&&j.found&&j.scale) anc=j; }catch(e){ log(`${prefix} 종합 앵커 파싱 실패: ${e}`); }
+  function sbox(x1,y1,x2,y2){
+    if(anc){ const S=anc.scale, tx=anc.origin[0], ty=anc.origin[1], RX=(anc.title_ref&&anc.title_ref[0])||858, RY=(anc.title_ref&&anc.title_ref[1])||78;
+      return [(tx+(x1-RX)*S)/img.width,(ty+(y1-RY)*S)/img.height,(tx+(x2-RX)*S)/img.width,(ty+(y2-RY)*S)/img.height]; }
+    return [x1/1920,y1/1080,x2/1920,y2/1080];
+  }
+  if(anc) log(`${prefix} 종합 앵커 scale=${anc.scale} score=${anc.title_score} origin=${anc.origin}`); else log(`${prefix} 종합 앵커 없음 → 1920 고정 비율`);
+  // v140: 종합정보도 디버그 crop(원본/이진화)을 남겨 검수할 수 있게 합니다.
+  const _sdbg=[];
+  function _pushSdbg(name, box, res){
+    try{
+      const rawCrop=cropCanvasOriginal(img,box);
+      _sdbg.push({ idx:name, col:name,
+        box_px:[Math.round(box[0]*img.width),Math.round(box[1]*img.height),Math.round(box[2]*img.width),Math.round(box[3]*img.height)],
+        raw_ocr:(res&&res.text)||'', reconstructed:(res&&res.digits)||'',
+        crop_raw:rawCrop.toDataURL('image/png'), crop_bin:(res&&res.canvas?res.canvas.toDataURL('image/png'):'') });
+    }catch(e){ log('종합 디버그 캡처 실패 '+name+': '+e); }
+  }
+  const bElapsed=sbox(300,205,475,238), bTotalRaw=sbox(320,345,565,388), bDpsRaw=sbox(665,345,930,388), bTotalY=sbox(300,292,560,338), bDpsY=sbox(660,292,930,338);
+  const elapsed=await ocrBox(img,bElapsed,`${prefix} elapsed_time`,4.0,'yellow'); _pushSdbg('elapsed_time',bElapsed,elapsed);
+  const totalRaw=await ocrBox(img,bTotalRaw,`${prefix} total_raw_exact`,4.0,'white'); _pushSdbg('total_damage_raw',bTotalRaw,totalRaw);
+  const dpsRaw=await ocrBox(img,bDpsRaw,`${prefix} dps_raw_exact`,4.0,'white'); _pushSdbg('dps_raw',bDpsRaw,dpsRaw);
+  const totalYellow=await ocrBox(img,bTotalY,`${prefix} total_yellow_fallback`,3.5,'yellow'); _pushSdbg('total_damage_yellow',bTotalY,totalYellow);
+  const dpsYellow=await ocrBox(img,bDpsY,`${prefix} dps_yellow_fallback`,3.5,'yellow'); _pushSdbg('dps_yellow',bDpsY,dpsYellow);
+  return {
+    elapsed_text:elapsed.text,
+    elapsed_digits:elapsed.digits,
+    total_damage_text:pickRawOrUnit(totalRaw.text,totalYellow.text,'억'),
+    total_damage_digits:totalRaw.digits || totalYellow.digits,
+    dps_text:pickRawOrUnit(dpsRaw.text,dpsYellow.text,'억'),
+    dps_digits:dpsRaw.digits || dpsYellow.digits,
+    total_damage_raw_text:totalRaw.text,
+    total_damage_raw_digits:totalRaw.digits,
+    total_damage_yellow_text:totalYellow.text,
+    total_damage_yellow_digits:totalYellow.digits,
+    dps_raw_text:dpsRaw.text,
+    dps_raw_digits:dpsRaw.digits,
+    dps_yellow_text:dpsYellow.text,
+    dps_yellow_digits:dpsYellow.digits,
+    browser_ms:Math.round(performance.now()-t0),
+    debug:{ image_size:{w:img.width,h:img.height}, grid_source:(anc?'summary_anchor':'summary_fixed_1920'),
+            col_source:'summary_boxes', server_grid:anc||null, columns_used:null, rows:_sdbg }
+  };
+}
+
+const COL_KO_V133={damage:'피해량',back_hit:'백적중',back_share:'백비중',head_hit:'헤드적중',head_share:'헤드비중',crit_hit:'치적',crit_share:'치비중',casts:'횟수',cooldown:'쿨'};
+function rowYNorm(anchor,img,ry1,ry2){ const TRY=ATK_GRID.title_ref[1]; return [(anchor.y+(ry1-TRY)*anchor.scale)/img.height,(anchor.y+(ry2-TRY)*anchor.scale)/img.height]; }
+async function parseAttack(dataUrl,prefix,rowCount,serverGridJson){
+  const img=await loadImage(dataUrl); if(!img) return null; const t0=performance.now();
+  await ensureUnitTemplates();
+  // v134: 서버가 멀티스케일 타이틀 매칭으로 창 위치+스케일을 찾고 헤더로 컬럼까지 잡아
+  //       '행 그리드 + 컬럼'을 통째로 넘겨줍니다. 브라우저는 그 정규화 박스만 OCR합니다.
+  let sg=null;
+  try{ const j=(typeof serverGridJson==='string'&&serverGridJson)?JSON.parse(serverGridJson):serverGridJson; if(j&&j.found&&j.rows&&Array.isArray(j.columns)&&j.columns.length>=2) sg=j; }catch(e){ log(`${prefix} 서버 그리드 파싱 실패: ${e}`); }
+  let gridSource, colSource, rows, cols, anchor=null, grid=null;
+  if(sg){
+    gridSource='server_grid'; colSource='server_header';
+    const n=Math.max(1, sg.rows.n||14);
+    rows=[]; for(let i=0;i<n;i++){ const yc=sg.rows.first_yc+sg.rows.step*i; rows.push({idx:i, yc, y1:yc-sg.rows.half_h, y2:yc+sg.rows.half_h}); }
+    cols=sg.columns.map(c=>({key:c.key, label:COL_KO_V133[c.key]||c.key, x1:Math.max(0,c.xc-c.halfw), x2:Math.min(1,c.xc+c.halfw), score:c.score}));
+    log(`${prefix} 서버 그리드 scale=${sg.scale} title=${sg.title_score} 컬럼 ${cols.length}개: ${cols.map(c=>c.key).join(',')}`);
+  } else {
+    // 폴백: 서버 그리드가 없으면 브라우저가 타이틀 앵커로 직접 잡습니다(고정 컬럼).
+    anchor=await matchTitleTemplate(img); gridSource='browser_title';
+    if(!anchor || anchor.ratio<0.55){ anchor={x:ATK_GRID.title_ref[0]*(img.width/1920), y:ATK_GRID.title_ref[1]*(img.height/1080), scale:img.width/1920, ratio:(anchor?anchor.ratio:0)}; gridSource='browser_fixed'; }
+    grid=buildAttackGrid(anchor, img, rowCount||14);
+    rows=grid.rows.map(r=>({idx:r.idx, y1:null, y2:null, ry1:r.ry1, ry2:r.ry2}));
+    cols=ATK_GRID.cols.map(c=>({key:c[0], label:c[1], x1:c[2], x2:c[3], xMode:'ref'}));
+    colSource='fixed_grid'; log(`${prefix} 서버 그리드 없음 → 브라우저 폴백(${gridSource})`);
+  }
+  // 셀 박스를 정규화 좌표로 만드는 헬퍼: 서버그리드는 직접, 폴백은 타이틀 ref 변환.
+  function cellOf(col,r){
+    if(sg) return [col.x1, r.y1, col.x2, r.y2];
+    if(col.xMode==='ref') return gridAnchorToBox(anchor,img,col.x1,r.ry1,col.x2,r.ry2);
+    const yy=rowYNorm(anchor,img,r.ry1,r.ry2); return [col.x1,yy[0],col.x2,yy[1]];
+  }
+  const out=rows.map(r=>({row_index:r.idx})); let call=0, totalCalls=rows.length*cols.length;
+  const debugRows=[];
+  for(const r of rows){
+    for(const col of cols){
+      const key=col.key, label=col.label;
+      call++; setProgress(10+(call/Math.max(1,totalCalls))*78,`${prefix} 공격정보 OCR ${call}/${totalCalls}`);
+      const cellBox=cellOf(col,r);
+      if(key==='damage'){
+        const unit=await detectUnitInBox(img, cellBox, 'attack');
+        out[r.idx]['damage_unit']=unit.text||''; out[r.idx]['damage_unit_key']=unit.unit||'';
+        out[r.idx]['damage_unit_score']=unit.score?Math.round(unit.score*1000)/1000:0;
+        const res=await ocrCellVote(img,cellBox,`${prefix} r${r.idx} 피해량`,[3.4,4.2,2.8],'whitemin','damage');
+        const fixed=reconstructFixed2(res.text);
+        const unitKo=unit.text||(fixed?'억':'');
+        out[r.idx]['damage']=fixed?(fixed+unitKo):'';
+        out[r.idx]['damage_digits']=(fixed.match(/\d/g)||[]).join('');
+        out[r.idx]['damage_raw_ocr']=res.text;
+        log(`${prefix} r${r.idx} 피해량 raw="${res.text||'-'}" → ${out[r.idx]['damage']||'-'} (단위=${unit.text||'기본억'})`);
+        try{
+          const rawCrop=cropCanvasOriginal(img,cellBox);
+          debugRows.push({idx:r.idx, col:'damage',
+            box_px:[Math.round(cellBox[0]*img.width),Math.round(cellBox[1]*img.height),Math.round(cellBox[2]*img.width),Math.round(cellBox[3]*img.height)],
+            unit:unit.text||'', unit_key:unit.unit||'', unit_score:out[r.idx]['damage_unit_score'],
+            raw_ocr:res.text||'', reconstructed:out[r.idx]['damage']||'',
+            crop_raw:rawCrop.toDataURL('image/png'), crop_bin:(res.canvas?res.canvas.toDataURL('image/png'):'')});
+        }catch(e){ log('debug capture fail r'+r.idx+': '+e); }
+      } else {
+        const res=await ocrCellVote(img,cellBox,`${prefix} r${r.idx} ${label}`,[3.0,3.6,2.6],'whitemin',key);
+        const val = (key==='casts') ? cleanCastsValue(res.text) : cleanPercentValue(res.text); // "-"/빈값 → 0
+        out[r.idx][key]=val; out[r.idx][key+'_digits']=(val.match(/\d/g)||[]).join(''); out[r.idx][key+'_raw_ocr']=res.text;
+        // v134 디버그: 모든 컬럼이 어디서 잘렸는지 보기 위해 상위 3행은 컬럼별 crop도 저장합니다.
+        if(r.idx<3){
+          try{ const rc=cropCanvasOriginal(img,cellBox);
+            debugRows.push({idx:r.idx, col:key,
+              box_px:[Math.round(cellBox[0]*img.width),Math.round(cellBox[1]*img.height),Math.round(cellBox[2]*img.width),Math.round(cellBox[3]*img.height)],
+              raw_ocr:res.text||'', reconstructed:val,
+              crop_raw:rc.toDataURL('image/png'), crop_bin:(res.canvas?res.canvas.toDataURL('image/png'):'')});
+          }catch(e){}
+        }
+      }
+    }
+  }
+  // v134 오버레이: 서버 그리드/폴백 모두 cellOf로 박스를 그려 실제 자른 위치를 보여줍니다.
+  let overlay=''; try{ overlay=buildGridOverlayV134(img, rows, cols, cellOf); }catch(e){ log('overlay fail: '+e); }
+  const debug={
+    grid_source:gridSource, col_source:colSource,
+    server_grid: sg ? {scale:sg.scale, title_score:sg.title_score, origin:sg.origin, image:[sg.image_w,sg.image_h],
+                       rows:sg.rows, columns:sg.columns} : null,
+    browser_anchor: anchor ? {x:Math.round(anchor.x),y:Math.round(anchor.y),scale:Math.round(anchor.scale*1000)/1000,ratio:Math.round((anchor.ratio||0)*1000)/1000} : null,
+    image_size:{w:img.width,h:img.height},
+    columns_used: cols.map(c=>({key:c.key,x1:Math.round(c.x1*1000)/1000,x2:Math.round(c.x2*1000)/1000,score:c.score||null})),
+    rows:debugRows, overlay:overlay
+  };
+  return {rows:out.filter(Boolean), row_count:rows.length, browser_ms:Math.round(performance.now()-t0), unit_template_version:'english_v134', grid_source:gridSource, col_source:colSource, debug:debug};
+}
+function buildGridOverlayV134(img, rows, cols, cellOf){
+  const scale=Math.min(1,820/img.width);
+  const c=document.createElement('canvas'); c.width=Math.round(img.width*scale); c.height=Math.round(img.height*scale);
+  const ctx=c.getContext('2d'); ctx.drawImage(img,0,0,c.width,c.height); ctx.lineWidth=1; ctx.font='10px sans-serif';
+  rows.forEach(r=>{
+    cols.forEach(col=>{
+      const b=cellOf(col,r);
+      ctx.strokeStyle = col.key==='damage' ? '#22d3ee' : 'rgba(74,222,128,.9)';
+      ctx.strokeRect(b[0]*img.width*scale, b[1]*img.height*scale, (b[2]-b[0])*img.width*scale, (b[3]-b[1])*img.height*scale);
+    });
+    const yb=cellOf(cols[0],r);
+    ctx.fillStyle='#fde68a'; ctx.fillText('r'+r.idx, Math.max(2, yb[0]*img.width*scale-22), (yb[1]+(yb[3]-yb[1])/2)*img.height*scale+3);
+  });
+  return c.toDataURL('image/png');
+}
+// v135c: 공격정보는 여러 장(백/헤드/스크롤)을 받을 수 있습니다. 각 장을 OCR해 images 배열로 반환하고,
+// 서버가 아이콘 기준으로 병합합니다. 단일 인자(구버전 real_attack_data_url)도 그대로 지원합니다.
+function _parseJsonArr(x){ try{ const v=(typeof x==='string'&&x)?JSON.parse(x):x; return Array.isArray(v)?v:[]; }catch(e){ return []; } }
+async function parseAttackMulti(prefix, urlsJson, gridsJson, singleUrl, singleGrid, rowCount){
+  let urls=_parseJsonArr(urlsJson), grids=_parseJsonArr(gridsJson);
+  if(!urls.length && singleUrl){ urls=[singleUrl]; grids=(singleGrid!==undefined&&singleGrid!==null)?[singleGrid]:[]; }
+  if(!urls.length) return null;
+  const t0=performance.now(); const images=[];
+  for(let i=0;i<urls.length;i++){
+    log(`${prefix} 공격정보 ${i+1}/${urls.length} 장 OCR`);
+    const r=await parseAttack(urls[i], `${prefix}#${i+1}`, rowCount, (i<grids.length?grids[i]:null));
+    if(r) images.push(r);
+  }
+  return {images:images, image_count:images.length, rows:(images[0]&&images[0].rows)||[], browser_ms:Math.round(performance.now()-t0)};
+}
+async function runAll(){
+  if(running) return;
+  // v141: 아직 파이썬으로 안 보낸 캡처가 있으면, 먼저 배치로 보냅니다.
+  // 그 다음 렌더에서 캡처 이미지가 인자로 들어오면 자동으로 인식이 이어집니다.
+  if(hasPendingCaptures()){ sendCaptureBatch(); return; }
+  running=true; $('runBtn').disabled=true; logLines=[]; $('log').textContent=''; const args=latestArgs||{}; const rowCount=Number(args.row_count||14); const result={version:'v135d_multi_attack_merge',done:false,started_at:new Date().toISOString(),input_sig:String((latestArgs||{}).input_sig||''),real:{},dummy:{},timings:{}}; const t0=performance.now();
+  try{ setProgress(1,'브라우저 OCR 시작'); if(args.real_summary_data_url) result.real.summary=await parseSummary(args.real_summary_data_url,'실전',args.real_summary_anchor); if(args.real_attack_data_url||args.real_attack_data_urls) result.real.attack=await parseAttackMulti('실전',args.real_attack_data_urls,args.real_attack_grids,args.real_attack_data_url,args.real_attack_grid,rowCount); if(args.dummy_summary_data_url) result.dummy.summary=await parseSummary(args.dummy_summary_data_url,'허수',args.dummy_summary_anchor); if(args.dummy_attack_data_url||args.dummy_attack_data_urls) result.dummy.attack=await parseAttackMulti('허수',args.dummy_attack_data_urls,args.dummy_attack_grids,args.dummy_attack_data_url,args.dummy_attack_grid,rowCount); result.done=true; result.timings.total_browser_ms=Math.round(performance.now()-t0); setProgress(100,`완료 · ${result.timings.total_browser_ms}ms`); log('브라우저 OCR 완료'); Streamlit.setComponentValue(result); }
+  catch(e){ result.error=String(e&&e.stack?e.stack:e); setProgress(100,'오류 발생'); log('ERROR: '+result.error); Streamlit.setComponentValue(result); }
+  finally{ running=false; try{ refreshRunGate(); }catch(e){ $('runBtn').disabled=false; } Streamlit.setFrameHeight(document.body.scrollHeight+20); }
+}
+// ===== v137: 화면 공유(getDisplayMedia)로 캡처해 인식 =====
+let shareStream=null;
+async function startShare(){
+  try{
+    if(!navigator.mediaDevices||!navigator.mediaDevices.getDisplayMedia){ $('shareStatus').textContent='이 브라우저는 화면 공유를 지원하지 않습니다.'; return; }
+    shareStream=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:5},audio:false});
+    const v=$('shareVideo'); v.srcObject=shareStream; v.style.display='block';
+    $('capBtns').style.display='flex'; $('shareStopBtn').disabled=false; $('shareStartBtn').disabled=true;
+    $('shareStatus').textContent='공유 중 · 전투분석기 화면을 띄우고 아래 버튼으로 인식하세요';
+    const tr=shareStream.getVideoTracks()[0]; if(tr) tr.addEventListener('ended',stopShare);
+    Streamlit.setFrameHeight(document.body.scrollHeight+20);
+  }catch(e){ $('shareStatus').textContent='공유 취소/실패: '+(e&&e.message?e.message:e); }
+}
+function stopShare(){
+  try{ if(shareStream){ shareStream.getTracks().forEach(t=>t.stop()); } }catch(e){}
+  shareStream=null; const v=$('shareVideo'); v.srcObject=null; v.style.display='none';
+  $('capBtns').style.display='none'; $('shareStopBtn').disabled=true; $('shareStartBtn').disabled=false;
+  $('shareStatus').textContent='공유 중지됨'; Streamlit.setFrameHeight(document.body.scrollHeight+20);
+}
+const CAP_LABEL={real_attack:'실전 공격 정보', real_summary:'실전 종합 정보', dummy_attack:'허수 공격 정보', dummy_summary:'허수 종합 정보'};
+// v141: 캡처는 '브라우저 메모리'에 쌓아두고, '이미지 인식'을 누를 때 한 번에 파이썬으로 보냅니다.
+// 그래서 캡처마다 rerun하던 깜빡임과 중복 저장이 사라집니다.
+const capturedFrames={real_attack:[], real_summary:[], dummy_attack:[], dummy_summary:[]};
+let _capBusy=false, _autoSig='';
+function hasPendingCaptures(){ return Object.keys(capturedFrames).some(k=>capturedFrames[k].length>0); }
+function updateCapButtons(){
+  document.querySelectorAll('#capBtns .capBtn').forEach(b=>{
+    const k=b.getAttribute('data-cap'); const n=(capturedFrames[k]||[]).length;
+    if(n>0){ b.style.background='#16a34a'; b.textContent=`${CAP_LABEL[k]||k} ✓${n}`; }
+    else { b.style.background=''; b.textContent=CAP_LABEL[k]||k; }
+  });
+  // 취소 버튼은 해당 종류에 캡처가 있을 때만 활성화합니다.
+  document.querySelectorAll('#capBtns .capCancel').forEach(b=>{
+    const k=b.getAttribute('data-cap'); const n=(capturedFrames[k]||[]).length;
+    b.disabled = n<=0;
+    b.style.opacity = n<=0 ? '0.4' : '1';
+  });
+  try{ refreshRunGate(); }catch(e){}
+}
+// 잘못 캡처한 항목 취소: 브라우저 버퍼를 비우고, 이미 파이썬으로 보낸 캡처도 지웁니다.
+function cancelCapture(kind){
+  capturedFrames[kind]=[];
+  updateCapButtons();
+  try{ Streamlit.setComponentValue({clear_capture:kind, ts:String(Date.now()), done:false}); }catch(e){}
+  $('shareStatus').textContent=`${CAP_LABEL[kind]||kind} 캡처를 취소했어요.`;
+}
+function captureFrame(kind){
+  // 한 번 클릭 = 정확히 1프레임. 400ms 내 중복 이벤트는 무시(깜빡임/더블클릭 방지).
+  if(_capBusy) return;
+  const v=$('shareVideo');
+  if(!v||!v.videoWidth){ $('shareStatus').textContent='아직 화면이 준비 안 됐어요. 잠시 후 다시 눌러주세요.'; return; }
+  _capBusy=true; setTimeout(()=>{ _capBusy=false; }, 400);
+  try{
+    const c=document.createElement('canvas'); c.width=v.videoWidth; c.height=v.videoHeight;
+    c.getContext('2d').drawImage(v,0,0,c.width,c.height);
+    // JPEG 품질 0.95(고품질: OCR 오독 방지). 파이썬 전송 전까지 브라우저에만 보관.
+    const dataUrl=c.toDataURL('image/jpeg',0.95);
+    capturedFrames[kind].push(dataUrl);
+    updateCapButtons();
+    $('shareStatus').textContent=`${CAP_LABEL[kind]||kind} 캡처됨 (이 종류 ${capturedFrames[kind].length}장) · 다 캡처했으면 위 '이미지 인식'을 누르세요`;
+  }catch(e){ _capBusy=false; $('shareStatus').textContent='캡처 실패: '+(e&&e.message?e.message:e); }
+}
+function sendCaptureBatch(){
+  const batch={};
+  for(const k in capturedFrames){ if(capturedFrames[k].length) batch[k]=capturedFrames[k].slice(); }
+  // 보낸 뒤 브라우저 버퍼를 비워 중복 전송 방지.
+  for(const k in capturedFrames){ capturedFrames[k]=[]; }
+  updateCapButtons();
+  setProgress(3,'캡처 전송 중...'); log('캡처 배치 전송');
+  Streamlit.setComponentValue({capture_batch:batch, ts:String(Date.now()), done:false});
+}
+function maybeAutoRunAfterCapture(){
+  const sig=String((latestArgs||{}).input_sig||'');
+  if((latestArgs||{}).auto_run_after_capture && sig && sig!==_autoSig && !running){
+    _autoSig=sig; log('캡처 인식 자동 시작'); runAll();
+  }
+}
+function _catPresent(kind){
+  // 업로드(args) 또는 캡처(브라우저 버퍼) 중 하나라도 있으면 present.
+  const a=latestArgs||{};
+  if(kind==='real_summary')  return !!a.real_summary_data_url  || capturedFrames.real_summary.length>0;
+  if(kind==='dummy_summary') return !!a.dummy_summary_data_url || capturedFrames.dummy_summary.length>0;
+  if(kind==='real_attack')   return _parseJsonArr(a.real_attack_data_urls).length>0  || capturedFrames.real_attack.length>0;
+  if(kind==='dummy_attack')  return _parseJsonArr(a.dummy_attack_data_urls).length>0 || capturedFrames.dummy_attack.length>0;
+  return false;
+}
+function refreshRunGate(){
+  // v143: 4종(실전 공격/종합, 허수 공격/종합)이 모두 1장 이상일 때만 '이미지 인식' 활성화.
+  const need=[['dummy_summary','허수 종합 정보'],['dummy_attack','허수 공격 정보'],['real_summary','실전 종합 정보'],['real_attack','실전 공격 정보']];
+  const missing=need.filter(([k])=>!_catPresent(k)).map(([,label])=>label);
+  const ready=missing.length===0;
+  const rb=$('runBtn'); if(rb) rb.disabled=!ready || running;
+  const hint=$('runHint');
+  if(hint){
+    if(ready){ hint.style.display='none'; }
+    else { hint.style.display='block'; hint.textContent='아직 없음: '+missing.join(', ')+' — 4종이 모두 1장 이상이어야 인식할 수 있어요.'; }
+  }
+}
+function onRender(event){
+  latestArgs=event.detail.args||{}; summarizeInputs(latestArgs); $('status').textContent='준비됨';
+  $('runBtn').onclick=runAll;
+  const sb=$('shareStartBtn'); if(sb) sb.onclick=startShare;
+  const xb=$('shareStopBtn'); if(xb) xb.onclick=stopShare;
+  document.querySelectorAll('#capBtns .capBtn').forEach(b=>{ b.onclick=()=>captureFrame(b.getAttribute('data-cap')); });
+  document.querySelectorAll('#capBtns .capCancel').forEach(b=>{ b.onclick=()=>cancelCapture(b.getAttribute('data-cap')); });
+  updateCapButtons();
+  refreshRunGate();
+  maybeAutoRunAfterCapture();
+  Streamlit.setFrameHeight(document.body.scrollHeight+20);
+}
+Streamlit.events.addEventListener(Streamlit.RENDER_EVENT,onRender);
+Streamlit.setComponentReady();
+Streamlit.setFrameHeight(document.body.scrollHeight+20);
+</script>
+</body>
+</html>

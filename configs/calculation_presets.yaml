@@ -1,0 +1,27 @@
+# 계산 기본값. 화면에서 수정 가능하고, 자주 쓰는 값은 여기서 바꾸면 됩니다.
+defaults:
+  crit_damage_percent: 259.0      # 기본 200 + 추가 치피. 허리케인처럼 스킬별 치피는 별도 보정 필요.
+  target_back_attack_percent: 100.0
+  target_crit_percent: 100.0
+  back_attack_damage_bonus_percent: 5.0
+  head_attack_damage_bonus_percent: 20.0
+  binomial_proc_probability: 0.75 # 231 회오리: 허리케인 1회당 브루탈 기대 초기화 확률 예시.
+
+skill_groups:
+  main_damage:
+    - 허리케인 소드
+    - 브루탈 임팩트
+    - 길로틴
+    - 볼케이노 이럽션
+    - 파이널 블로
+    - 페이탈 소드
+
+# 스킬별 기대 사용 횟수/분을 넣으면 실전 사용 안정도까지 계산합니다.
+# 비워두면 해당 계산은 생략됩니다.
+expected_casts_per_minute:
+  허리케인 소드: null
+  브루탈 임팩트: null
+  길로틴: null
+  볼케이노 이럽션: null
+  파이널 블로: null
+  페이탈 소드: null

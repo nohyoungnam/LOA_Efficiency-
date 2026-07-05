@@ -1,0 +1,773 @@
+﻿file_name,skill_name_kr,class_name_kr,class_folder,relative_path,source_character,skill_type,skill_id,icon_url,icon_source_file,collected_at
+wa_skill_01_21.png,나르가의 칼날,기상술사,aeromancer,aeromancer/wa_skill_01_21.png,성갬뽕,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_21.png,wa_skill_01_21.png,2026-06-28T21:34:41+09:00
+wa_skill_01_9.png,날아가기,기상술사,aeromancer,aeromancer/wa_skill_01_9.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_9.png,wa_skill_01_9.png,2026-06-28T21:34:41+09:00
+wa_skill_01_5.png,내려찍기,기상술사,aeromancer,aeromancer/wa_skill_01_5.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_5.png,wa_skill_01_5.png,2026-06-28T21:34:41+09:00
+wa_skill_01_6.png,돌개바람,기상술사,aeromancer,aeromancer/wa_skill_01_6.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_6.png,wa_skill_01_6.png,2026-06-28T21:34:41+09:00
+wa_skill_01_19.png,뙤약볕,기상술사,aeromancer,aeromancer/wa_skill_01_19.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_19.png,wa_skill_01_19.png,2026-06-28T21:34:41+09:00
+wa_skill_01_7.png,마주바람,기상술사,aeromancer,aeromancer/wa_skill_01_7.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_7.png,wa_skill_01_7.png,2026-06-28T21:34:41+09:00
+wa_skill_01_10.png,몰아치기,기상술사,aeromancer,aeromancer/wa_skill_01_10.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_10.png,wa_skill_01_10.png,2026-06-28T21:34:41+09:00
+wa_skill_01_11.png,바람송곳,기상술사,aeromancer,aeromancer/wa_skill_01_11.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_11.png,wa_skill_01_11.png,2026-06-28T21:34:41+09:00
+wa_skill_01_15.png,봄바람,기상술사,aeromancer,aeromancer/wa_skill_01_15.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_15.png,wa_skill_01_15.png,2026-06-28T21:34:41+09:00
+wa_skill_01_14.png,센바람,기상술사,aeromancer,aeromancer/wa_skill_01_14.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_14.png,wa_skill_01_14.png,2026-06-28T21:34:41+09:00
+wa_skill_01_13.png,소나기,기상술사,aeromancer,aeromancer/wa_skill_01_13.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_13.png,wa_skill_01_13.png,2026-06-28T21:34:41+09:00
+wa_skill_01_17.png,소용돌이,기상술사,aeromancer,aeromancer/wa_skill_01_17.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_17.png,wa_skill_01_17.png,2026-06-28T21:34:41+09:00
+wa_skill_01_18.png,싹쓸바람,기상술사,aeromancer,aeromancer/wa_skill_01_18.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_18.png,wa_skill_01_18.png,2026-06-28T21:34:41+09:00
+wa_skill_01_26.png,아카샤의 너울,기상술사,aeromancer,aeromancer/wa_skill_01_26.png,성갬뽕,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_26.png,wa_skill_01_26.png,2026-06-28T21:34:41+09:00
+wa_skill_01_25.png,여름 햇살,기상술사,aeromancer,aeromancer/wa_skill_01_25.png,성갬뽕,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_25.png,wa_skill_01_25.png,2026-06-28T21:34:41+09:00
+wa_skill_01_24.png,우레바람,기상술사,aeromancer,aeromancer/wa_skill_01_24.png,성갬뽕,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_24.png,wa_skill_01_24.png,2026-06-28T21:34:41+09:00
+wa_skill_01_16.png,짙은 안개,기상술사,aeromancer,aeromancer/wa_skill_01_16.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_16.png,wa_skill_01_16.png,2026-06-28T21:34:41+09:00
+wa_skill_01_27.png,칸의 영역,기상술사,aeromancer,aeromancer/wa_skill_01_27.png,성갬뽕,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_27.png,wa_skill_01_27.png,2026-06-28T21:34:41+09:00
+wa_skill_01_12.png,칼바람,기상술사,aeromancer,aeromancer/wa_skill_01_12.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_12.png,wa_skill_01_12.png,2026-06-28T21:34:41+09:00
+wa_skill_01_4.png,펼치기,기상술사,aeromancer,aeromancer/wa_skill_01_4.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_4.png,wa_skill_01_4.png,2026-06-28T21:34:41+09:00
+wa_skill_01_20.png,풍랑주의보,기상술사,aeromancer,aeromancer/wa_skill_01_20.png,성갬뽕,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_20.png,wa_skill_01_20.png,2026-06-28T21:34:41+09:00
+wa_skill_01_8.png,회오리 걸음,기상술사,aeromancer,aeromancer/wa_skill_01_8.png,성갬뽕,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/wa_skill/wa_skill_01_8.png,wa_skill_01_8.png,2026-06-28T21:34:41+09:00
+ac_skill_01_4.png,다크 리저렉션,아르카나,arcana,arcana/ac_skill_01_4.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_4.png,ac_skill_01_4.png,2026-06-28T21:32:22+09:00
+ac_skill_01_11.png,댄싱 오브 스파인플라워,아르카나,arcana,arcana/ac_skill_01_11.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_11.png,ac_skill_01_11.png,2026-06-28T21:32:22+09:00
+ac_skill_01_47.png,더 데빌,아르카나,arcana,arcana/ac_skill_01_47.png,차사,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_47.png,ac_skill_01_47.png,2026-06-28T21:32:22+09:00
+ac_skill_01_46.png,더 썬,아르카나,arcana,arcana/ac_skill_01_46.png,차사,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_46.png,ac_skill_01_46.png,2026-06-28T21:32:22+09:00
+ac_skill_01_44.png,더 타워,아르카나,arcana,arcana/ac_skill_01_44.png,차사,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_44.png,ac_skill_01_44.png,2026-06-28T21:32:22+09:00
+ac_skill_01_45.png,데스,아르카나,arcana,arcana/ac_skill_01_45.png,차사,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_45.png,ac_skill_01_45.png,2026-06-28T21:32:22+09:00
+ac_skill_01_15.png,리턴,아르카나,arcana,arcana/ac_skill_01_15.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_15.png,ac_skill_01_15.png,2026-06-28T21:32:22+09:00
+ac_skill_01_19.png,백 플러쉬,아르카나,arcana,arcana/ac_skill_01_19.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_19.png,ac_skill_01_19.png,2026-06-28T21:32:22+09:00
+ac_skill_01_20.png,세렌디피티,아르카나,arcana,arcana/ac_skill_01_20.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_20.png,ac_skill_01_20.png,2026-06-28T21:32:22+09:00
+ac_skill_01_6.png,셀레스티얼 레인,아르카나,arcana,arcana/ac_skill_01_6.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_6.png,ac_skill_01_6.png,2026-06-28T21:32:22+09:00
+ac_skill_01_24.png,스크래치 딜러,아르카나,arcana,arcana/ac_skill_01_24.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_24.png,ac_skill_01_24.png,2026-06-28T21:32:22+09:00
+ac_skill_01_5.png,스트림 오브 엣지,아르카나,arcana,arcana/ac_skill_01_5.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_5.png,ac_skill_01_5.png,2026-06-28T21:32:22+09:00
+ac_skill_01_14.png,스파이럴 엣지,아르카나,arcana,arcana/ac_skill_01_14.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_14.png,ac_skill_01_14.png,2026-06-28T21:32:22+09:00
+ac_skill_01_23.png,시크릿 가든,아르카나,arcana,arcana/ac_skill_01_23.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_23.png,ac_skill_01_23.png,2026-06-28T21:32:22+09:00
+ac_skill_01_17.png,신비한 쇄도,아르카나,arcana,arcana/ac_skill_01_17.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_17.png,ac_skill_01_17.png,2026-06-28T21:32:22+09:00
+ac_skill_01_8.png,언리미티드 셔플,아르카나,arcana,arcana/ac_skill_01_8.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_8.png,ac_skill_01_8.png,2026-06-28T21:32:22+09:00
+ac_skill_01_10.png,운명의 부름,아르카나,arcana,arcana/ac_skill_01_10.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_10.png,ac_skill_01_10.png,2026-06-28T21:32:22+09:00
+ac_skill_01_1.png,이보크,아르카나,arcana,arcana/ac_skill_01_1.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_1.png,ac_skill_01_1.png,2026-06-28T21:32:22+09:00
+ac_skill_01_39.png,죽음의 운명,아르카나,arcana,arcana/ac_skill_01_39.png,차사,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_39.png,ac_skill_01_39.png,2026-06-28T21:32:22+09:00
+ac_skill_01_3.png,체크메이트,아르카나,arcana,arcana/ac_skill_01_3.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_3.png,ac_skill_01_3.png,2026-06-28T21:32:22+09:00
+ac_skill_01_9.png,쿼드라 엑셀레이트,아르카나,arcana,arcana/ac_skill_01_9.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_9.png,ac_skill_01_9.png,2026-06-28T21:32:22+09:00
+ac_skill_01_7.png,포 카드,아르카나,arcana,arcana/ac_skill_01_7.png,차사,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_7.png,ac_skill_01_7.png,2026-06-28T21:32:22+09:00
+ac_skill_01_16.png,프리즈매틱 미러,아르카나,arcana,arcana/ac_skill_01_16.png,차사,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ac_skill/ac_skill_01_16.png,ac_skill_01_16.png,2026-06-28T21:32:22+09:00
+yy_skill_01_25.png,몽중백화원,도화가,artist,artist/yy_skill_01_25.png,너의작은도화지,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_25.png,yy_skill_01_25.png,2026-06-28T21:35:08+09:00
+yy_skill_01_11.png,묵법 : 난치기,도화가,artist,artist/yy_skill_01_11.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_11.png,yy_skill_01_11.png,2026-06-28T21:35:08+09:00
+yy_skill_01_19.png,묵법 : 달그리기,도화가,artist,artist/yy_skill_01_19.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_19.png,yy_skill_01_19.png,2026-06-28T21:35:08+09:00
+yy_skill_01_17.png,묵법 : 두루미나래,도화가,artist,artist/yy_skill_01_17.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_17.png,yy_skill_01_17.png,2026-06-28T21:35:08+09:00
+yy_skill_01_13.png,묵법 : 먹오름,도화가,artist,artist/yy_skill_01_13.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_13.png,yy_skill_01_13.png,2026-06-28T21:35:08+09:00
+yy_skill_01_24.png,묵법 : 미르 새김,도화가,artist,artist/yy_skill_01_24.png,너의작은도화지,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_24.png,yy_skill_01_24.png,2026-06-28T21:35:08+09:00
+yy_skill_01_14.png,묵법 : 미리내,도화가,artist,artist/yy_skill_01_14.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_14.png,yy_skill_01_14.png,2026-06-28T21:35:08+09:00
+yy_skill_01_18.png,묵법 : 범가르기,도화가,artist,artist/yy_skill_01_18.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_18.png,yy_skill_01_18.png,2026-06-28T21:35:08+09:00
+yy_skill_01_23.png,묵법 : 소떼몰이,도화가,artist,artist/yy_skill_01_23.png,너의작은도화지,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_23.png,yy_skill_01_23.png,2026-06-28T21:35:08+09:00
+yy_skill_01_8.png,묵법 : 옹달샘,도화가,artist,artist/yy_skill_01_8.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_8.png,yy_skill_01_8.png,2026-06-28T21:35:08+09:00
+yy_skill_01_9.png,묵법 : 해그리기,도화가,artist,artist/yy_skill_01_9.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_9.png,yy_skill_01_9.png,2026-06-28T21:35:08+09:00
+yy_skill_01_10.png,묵법 : 해우물,도화가,artist,artist/yy_skill_01_10.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_10.png,yy_skill_01_10.png,2026-06-28T21:35:08+09:00
+yy_skill_01_15.png,묵법 : 호접몽,도화가,artist,artist/yy_skill_01_15.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_15.png,yy_skill_01_15.png,2026-06-28T21:35:08+09:00
+yy_skill_01_7.png,묵법 : 환영의 문,도화가,artist,artist/yy_skill_01_7.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_7.png,yy_skill_01_7.png,2026-06-28T21:35:08+09:00
+yy_skill_01_26.png,신수도 : 봉황,도화가,artist,artist/yy_skill_01_26.png,너의작은도화지,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_26.png,yy_skill_01_26.png,2026-06-28T21:35:08+09:00
+yy_skill_01_22.png,절기 : 몽유도원,도화가,artist,artist/yy_skill_01_22.png,너의작은도화지,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_22.png,yy_skill_01_22.png,2026-06-28T21:35:08+09:00
+yy_skill_01_21.png,절기 : 진경산수,도화가,artist,artist/yy_skill_01_21.png,너의작은도화지,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_21.png,yy_skill_01_21.png,2026-06-28T21:35:08+09:00
+yy_skill_01_5.png,필법 : 먹물세례,도화가,artist,artist/yy_skill_01_5.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_5.png,yy_skill_01_5.png,2026-06-28T21:35:08+09:00
+yy_skill_01_20.png,필법 : 올려치기,도화가,artist,artist/yy_skill_01_20.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_20.png,yy_skill_01_20.png,2026-06-28T21:35:08+09:00
+yy_skill_01_6.png,필법 : 콩콩이,도화가,artist,artist/yy_skill_01_6.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_6.png,yy_skill_01_6.png,2026-06-28T21:35:08+09:00
+yy_skill_01_16.png,필법 : 한획긋기,도화가,artist,artist/yy_skill_01_16.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_16.png,yy_skill_01_16.png,2026-06-28T21:35:08+09:00
+yy_skill_01_12.png,필법 : 흩뿌리기,도화가,artist,artist/yy_skill_01_12.png,너의작은도화지,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/yy_skill/yy_skill_01_12.png,yy_skill_01_12.png,2026-06-28T21:35:08+09:00
+bd_skill_01_9.png,리듬 벅샷,바드,bard,bard/bd_skill_01_9.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_9.png,bd_skill_01_9.png,2026-06-28T21:30:59+09:00
+bd_skill_01_5.png,불협화음,바드,bard,bard/bd_skill_01_5.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_5.png,bd_skill_01_5.png,2026-06-28T21:30:59+09:00
+bd_skill_01_30.png,비바체,바드,bard,bard/bd_skill_01_30.png,쥬쥬,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_30.png,bd_skill_01_30.png,2026-06-28T21:30:59+09:00
+bd_skill_01_22.png,빛의 광시곡,바드,bard,bard/bd_skill_01_22.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_22.png,bd_skill_01_22.png,2026-06-28T21:30:59+09:00
+bd_skill_01_1.png,사운드 쇼크,바드,bard,bard/bd_skill_01_1.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_1.png,bd_skill_01_1.png,2026-06-28T21:30:59+09:00
+bd_skill_01_4.png,사운드 웨이브,바드,bard,bard/bd_skill_01_4.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_4.png,bd_skill_01_4.png,2026-06-28T21:30:59+09:00
+bd_skill_01_11.png,사운드 홀릭,바드,bard,bard/bd_skill_01_11.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_11.png,bd_skill_01_11.png,2026-06-28T21:30:59+09:00
+bd_skill_01_26.png,소나티네,바드,bard,bard/bd_skill_01_26.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_26.png,bd_skill_01_26.png,2026-06-28T21:30:59+09:00
+bd_skill_01_21.png,수호의 연주,바드,bard,bard/bd_skill_01_21.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_21.png,bd_skill_01_21.png,2026-06-28T21:30:59+09:00
+bd_skill_01_8.png,스티그마,바드,bard,bard/bd_skill_01_8.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_8.png,bd_skill_01_8.png,2026-06-28T21:30:59+09:00
+bd_skill_01_27.png,심포니 칸타빌레,바드,bard,bard/bd_skill_01_27.png,쥬쥬,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_27.png,bd_skill_01_27.png,2026-06-28T21:30:59+09:00
+bd_skill_01_23.png,심포니아,바드,bard,bard/bd_skill_01_23.png,쥬쥬,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_23.png,bd_skill_01_23.png,2026-06-28T21:30:59+09:00
+bd_skill_01_29.png,아리아,바드,bard,bard/bd_skill_01_29.png,쥬쥬,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_29.png,bd_skill_01_29.png,2026-06-28T21:30:59+09:00
+bd_skill_01_25.png,오라토리오,바드,bard,bard/bd_skill_01_25.png,쥬쥬,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_25.png,bd_skill_01_25.png,2026-06-28T21:30:59+09:00
+bd_skill_01_6.png,윈드 오브 뮤직,바드,bard,bard/bd_skill_01_6.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_6.png,bd_skill_01_6.png,2026-06-28T21:30:59+09:00
+bd_skill_01_18.png,율동의 하프,바드,bard,bard/bd_skill_01_18.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_18.png,bd_skill_01_18.png,2026-06-28T21:30:59+09:00
+bd_skill_01_13.png,음파 진동,바드,bard,bard/bd_skill_01_13.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_13.png,bd_skill_01_13.png,2026-06-28T21:30:59+09:00
+bd_skill_01_10.png,음표 뭉치,바드,bard,bard/bd_skill_01_10.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_10.png,bd_skill_01_10.png,2026-06-28T21:30:59+09:00
+bd_skill_01_20.png,죽음의 전주곡,바드,bard,bard/bd_skill_01_20.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_20.png,bd_skill_01_20.png,2026-06-28T21:30:59+09:00
+bd_skill_01_12.png,천상의 연주,바드,bard,bard/bd_skill_01_12.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_12.png,bd_skill_01_12.png,2026-06-28T21:30:59+09:00
+bd_skill_01_28.png,콘체르토,바드,bard,bard/bd_skill_01_28.png,쥬쥬,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_28.png,bd_skill_01_28.png,2026-06-28T21:30:59+09:00
+bd_skill_01_7.png,폭풍의 서곡,바드,bard,bard/bd_skill_01_7.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_7.png,bd_skill_01_7.png,2026-06-28T21:30:59+09:00
+bd_skill_01_24.png,행진곡,바드,bard,bard/bd_skill_01_24.png,쥬쥬,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bd_skill/bd_skill_01_24.png,bd_skill_01_24.png,2026-06-28T21:30:59+09:00
+bm_skill_01_43.png,극의 : 대라파마각,배틀마스터,battlemaster,battlemaster/bm_skill_01_43.png,투나튜나,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_43.png,bm_skill_01_43.png,2026-06-28T21:26:12+09:00
+bm_skill_01_27.png,극의 : 무극권,배틀마스터,battlemaster,battlemaster/bm_skill_01_27.png,투나튜나,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_27.png,bm_skill_01_27.png,2026-06-28T21:26:12+09:00
+bm_skill_01_25.png,극의 : 일순난격,배틀마스터,battlemaster,battlemaster/bm_skill_01_25.png,투나튜나,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_25.png,bm_skill_01_25.png,2026-06-28T21:26:12+09:00
+bm_skill_01_42.png,극의 : 팔괘난격,배틀마스터,battlemaster,battlemaster/bm_skill_01_42.png,투나튜나,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_42.png,bm_skill_01_42.png,2026-06-28T21:26:12+09:00
+bm_skill_01_24.png,내공연소,배틀마스터,battlemaster,battlemaster/bm_skill_01_24.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_24.png,bm_skill_01_24.png,2026-06-28T21:26:12+09:00
+bm_skill_01_18.png,뇌명각,배틀마스터,battlemaster,battlemaster/bm_skill_01_18.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_18.png,bm_skill_01_18.png,2026-06-28T21:26:12+09:00
+bm_skill_01_7.png,바람의 속삭임,배틀마스터,battlemaster,battlemaster/bm_skill_01_7.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_7.png,bm_skill_01_7.png,2026-06-28T21:26:12+09:00
+bm_skill_01_26.png,방천격,배틀마스터,battlemaster,battlemaster/bm_skill_01_26.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_26.png,bm_skill_01_26.png,2026-06-28T21:26:12+09:00
+bm_skill_01_14.png,붕천퇴,배틀마스터,battlemaster,battlemaster/bm_skill_01_14.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_14.png,bm_skill_01_14.png,2026-06-28T21:26:12+09:00
+bm_skill_01_6.png,삼연권,배틀마스터,battlemaster,battlemaster/bm_skill_01_6.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_6.png,bm_skill_01_6.png,2026-06-28T21:26:12+09:00
+bm_skill_01_38.png,선풍용류각,배틀마스터,battlemaster,battlemaster/bm_skill_01_38.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_38.png,bm_skill_01_38.png,2026-06-28T21:26:12+09:00
+bm_skill_01_3.png,섬열란아,배틀마스터,battlemaster,battlemaster/bm_skill_01_3.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_3.png,bm_skill_01_3.png,2026-06-28T21:26:12+09:00
+bm_skill_01_41.png,오의 : 금뢰각,배틀마스터,battlemaster,battlemaster/bm_skill_01_41.png,투나튜나,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_41.png,bm_skill_01_41.png,2026-06-28T21:26:12+09:00
+bm_skill_01_11.png,오의 : 나선경,배틀마스터,battlemaster,battlemaster/bm_skill_01_11.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_11.png,bm_skill_01_11.png,2026-06-28T21:26:12+09:00
+bm_skill_01_39.png,오의 : 창룡패황권,배틀마스터,battlemaster,battlemaster/bm_skill_01_39.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_39.png,bm_skill_01_39.png,2026-06-28T21:26:12+09:00
+bm_skill_01_1.png,오의 : 폭쇄진,배틀마스터,battlemaster,battlemaster/bm_skill_01_1.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_1.png,bm_skill_01_1.png,2026-06-28T21:26:12+09:00
+bm_skill_01_8.png,오의 : 풍신초래,배틀마스터,battlemaster,battlemaster/bm_skill_01_8.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_8.png,bm_skill_01_8.png,2026-06-28T21:26:12+09:00
+bm_skill_01_5.png,오의 : 화룡천상,배틀마스터,battlemaster,battlemaster/bm_skill_01_5.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_5.png,bm_skill_01_5.png,2026-06-28T21:26:12+09:00
+bm_skill_01_4.png,용맹의 포효,배틀마스터,battlemaster,battlemaster/bm_skill_01_4.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_4.png,bm_skill_01_4.png,2026-06-28T21:26:12+09:00
+bm_skill_01_16.png,월섬각,배틀마스터,battlemaster,battlemaster/bm_skill_01_16.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_16.png,bm_skill_01_16.png,2026-06-28T21:26:12+09:00
+bm_skill_01_2.png,잠룡승천축,배틀마스터,battlemaster,battlemaster/bm_skill_01_2.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_2.png,bm_skill_01_2.png,2026-06-28T21:26:12+09:00
+bm_skill_01_40.png,창천각,배틀마스터,battlemaster,battlemaster/bm_skill_01_40.png,투나튜나,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_40.png,bm_skill_01_40.png,2026-06-28T21:26:12+09:00
+bm_skill_01_23.png,초풍각,배틀마스터,battlemaster,battlemaster/bm_skill_01_23.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_23.png,bm_skill_01_23.png,2026-06-28T21:26:12+09:00
+bm_skill_01_12.png,화조강림,배틀마스터,battlemaster,battlemaster/bm_skill_01_12.png,투나튜나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_12.png,bm_skill_01_12.png,2026-06-28T21:26:12+09:00
+bk_skill_01_13.png,다이빙 슬래쉬,버서커,berserker,berserker/bk_skill_01_13.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_13.png,bk_skill_01_13.png,2026-06-28T21:23:50+09:00
+bk_skill_01_1.png,더블 슬래쉬,버서커,berserker,berserker/bk_skill_01_1.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_1.png,bk_skill_01_1.png,2026-06-28T21:23:50+09:00
+bk_skill_01_8.png,레드 더스트,버서커,berserker,berserker/bk_skill_01_8.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_8.png,bk_skill_01_8.png,2026-06-28T21:23:50+09:00
+bk_skill_01_40.png,레이지 블레이드,버서커,berserker,berserker/bk_skill_01_40.png,TheG0D,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_40.png,bk_skill_01_40.png,2026-06-28T21:23:50+09:00
+bk_skill_01_16.png,마운틴 크래쉬,버서커,berserker,berserker/bk_skill_01_16.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_16.png,bk_skill_01_16.png,2026-06-28T21:23:50+09:00
+bk_skill_01_22.png,메일스톰,버서커,berserker,berserker/bk_skill_01_22.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_22.png,bk_skill_01_22.png,2026-06-28T21:23:50+09:00
+bk_skill_01_23.png,버서크 퓨리,버서커,berserker,berserker/bk_skill_01_23.png,TheG0D,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_23.png,bk_skill_01_23.png,2026-06-28T21:23:50+09:00
+bk_skill_01_24.png,브레이브 슬래쉬,버서커,berserker,berserker/bk_skill_01_24.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_24.png,bk_skill_01_24.png,2026-06-28T21:23:50+09:00
+bk_skill_01_38.png,블러드 슬래시,버서커,berserker,berserker/bk_skill_01_38.png,TheG0D,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_38.png,bk_skill_01_38.png,2026-06-28T21:23:50+09:00
+bk_skill_01_39.png,블러디 버스트,버서커,berserker,berserker/bk_skill_01_39.png,TheG0D,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_39.png,bk_skill_01_39.png,2026-06-28T21:23:50+09:00
+bk_skill_01_19.png,소드 스톰,버서커,berserker,berserker/bk_skill_01_19.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_19.png,bk_skill_01_19.png,2026-06-28T21:23:50+09:00
+bk_skill_01_5.png,숄더 차지,버서커,berserker,berserker/bk_skill_01_5.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_5.png,bk_skill_01_5.png,2026-06-28T21:23:50+09:00
+bk_skill_01_7.png,어설트 블레이드,버서커,berserker,berserker/bk_skill_01_7.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_7.png,bk_skill_01_7.png,2026-06-28T21:23:50+09:00
+bk_skill_01_45.png,오버드라이브,버서커,berserker,berserker/bk_skill_01_45.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_45.png,bk_skill_01_45.png,2026-06-28T21:23:50+09:00
+bk_skill_01_21.png,윈드 블레이드,버서커,berserker,berserker/bk_skill_01_21.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_21.png,bk_skill_01_21.png,2026-06-28T21:23:50+09:00
+bk_skill_01_18.png,체인 소드,버서커,berserker,berserker/bk_skill_01_18.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_18.png,bk_skill_01_18.png,2026-06-28T21:23:50+09:00
+bk_skill_01_20.png,체인 오브 벤전스,버서커,berserker,berserker/bk_skill_01_20.png,TheG0D,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_20.png,bk_skill_01_20.png,2026-06-28T21:23:50+09:00
+bk_skill_01_4.png,크라임 해저드,버서커,berserker,berserker/bk_skill_01_4.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_4.png,bk_skill_01_4.png,2026-06-28T21:23:50+09:00
+bk_skill_01_12.png,템페스트 슬래쉬,버서커,berserker,berserker/bk_skill_01_12.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_12.png,bk_skill_01_12.png,2026-06-28T21:23:50+09:00
+bk_skill_01_6.png,파워 브레이크,버서커,berserker,berserker/bk_skill_01_6.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_6.png,bk_skill_01_6.png,2026-06-28T21:23:50+09:00
+bk_skill_01_37.png,퓨리 메소드,버서커,berserker,berserker/bk_skill_01_37.png,TheG0D,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_37.png,bk_skill_01_37.png,2026-06-28T21:23:50+09:00
+bk_skill_01_14.png,피니쉬 스트라이크,버서커,berserker,berserker/bk_skill_01_14.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_14.png,bk_skill_01_14.png,2026-06-28T21:23:50+09:00
+bk_skill_01_0.png,헬 블레이드,버서커,berserker,berserker/bk_skill_01_0.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_0.png,bk_skill_01_0.png,2026-06-28T21:23:50+09:00
+bk_skill_01_3.png,휠윈드,버서커,berserker,berserker/bk_skill_01_3.png,TheG0D,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_3.png,bk_skill_01_3.png,2026-06-28T21:23:50+09:00
+bl_skill_01_11.png,다크 악셀,블레이드,blade,blade/bl_skill_01_11.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_11.png,bl_skill_01_11.png,2026-06-28T21:33:46+09:00
+bl_skill_01_4.png,데스 센텐스,블레이드,blade,blade/bl_skill_01_4.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_4.png,bl_skill_01_4.png,2026-06-28T21:33:46+09:00
+bl_skill_01_27.png,데스 슬래쉬,블레이드,blade,blade/bl_skill_01_27.png,해리소나,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_27.png,bl_skill_01_27.png,2026-06-28T21:33:46+09:00
+bl_skill_01_12.png,마엘스톰,블레이드,blade,blade/bl_skill_01_12.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_12.png,bl_skill_01_12.png,2026-06-28T21:33:46+09:00
+bl_skill_01_10.png,문라이트 소닉,블레이드,blade,blade/bl_skill_01_10.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_10.png,bl_skill_01_10.png,2026-06-28T21:33:46+09:00
+bl_skill_01_14.png,보이드 스트라이크,블레이드,blade,blade/bl_skill_01_14.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_14.png,bl_skill_01_14.png,2026-06-28T21:33:46+09:00
+bl_skill_01_26.png,브레이킹 문,블레이드,blade,blade/bl_skill_01_26.png,해리소나,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_26.png,bl_skill_01_26.png,2026-06-28T21:33:46+09:00
+bl_skill_01_2.png,블레이드 댄스,블레이드,blade,blade/bl_skill_01_2.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_2.png,bl_skill_01_2.png,2026-06-28T21:33:46+09:00
+bl_skill_01_19.png,블레이드 어설트,블레이드,blade,blade/bl_skill_01_19.png,해리소나,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_19.png,bl_skill_01_19.png,2026-06-28T21:33:46+09:00
+bl_skill_01_16.png,블리츠 러시,블레이드,blade,blade/bl_skill_01_16.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_16.png,bl_skill_01_16.png,2026-06-28T21:33:46+09:00
+bl_skill_01_0.png,서프라이즈 어택,블레이드,blade,blade/bl_skill_01_0.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_0.png,bl_skill_01_0.png,2026-06-28T21:33:46+09:00
+bl_skill_01_7.png,소울 앱소버,블레이드,blade,blade/bl_skill_01_7.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_7.png,bl_skill_01_7.png,2026-06-28T21:33:46+09:00
+bl_skill_01_8.png,스핀 커터,블레이드,blade,blade/bl_skill_01_8.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_8.png,bl_skill_01_8.png,2026-06-28T21:33:46+09:00
+bl_skill_01_3.png,어스 슬래쉬,블레이드,blade,blade/bl_skill_01_3.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_3.png,bl_skill_01_3.png,2026-06-28T21:33:46+09:00
+bl_skill_01_1.png,어퍼 슬래쉬,블레이드,blade,blade/bl_skill_01_1.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_1.png,bl_skill_01_1.png,2026-06-28T21:33:46+09:00
+bl_skill_01_6.png,윈드 컷,블레이드,blade,blade/bl_skill_01_6.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_6.png,bl_skill_01_6.png,2026-06-28T21:33:46+09:00
+bl_skill_01_24.png,이터널 플래시,블레이드,blade,blade/bl_skill_01_24.png,해리소나,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_24.png,bl_skill_01_24.png,2026-06-28T21:33:46+09:00
+bl_skill_01_25.png,카오틱 블레이드,블레이드,blade,blade/bl_skill_01_25.png,해리소나,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_25.png,bl_skill_01_25.png,2026-06-28T21:33:46+09:00
+bl_skill_01_9.png,터닝 슬래쉬,블레이드,blade,blade/bl_skill_01_9.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_9.png,bl_skill_01_9.png,2026-06-28T21:33:46+09:00
+bl_skill_01_5.png,트윈 쉐도우,블레이드,blade,blade/bl_skill_01_5.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_5.png,bl_skill_01_5.png,2026-06-28T21:33:46+09:00
+bl_skill_01_15.png,페이탈 웨이브,블레이드,blade,blade/bl_skill_01_15.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_15.png,bl_skill_01_15.png,2026-06-28T21:33:46+09:00
+bl_skill_01_13.png,폴스타,블레이드,blade,blade/bl_skill_01_13.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_13.png,bl_skill_01_13.png,2026-06-28T21:33:46+09:00
+bl_skill_01_18.png,플래시 블링크,블레이드,blade,blade/bl_skill_01_18.png,해리소나,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_18.png,bl_skill_01_18.png,2026-06-28T21:33:46+09:00
+bl_skill_01_17.png,헤드 헌트,블레이드,blade,blade/bl_skill_01_17.png,해리소나,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bl_skill/bl_skill_01_17.png,bl_skill_01_17.png,2026-06-28T21:33:46+09:00
+bs_skill_01_32.png,A.C.O.M : 출격,블래스터,blaster,blaster/bs_skill_01_32.png,몽키,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_32.png,bs_skill_01_32.png,2026-06-28T21:29:33+09:00
+bs_skill_01_31.png,A.C.O.M : 폭격 지원,블래스터,blaster,blaster/bs_skill_01_31.png,몽키,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_31.png,bs_skill_01_31.png,2026-06-28T21:29:33+09:00
+bs_skill_01_0.png,강화탄,블래스터,blaster,blaster/bs_skill_01_0.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_0.png,bs_skill_01_0.png,2026-06-28T21:29:33+09:00
+bs_skill_01_12.png,개틀링건,블래스터,blaster,blaster/bs_skill_01_12.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_12.png,bs_skill_01_12.png,2026-06-28T21:29:33+09:00
+bs_skill_01_28.png,고압열탄,블래스터,blaster,blaster/bs_skill_01_28.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_28.png,bs_skill_01_28.png,2026-06-28T21:29:33+09:00
+bs_skill_01_4.png,곡사포,블래스터,blaster,blaster/bs_skill_01_4.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_4.png,bs_skill_01_4.png,2026-06-28T21:29:33+09:00
+bs_skill_01_6.png,공중 폭격,블래스터,blaster,blaster/bs_skill_01_6.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_6.png,bs_skill_01_6.png,2026-06-28T21:29:33+09:00
+bs_skill_01_13.png,네이팜탄,블래스터,blaster,blaster/bs_skill_01_13.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_13.png,bs_skill_01_13.png,2026-06-28T21:29:33+09:00
+bs_skill_01_3.png,다연장로켓포,블래스터,blaster,blaster/bs_skill_01_3.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_3.png,bs_skill_01_3.png,2026-06-28T21:29:33+09:00
+bs_skill_01_30.png,미사일 런처,블래스터,blaster,blaster/bs_skill_01_30.png,몽키,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_30.png,bs_skill_01_30.png,2026-06-28T21:29:33+09:00
+bs_skill_01_23.png,미사일 포화,블래스터,blaster,blaster/bs_skill_01_23.png,몽키,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_23.png,bs_skill_01_23.png,2026-06-28T21:29:33+09:00
+bs_skill_01_22.png,미사일 폭격,블래스터,blaster,blaster/bs_skill_01_22.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_22.png,bs_skill_01_22.png,2026-06-28T21:29:33+09:00
+bs_skill_01_2.png,산탄,블래스터,blaster,blaster/bs_skill_01_2.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_2.png,bs_skill_01_2.png,2026-06-28T21:29:33+09:00
+bs_skill_01_11.png,에너지 필드,블래스터,blaster,blaster/bs_skill_01_11.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_11.png,bs_skill_01_11.png,2026-06-28T21:29:33+09:00
+bs_skill_01_19.png,전방 포격,블래스터,blaster,blaster/bs_skill_01_19.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_19.png,bs_skill_01_19.png,2026-06-28T21:29:33+09:00
+bs_skill_01_10.png,점프 포격,블래스터,blaster,blaster/bs_skill_01_10.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_10.png,bs_skill_01_10.png,2026-06-28T21:29:33+09:00
+bs_skill_01_20.png,중력 폭발,블래스터,blaster,blaster/bs_skill_01_20.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_20.png,bs_skill_01_20.png,2026-06-28T21:29:33+09:00
+bs_skill_01_15.png,포격 : 곡사포,블래스터,blaster,blaster/bs_skill_01_15.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_15.png,bs_skill_01_15.png,2026-06-28T21:29:33+09:00
+bs_skill_01_29.png,포격 : 스틸 레인,블래스터,blaster,blaster/bs_skill_01_29.png,몽키,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_29.png,bs_skill_01_29.png,2026-06-28T21:29:33+09:00
+bs_skill_01_8.png,포격 : 에너지 포,블래스터,blaster,blaster/bs_skill_01_8.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_8.png,bs_skill_01_8.png,2026-06-28T21:29:33+09:00
+bs_skill_01_25.png,포격 : 절대 영역,블래스터,blaster,blaster/bs_skill_01_25.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_25.png,bs_skill_01_25.png,2026-06-28T21:29:33+09:00
+bs_skill_01_18.png,포격 : 집중포화,블래스터,blaster,blaster/bs_skill_01_18.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_18.png,bs_skill_01_18.png,2026-06-28T21:29:33+09:00
+bs_skill_01_5.png,포탑 소환,블래스터,blaster,blaster/bs_skill_01_5.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_5.png,bs_skill_01_5.png,2026-06-28T21:29:33+09:00
+bs_skill_01_21.png,플라즈마 스톰,블래스터,blaster,blaster/bs_skill_01_21.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_21.png,bs_skill_01_21.png,2026-06-28T21:29:33+09:00
+bs_skill_01_26.png,헤비 터렛,블래스터,blaster,blaster/bs_skill_01_26.png,몽키,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_26.png,bs_skill_01_26.png,2026-06-28T21:29:33+09:00
+bs_skill_01_7.png,화염방사기,블래스터,blaster,blaster/bs_skill_01_7.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_7.png,bs_skill_01_7.png,2026-06-28T21:29:33+09:00
+bs_skill_01_9.png,휘두르기,블래스터,blaster,blaster/bs_skill_01_9.png,몽키,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bs_skill/bs_skill_01_9.png,bs_skill_01_9.png,2026-06-28T21:29:33+09:00
+ifm_skill_01_4.png,권왕의 진격,브레이커,breaker,breaker/ifm_skill_01_4.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_4.png,ifm_skill_01_4.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_11.png,금강난격,브레이커,breaker,breaker/ifm_skill_01_11.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_11.png,ifm_skill_01_11.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_16.png,대지파쇄권,브레이커,breaker,breaker/ifm_skill_01_16.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_16.png,ifm_skill_01_16.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_10.png,백렬권,브레이커,breaker,breaker/ifm_skill_01_10.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_10.png,ifm_skill_01_10.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_6.png,비뢰격,브레이커,breaker,breaker/ifm_skill_01_6.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_6.png,ifm_skill_01_6.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_15.png,비상격,브레이커,breaker,breaker/ifm_skill_01_15.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_15.png,ifm_skill_01_15.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_30.png,성운멸쇄권,브레이커,breaker,breaker/ifm_skill_01_30.png,RE트레이커,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_30.png,ifm_skill_01_30.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_9.png,연속전격,브레이커,breaker,breaker/ifm_skill_01_9.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_9.png,ifm_skill_01_9.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_5.png,연쇄 돌풍,브레이커,breaker,breaker/ifm_skill_01_5.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_5.png,ifm_skill_01_5.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_19.png,연의붕권,브레이커,breaker,breaker/ifm_skill_01_19.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_19.png,ifm_skill_01_19.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_7.png,유성 낙하,브레이커,breaker,breaker/ifm_skill_01_7.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_7.png,ifm_skill_01_7.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_32.png,일월신권,브레이커,breaker,breaker/ifm_skill_01_32.png,RE트레이커,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_32.png,ifm_skill_01_32.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_8.png,즉결타,브레이커,breaker,breaker/ifm_skill_01_8.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_8.png,ifm_skill_01_8.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_17.png,진 파공권,브레이커,breaker,breaker/ifm_skill_01_17.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_17.png,ifm_skill_01_17.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_12.png,징벌의 파도,브레이커,breaker,breaker/ifm_skill_01_12.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_12.png,ifm_skill_01_12.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_13.png,척결,브레이커,breaker,breaker/ifm_skill_01_13.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_13.png,ifm_skill_01_13.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_31.png,천견지종,브레이커,breaker,breaker/ifm_skill_01_31.png,RE트레이커,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_31.png,ifm_skill_01_31.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_20.png,천기심권,브레이커,breaker,breaker/ifm_skill_01_20.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_20.png,ifm_skill_01_20.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_22.png,천문격파,브레이커,breaker,breaker/ifm_skill_01_22.png,RE트레이커,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_22.png,ifm_skill_01_22.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_29.png,천왕지무,브레이커,breaker,breaker/ifm_skill_01_29.png,RE트레이커,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_29.png,ifm_skill_01_29.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_18.png,청월난무,브레이커,breaker,breaker/ifm_skill_01_18.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_18.png,ifm_skill_01_18.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_21.png,파천섬광,브레이커,breaker,breaker/ifm_skill_01_21.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_21.png,ifm_skill_01_21.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_23.png,환무월명권,브레이커,breaker,breaker/ifm_skill_01_23.png,RE트레이커,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_23.png,ifm_skill_01_23.png,2026-06-28T21:26:40+09:00
+ifm_skill_01_14.png,휩쓸기,브레이커,breaker,breaker/ifm_skill_01_14.png,RE트레이커,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ifm_skill/ifm_skill_01_14.png,ifm_skill_01_14.png,2026-06-28T21:26:40+09:00
+dm_skill_01_3.png,게이트 오브 이럽션,데모닉,demonic,demonic/dm_skill_01_3.png,탄지로,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_3.png,dm_skill_01_3.png,2026-06-28T21:32:49+09:00
+dm_skill_01_22.png,고어 블리딩,데모닉,demonic,demonic/dm_skill_01_22.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_22.png,dm_skill_01_22.png,2026-06-28T21:32:49+09:00
+dm_skill_01_8.png,그라인드 체인,데모닉,demonic,demonic/dm_skill_01_8.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_8.png,dm_skill_01_8.png,2026-06-28T21:32:49+09:00
+dm_skill_01_5.png,님블컷,데모닉,demonic,demonic/dm_skill_01_5.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_5.png,dm_skill_01_5.png,2026-06-28T21:32:49+09:00
+dm_skill_01_30.png,다크니스 블라스트,데모닉,demonic,demonic/dm_skill_01_30.png,탄지로,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_30.png,dm_skill_01_30.png,2026-06-28T21:32:49+09:00
+dm_skill_01_4.png,데모닉 슬래쉬,데모닉,demonic,demonic/dm_skill_01_4.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_4.png,dm_skill_01_4.png,2026-06-28T21:32:49+09:00
+dm_skill_01_14.png,데몬 그랩,데모닉,demonic,demonic/dm_skill_01_14.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_14.png,dm_skill_01_14.png,2026-06-28T21:32:49+09:00
+dm_skill_01_17.png,데몬 비전,데모닉,demonic,demonic/dm_skill_01_17.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_17.png,dm_skill_01_17.png,2026-06-28T21:32:49+09:00
+dm_skill_01_13.png,데몰리션,데모닉,demonic,demonic/dm_skill_01_13.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_13.png,dm_skill_01_13.png,2026-06-28T21:32:49+09:00
+dm_skill_01_21.png,데스 클로,데모닉,demonic,demonic/dm_skill_01_21.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_21.png,dm_skill_01_21.png,2026-06-28T21:32:49+09:00
+dm_skill_01_28.png,데시메이트,데모닉,demonic,demonic/dm_skill_01_28.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_28.png,dm_skill_01_28.png,2026-06-28T21:32:49+09:00
+dm_skill_01_23.png,디스트럭션,데모닉,demonic,demonic/dm_skill_01_23.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_23.png,dm_skill_01_23.png,2026-06-28T21:32:49+09:00
+dm_skill_01_15.png,라이징 클로,데모닉,demonic,demonic/dm_skill_01_15.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_15.png,dm_skill_01_15.png,2026-06-28T21:32:49+09:00
+dm_skill_01_31.png,레이 오브 루인,데모닉,demonic,demonic/dm_skill_01_31.png,탄지로,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_31.png,dm_skill_01_31.png,2026-06-28T21:32:49+09:00
+dm_skill_01_20.png,루인 러쉬,데모닉,demonic,demonic/dm_skill_01_20.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_20.png,dm_skill_01_20.png,2026-06-28T21:32:49+09:00
+dm_skill_01_24.png,리프 블로우,데모닉,demonic,demonic/dm_skill_01_24.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_24.png,dm_skill_01_24.png,2026-06-28T21:32:49+09:00
+dm_skill_01_7.png,브루탈 크로스,데모닉,demonic,demonic/dm_skill_01_7.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_7.png,dm_skill_01_7.png,2026-06-28T21:32:49+09:00
+dm_skill_01_33.png,블러드 마쉬,데모닉,demonic,demonic/dm_skill_01_33.png,탄지로,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_33.png,dm_skill_01_33.png,2026-06-28T21:32:49+09:00
+dm_skill_01_25.png,블러드 매서커,데모닉,demonic,demonic/dm_skill_01_25.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_25.png,dm_skill_01_25.png,2026-06-28T21:32:49+09:00
+dm_skill_01_35.png,블러드 볼텍스,데모닉,demonic,demonic/dm_skill_01_35.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_35.png,dm_skill_01_35.png,2026-06-28T21:32:49+09:00
+ark_passive_dm_5.png,블러드 피어싱,데모닉,demonic,demonic/ark_passive_dm_5.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ark_passive_dm/ark_passive_dm_5.png,ark_passive_dm_5.png,2026-06-28T21:32:49+09:00
+dm_skill_01_10.png,샤펀 컷,데모닉,demonic,demonic/dm_skill_01_10.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_10.png,dm_skill_01_10.png,2026-06-28T21:32:49+09:00
+dm_skill_01_9.png,스피닝 다이브,데모닉,demonic,demonic/dm_skill_01_9.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_9.png,dm_skill_01_9.png,2026-06-28T21:32:49+09:00
+dm_skill_01_27.png,스피닝 웨폰,데모닉,demonic,demonic/dm_skill_01_27.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_27.png,dm_skill_01_27.png,2026-06-28T21:32:49+09:00
+dm_skill_01_6.png,슬래셔,데모닉,demonic,demonic/dm_skill_01_6.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_6.png,dm_skill_01_6.png,2026-06-28T21:32:49+09:00
+dm_skill_01_12.png,쓰러스트 임팩트,데모닉,demonic,demonic/dm_skill_01_12.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_12.png,dm_skill_01_12.png,2026-06-28T21:32:49+09:00
+dm_skill_01_32.png,와일드 슬래쉬,데모닉,demonic,demonic/dm_skill_01_32.png,탄지로,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_32.png,dm_skill_01_32.png,2026-06-28T21:32:49+09:00
+dm_skill_01_29.png,제노사이드,데모닉,demonic,demonic/dm_skill_01_29.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_29.png,dm_skill_01_29.png,2026-06-28T21:32:49+09:00
+dm_skill_01_11.png,크루얼 커터,데모닉,demonic,demonic/dm_skill_01_11.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_11.png,dm_skill_01_11.png,2026-06-28T21:32:49+09:00
+dm_skill_01_26.png,폴른 루인,데모닉,demonic,demonic/dm_skill_01_26.png,탄지로,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_26.png,dm_skill_01_26.png,2026-06-28T21:32:49+09:00
+dm_skill_01_16.png,피어스 쏜,데모닉,demonic,demonic/dm_skill_01_16.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_16.png,dm_skill_01_16.png,2026-06-28T21:32:49+09:00
+dm_skill_01_18.png,하울링,데모닉,demonic,demonic/dm_skill_01_18.png,탄지로,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dm_skill/dm_skill_01_18.png,dm_skill_01_18.png,2026-06-28T21:32:49+09:00
+dt_skill_01_26.png,갤럭시 브레이크,디스트로이어,destroyer,destroyer/dt_skill_01_26.png,흑인파워,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_26.png,dt_skill_01_26.png,2026-06-28T21:14:15+09:00
+dt_skill_01_1.png,그라비티 임팩트,디스트로이어,destroyer,destroyer/dt_skill_01_1.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_1.png,dt_skill_01_1.png,2026-06-28T21:14:15+09:00
+dt_skill_01_15.png,그라비티 컴프레이션,디스트로이어,destroyer,destroyer/dt_skill_01_15.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_15.png,dt_skill_01_15.png,2026-06-28T21:14:15+09:00
+dt_skill_01_17.png,그라비티 포스,디스트로이어,destroyer,destroyer/dt_skill_01_17.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_17.png,dt_skill_01_17.png,2026-06-28T21:14:15+09:00
+dt_skill_01_2.png,뉴트럴라이저,디스트로이어,destroyer,destroyer/dt_skill_01_2.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_2.png,dt_skill_01_2.png,2026-06-28T21:14:15+09:00
+dt_skill_01_3.png,드레드노트,디스트로이어,destroyer,destroyer/dt_skill_01_3.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_3.png,dt_skill_01_3.png,2026-06-28T21:14:15+09:00
+dt_skill_01_16.png,러닝 크래쉬,디스트로이어,destroyer,destroyer/dt_skill_01_16.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_16.png,dt_skill_01_16.png,2026-06-28T21:14:15+09:00
+dt_skill_01_21.png,빅뱅,디스트로이어,destroyer,destroyer/dt_skill_01_21.png,흑인파워,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_21.png,dt_skill_01_21.png,2026-06-28T21:14:15+09:00
+dt_skill_01_10.png,사이즈믹 해머,디스트로이어,destroyer,destroyer/dt_skill_01_10.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_10.png,dt_skill_01_10.png,2026-06-28T21:14:15+09:00
+dt_skill_01_25.png,슈퍼 노바,디스트로이어,destroyer,destroyer/dt_skill_01_25.png,흑인파워,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_25.png,dt_skill_01_25.png,2026-06-28T21:14:15+09:00
+dt_skill_01_5.png,어스 스매셔,디스트로이어,destroyer,destroyer/dt_skill_01_5.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_5.png,dt_skill_01_5.png,2026-06-28T21:14:15+09:00
+dt_skill_01_23.png,어스 웨이브,디스트로이어,destroyer,destroyer/dt_skill_01_23.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_23.png,dt_skill_01_23.png,2026-06-28T21:14:15+09:00
+dt_skill_01_11.png,어스 이터,디스트로이어,destroyer,destroyer/dt_skill_01_11.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_11.png,dt_skill_01_11.png,2026-06-28T21:14:15+09:00
+dt_skill_01_9.png,인듀어 페인,디스트로이어,destroyer,destroyer/dt_skill_01_9.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_9.png,dt_skill_01_9.png,2026-06-28T21:14:15+09:00
+dt_skill_01_12.png,점핑 스매쉬,디스트로이어,destroyer,destroyer/dt_skill_01_12.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_12.png,dt_skill_01_12.png,2026-06-28T21:14:15+09:00
+dt_skill_01_24.png,체인 스트라이크,디스트로이어,destroyer,destroyer/dt_skill_01_24.png,흑인파워,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_24.png,dt_skill_01_24.png,2026-06-28T21:14:15+09:00
+dt_skill_01_8.png,테라 브레이크,디스트로이어,destroyer,destroyer/dt_skill_01_8.png,흑인파워,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_8.png,dt_skill_01_8.png,2026-06-28T21:14:15+09:00
+dt_skill_01_18.png,파워 숄더,디스트로이어,destroyer,destroyer/dt_skill_01_18.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_18.png,dt_skill_01_18.png,2026-06-28T21:14:15+09:00
+dt_skill_01_14.png,파워 스트라이크,디스트로이어,destroyer,destroyer/dt_skill_01_14.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_14.png,dt_skill_01_14.png,2026-06-28T21:14:15+09:00
+dt_skill_01_13.png,퍼펙트 스윙,디스트로이어,destroyer,destroyer/dt_skill_01_13.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_13.png,dt_skill_01_13.png,2026-06-28T21:14:15+09:00
+dt_skill_01_7.png,풀 스윙,디스트로이어,destroyer,destroyer/dt_skill_01_7.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_7.png,dt_skill_01_7.png,2026-06-28T21:14:15+09:00
+dt_skill_01_27.png,하이퍼 빅뱅,디스트로이어,destroyer,destroyer/dt_skill_01_27.png,흑인파워,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_27.png,dt_skill_01_27.png,2026-06-28T21:14:15+09:00
+dt_skill_01_0.png,헤비 크러쉬,디스트로이어,destroyer,destroyer/dt_skill_01_0.png,흑인파워,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dt_skill/dt_skill_01_0.png,dt_skill_01_0.png,2026-06-28T21:14:15+09:00
+dh_skill_01_8.png,AT02 유탄,데빌헌터,devilhunter,devilhunter/dh_skill_01_8.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_8.png,dh_skill_01_8.png,2026-06-28T21:29:03+09:00
+dh_skill_01_9.png,나선의 추적자,데빌헌터,devilhunter,devilhunter/dh_skill_01_9.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_9.png,dh_skill_01_9.png,2026-06-28T21:29:03+09:00
+dh_skill_01_12.png,대재앙,데빌헌터,devilhunter,devilhunter/dh_skill_01_12.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_12.png,dh_skill_01_12.png,2026-06-28T21:29:03+09:00
+dh_skill_01_53.png,데들리 케이지,데빌헌터,devilhunter,devilhunter/dh_skill_01_53.png,데헌이에영,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_53.png,dh_skill_01_53.png,2026-06-28T21:29:03+09:00
+dh_skill_01_5.png,데스파이어,데빌헌터,devilhunter,devilhunter/dh_skill_01_5.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_5.png,dh_skill_01_5.png,2026-06-28T21:29:03+09:00
+dh_skill_01_47.png,데스페라도,데빌헌터,devilhunter,devilhunter/dh_skill_01_47.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_47.png,dh_skill_01_47.png,2026-06-28T21:29:03+09:00
+dh_skill_01_51.png,둠스 데이,데빌헌터,devilhunter,devilhunter/dh_skill_01_51.png,데헌이에영,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_51.png,dh_skill_01_51.png,2026-06-28T21:29:03+09:00
+dh_skill_01_50.png,래피드 파이어,데빌헌터,devilhunter,devilhunter/dh_skill_01_50.png,데헌이에영,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_50.png,dh_skill_01_50.png,2026-06-28T21:29:03+09:00
+dh_skill_01_0.png,메테오 스트림,데빌헌터,devilhunter,devilhunter/dh_skill_01_0.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_0.png,dh_skill_01_0.png,2026-06-28T21:29:03+09:00
+dh_skill_01_16.png,민첩한 사격,데빌헌터,devilhunter,devilhunter/dh_skill_01_16.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_16.png,dh_skill_01_16.png,2026-06-28T21:29:03+09:00
+dh_skill_01_27.png,버스팅 플레어,데빌헌터,devilhunter,devilhunter/dh_skill_01_27.png,데헌이에영,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_27.png,dh_skill_01_27.png,2026-06-28T21:29:03+09:00
+dh_skill_01_60.png,블라우어 블리츠,데빌헌터,devilhunter,devilhunter/dh_skill_01_60.png,데헌이에영,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_60.png,dh_skill_01_60.png,2026-06-28T21:29:03+09:00
+dh_skill_01_4.png,사형 집행,데빌헌터,devilhunter,devilhunter/dh_skill_01_4.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_4.png,dh_skill_01_4.png,2026-06-28T21:29:03+09:00
+dh_skill_01_14.png,샷건 연사,데빌헌터,devilhunter,devilhunter/dh_skill_01_14.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_14.png,dh_skill_01_14.png,2026-06-28T21:29:03+09:00
+dh_skill_01_25.png,샷건의 지배자,데빌헌터,devilhunter,devilhunter/dh_skill_01_25.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_25.png,dh_skill_01_25.png,2026-06-28T21:29:03+09:00
+dh_skill_01_1.png,스파이럴 플레임,데빌헌터,devilhunter,devilhunter/dh_skill_01_1.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_1.png,dh_skill_01_1.png,2026-06-28T21:29:03+09:00
+dh_skill_01_48.png,심판의 날,데빌헌터,devilhunter,devilhunter/dh_skill_01_48.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_48.png,dh_skill_01_48.png,2026-06-28T21:29:03+09:00
+dh_skill_01_19.png,썸머솔트샷,데빌헌터,devilhunter,devilhunter/dh_skill_01_19.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_19.png,dh_skill_01_19.png,2026-06-28T21:29:03+09:00
+dh_skill_01_49.png,원샷원킬,데빌헌터,devilhunter,devilhunter/dh_skill_01_49.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_49.png,dh_skill_01_49.png,2026-06-28T21:29:03+09:00
+dh_skill_01_20.png,이퀄리브리엄,데빌헌터,devilhunter,devilhunter/dh_skill_01_20.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_20.png,dh_skill_01_20.png,2026-06-28T21:29:03+09:00
+dh_skill_01_17.png,잔혹한 추적자,데빌헌터,devilhunter,devilhunter/dh_skill_01_17.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_17.png,dh_skill_01_17.png,2026-06-28T21:29:03+09:00
+dh_skill_01_22.png,조준 사격,데빌헌터,devilhunter,devilhunter/dh_skill_01_22.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_22.png,dh_skill_01_22.png,2026-06-28T21:29:03+09:00
+dh_skill_01_3.png,종말의 전조,데빌헌터,devilhunter,devilhunter/dh_skill_01_3.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_3.png,dh_skill_01_3.png,2026-06-28T21:29:03+09:00
+dh_skill_01_52.png,죽음의 표적,데빌헌터,devilhunter,devilhunter/dh_skill_01_52.png,데헌이에영,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_52.png,dh_skill_01_52.png,2026-06-28T21:29:03+09:00
+dh_skill_01_21.png,최후의 만찬,데빌헌터,devilhunter,devilhunter/dh_skill_01_21.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_21.png,dh_skill_01_21.png,2026-06-28T21:29:03+09:00
+dh_skill_01_24.png,퀵 샷,데빌헌터,devilhunter,devilhunter/dh_skill_01_24.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_24.png,dh_skill_01_24.png,2026-06-28T21:29:03+09:00
+dh_skill_01_23.png,클레이 폭격,데빌헌터,devilhunter,devilhunter/dh_skill_01_23.png,데헌이에영,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_23.png,dh_skill_01_23.png,2026-06-28T21:29:03+09:00
+dh_skill_01_26.png,퍼펙트 샷,데빌헌터,devilhunter,devilhunter/dh_skill_01_26.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_26.png,dh_skill_01_26.png,2026-06-28T21:29:03+09:00
+dh_skill_01_10.png,플라즈마 불릿,데빌헌터,devilhunter,devilhunter/dh_skill_01_10.png,데헌이에영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_10.png,dh_skill_01_10.png,2026-06-28T21:29:03+09:00
+dh_skill_01_8.png,AT02 유탄,건슬링어,gunslinger,gunslinger/dh_skill_01_8.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_8.png,dh_skill_01_8.png,2026-06-28T21:28:34+09:00
+dh_skill_01_9.png,나선의 추적자,건슬링어,gunslinger,gunslinger/dh_skill_01_9.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_9.png,dh_skill_01_9.png,2026-06-28T21:28:34+09:00
+dh_skill_01_45.png,대구경 폭발 탄환,건슬링어,gunslinger,gunslinger/dh_skill_01_45.png,엑빈,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_45.png,dh_skill_01_45.png,2026-06-28T21:28:34+09:00
+dh_skill_01_12.png,대재앙,건슬링어,gunslinger,gunslinger/dh_skill_01_12.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_12.png,dh_skill_01_12.png,2026-06-28T21:28:34+09:00
+dh_skill_01_58.png,데드 엔드,건슬링어,gunslinger,gunslinger/dh_skill_01_58.png,엑빈,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_58.png,dh_skill_01_58.png,2026-06-28T21:28:34+09:00
+dh_skill_01_37.png,데스파이어,건슬링어,gunslinger,gunslinger/dh_skill_01_37.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_37.png,dh_skill_01_37.png,2026-06-28T21:28:34+09:00
+dh_skill_01_33.png,레인 오브 불릿,건슬링어,gunslinger,gunslinger/dh_skill_01_33.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_33.png,dh_skill_01_33.png,2026-06-28T21:28:34+09:00
+dh_skill_01_40.png,마탄의 사수,건슬링어,gunslinger,gunslinger/dh_skill_01_40.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_40.png,dh_skill_01_40.png,2026-06-28T21:28:34+09:00
+dh_skill_01_35.png,메테오 스트림,건슬링어,gunslinger,gunslinger/dh_skill_01_35.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_35.png,dh_skill_01_35.png,2026-06-28T21:28:34+09:00
+dh_skill_01_36.png,민첩한 사격,건슬링어,gunslinger,gunslinger/dh_skill_01_36.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_36.png,dh_skill_01_36.png,2026-06-28T21:28:34+09:00
+dh_skill_01_57.png,불스 아이,건슬링어,gunslinger,gunslinger/dh_skill_01_57.png,엑빈,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_57.png,dh_skill_01_57.png,2026-06-28T21:28:34+09:00
+dh_skill_01_41.png,샷건 연사,건슬링어,gunslinger,gunslinger/dh_skill_01_41.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_41.png,dh_skill_01_41.png,2026-06-28T21:28:34+09:00
+dh_skill_01_56.png,세븐 샷건,건슬링어,gunslinger,gunslinger/dh_skill_01_56.png,엑빈,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_56.png,dh_skill_01_56.png,2026-06-28T21:28:34+09:00
+dh_skill_01_1.png,스파이럴 플레임,건슬링어,gunslinger,gunslinger/dh_skill_01_1.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_1.png,dh_skill_01_1.png,2026-06-28T21:28:34+09:00
+dh_skill_01_38.png,심판의 시간,건슬링어,gunslinger,gunslinger/dh_skill_01_38.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_38.png,dh_skill_01_38.png,2026-06-28T21:28:34+09:00
+dh_skill_01_19.png,썸머솔트샷,건슬링어,gunslinger,gunslinger/dh_skill_01_19.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_19.png,dh_skill_01_19.png,2026-06-28T21:28:34+09:00
+dh_skill_01_59.png,아토믹 익스플로전,건슬링어,gunslinger,gunslinger/dh_skill_01_59.png,엑빈,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_59.png,dh_skill_01_59.png,2026-06-28T21:28:34+09:00
+dh_skill_01_20.png,이퀄리브리엄,건슬링어,gunslinger,gunslinger/dh_skill_01_20.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_20.png,dh_skill_01_20.png,2026-06-28T21:28:34+09:00
+dh_skill_01_39.png,절멸의 탄환,건슬링어,gunslinger,gunslinger/dh_skill_01_39.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_39.png,dh_skill_01_39.png,2026-06-28T21:28:34+09:00
+dh_skill_01_21.png,최후의 만찬,건슬링어,gunslinger,gunslinger/dh_skill_01_21.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_21.png,dh_skill_01_21.png,2026-06-28T21:28:34+09:00
+dh_skill_01_32.png,퀵 스텝,건슬링어,gunslinger,gunslinger/dh_skill_01_32.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_32.png,dh_skill_01_32.png,2026-06-28T21:28:34+09:00
+dh_skill_01_42.png,타겟 다운,건슬링어,gunslinger,gunslinger/dh_skill_01_42.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_42.png,dh_skill_01_42.png,2026-06-28T21:28:34+09:00
+dh_skill_01_26.png,퍼펙트 샷,건슬링어,gunslinger,gunslinger/dh_skill_01_26.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_26.png,dh_skill_01_26.png,2026-06-28T21:28:34+09:00
+dh_skill_01_43.png,포커스 샷,건슬링어,gunslinger,gunslinger/dh_skill_01_43.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_43.png,dh_skill_01_43.png,2026-06-28T21:28:34+09:00
+dh_skill_01_55.png,프리즌 불릿,건슬링어,gunslinger,gunslinger/dh_skill_01_55.png,엑빈,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_55.png,dh_skill_01_55.png,2026-06-28T21:28:34+09:00
+dh_skill_01_10.png,플라즈마 불릿,건슬링어,gunslinger,gunslinger/dh_skill_01_10.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_10.png,dh_skill_01_10.png,2026-06-28T21:28:34+09:00
+dh_skill_01_34.png,피스키퍼,건슬링어,gunslinger,gunslinger/dh_skill_01_34.png,엑빈,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_34.png,dh_skill_01_34.png,2026-06-28T21:28:34+09:00
+dh_skill_01_44.png,황혼의 눈,건슬링어,gunslinger,gunslinger/dh_skill_01_44.png,엑빈,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dh_skill/dh_skill_01_44.png,dh_skill_01_44.png,2026-06-28T21:28:34+09:00
+he_skill_01_29.png,A.A.G.A : 데드 아이,호크아이,hawkeye,hawkeye/he_skill_01_29.png,이승건,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_29.png,he_skill_01_29.png,2026-06-28T21:30:32+09:00
+he_skill_01_11.png,DM-42,호크아이,hawkeye,hawkeye/he_skill_01_11.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_11.png,he_skill_01_11.png,2026-06-28T21:30:32+09:00
+he_skill_01_24.png,골든 아이,호크아이,hawkeye,hawkeye/he_skill_01_24.png,이승건,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_24.png,he_skill_01_24.png,2026-06-28T21:30:32+09:00
+he_skill_01_16.png,그림자 화살,호크아이,hawkeye,hawkeye/he_skill_01_16.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_16.png,he_skill_01_16.png,2026-06-28T21:30:32+09:00
+he_skill_01_12.png,급소 베기,호크아이,hawkeye,hawkeye/he_skill_01_12.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_12.png,he_skill_01_12.png,2026-06-28T21:30:32+09:00
+he_skill_01_28.png,기간틱 보우 : 펜리르,호크아이,hawkeye,hawkeye/he_skill_01_28.png,이승건,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_28.png,he_skill_01_28.png,2026-06-28T21:30:32+09:00
+he_skill_01_27.png,락온,호크아이,hawkeye,hawkeye/he_skill_01_27.png,이승건,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_27.png,he_skill_01_27.png,2026-06-28T21:30:32+09:00
+he_skill_01_1.png,래피드 샷,호크아이,hawkeye,hawkeye/he_skill_01_1.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_1.png,he_skill_01_1.png,2026-06-28T21:30:32+09:00
+he_skill_01_14.png,블레이드 스톰,호크아이,hawkeye,hawkeye/he_skill_01_14.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_14.png,he_skill_01_14.png,2026-06-28T21:30:32+09:00
+he_skill_01_10.png,샤프 슈터,호크아이,hawkeye,hawkeye/he_skill_01_10.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_10.png,he_skill_01_10.png,2026-06-28T21:30:32+09:00
+he_skill_01_18.png,스나이프,호크아이,hawkeye,hawkeye/he_skill_01_18.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_18.png,he_skill_01_18.png,2026-06-28T21:30:32+09:00
+he_skill_01_26.png,스파이럴 애로우,호크아이,hawkeye,hawkeye/he_skill_01_26.png,이승건,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_26.png,he_skill_01_26.png,2026-06-28T21:30:32+09:00
+he_skill_01_3.png,아토믹 애로우,호크아이,hawkeye,hawkeye/he_skill_01_3.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_3.png,he_skill_01_3.png,2026-06-28T21:30:32+09:00
+he_skill_01_7.png,애로우 샤워,호크아이,hawkeye,hawkeye/he_skill_01_7.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_7.png,he_skill_01_7.png,2026-06-28T21:30:32+09:00
+he_skill_01_6.png,애로우 해일,호크아이,hawkeye,hawkeye/he_skill_01_6.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_6.png,he_skill_01_6.png,2026-06-28T21:30:32+09:00
+he_skill_01_5.png,연막 화살,호크아이,hawkeye,hawkeye/he_skill_01_5.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_5.png,he_skill_01_5.png,2026-06-28T21:30:32+09:00
+he_skill_01_13.png,이동 베기,호크아이,hawkeye,hawkeye/he_skill_01_13.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_13.png,he_skill_01_13.png,2026-06-28T21:30:32+09:00
+he_skill_01_2.png,일제 사격,호크아이,hawkeye,hawkeye/he_skill_01_2.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_2.png,he_skill_01_2.png,2026-06-28T21:30:32+09:00
+he_skill_01_17.png,집요한 추적,호크아이,hawkeye,hawkeye/he_skill_01_17.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_17.png,he_skill_01_17.png,2026-06-28T21:30:32+09:00
+he_skill_01_8.png,차징 샷,호크아이,hawkeye,hawkeye/he_skill_01_8.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_8.png,he_skill_01_8.png,2026-06-28T21:30:32+09:00
+he_skill_01_15.png,크레모아 지뢰,호크아이,hawkeye,hawkeye/he_skill_01_15.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_15.png,he_skill_01_15.png,2026-06-28T21:30:32+09:00
+he_skill_01_22.png,펜리르의 전령,호크아이,hawkeye,hawkeye/he_skill_01_22.png,이승건,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_22.png,he_skill_01_22.png,2026-06-28T21:30:32+09:00
+he_skill_01_25.png,호크 샷,호크아이,hawkeye,hawkeye/he_skill_01_25.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_25.png,he_skill_01_25.png,2026-06-28T21:30:32+09:00
+he_skill_01_9.png,회피 사격,호크아이,hawkeye,hawkeye/he_skill_01_9.png,이승건,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/he_skill/he_skill_01_9.png,he_skill_01_9.png,2026-06-28T21:30:32+09:00
+hk_skill_01_4.png,돌진,홀리나이트,holyknight,holyknight/hk_skill_01_4.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_4.png,hk_skill_01_4.png,2026-06-28T21:25:16+09:00
+hk_skill_01_2.png,빛의 충격,홀리나이트,holyknight,holyknight/hk_skill_01_2.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_2.png,hk_skill_01_2.png,2026-06-28T21:25:16+09:00
+hk_skill_01_6.png,섬광 베기,홀리나이트,holyknight,holyknight/hk_skill_01_6.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_6.png,hk_skill_01_6.png,2026-06-28T21:25:16+09:00
+hk_skill_01_1.png,섬광 찌르기,홀리나이트,holyknight,holyknight/hk_skill_01_1.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_1.png,hk_skill_01_1.png,2026-06-28T21:25:16+09:00
+hk_skill_01_9.png,신성 지역,홀리나이트,holyknight,holyknight/hk_skill_01_9.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_9.png,hk_skill_01_9.png,2026-06-28T21:25:16+09:00
+hk_skill_01_7.png,신성 폭발,홀리나이트,holyknight,holyknight/hk_skill_01_7.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_7.png,hk_skill_01_7.png,2026-06-28T21:25:16+09:00
+hk_skill_01_16.png,신성검,홀리나이트,holyknight,holyknight/hk_skill_01_16.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_16.png,hk_skill_01_16.png,2026-06-28T21:25:16+09:00
+hk_skill_01_11.png,신성한 보호,홀리나이트,holyknight,holyknight/hk_skill_01_11.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_11.png,hk_skill_01_11.png,2026-06-28T21:25:16+09:00
+hk_skill_01_25.png,신성한 정의,홀리나이트,holyknight,holyknight/hk_skill_01_25.png,인성터진범고래,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_25.png,hk_skill_01_25.png,2026-06-28T21:25:16+09:00
+hk_skill_01_14.png,신의 분노,홀리나이트,holyknight,holyknight/hk_skill_01_14.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_14.png,hk_skill_01_14.png,2026-06-28T21:25:16+09:00
+hk_skill_01_12.png,신의 율법,홀리나이트,holyknight,holyknight/hk_skill_01_12.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_12.png,hk_skill_01_12.png,2026-06-28T21:25:16+09:00
+hk_skill_01_3.png,심판의 빛,홀리나이트,holyknight,holyknight/hk_skill_01_3.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_3.png,hk_skill_01_3.png,2026-06-28T21:25:16+09:00
+hk_skill_01_26.png,알리사노스의 격노,홀리나이트,holyknight,holyknight/hk_skill_01_26.png,인성터진범고래,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_26.png,hk_skill_01_26.png,2026-06-28T21:25:16+09:00
+hk_skill_01_19.png,알리사노스의 빛,홀리나이트,holyknight,holyknight/hk_skill_01_19.png,인성터진범고래,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_19.png,hk_skill_01_19.png,2026-06-28T21:25:16+09:00
+hk_skill_01_18.png,알리사노스의 심판,홀리나이트,holyknight,holyknight/hk_skill_01_18.png,인성터진범고래,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_18.png,hk_skill_01_18.png,2026-06-28T21:25:16+09:00
+hk_skill_01_27.png,알리사노스의 헌신,홀리나이트,holyknight,holyknight/hk_skill_01_27.png,인성터진범고래,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_27.png,hk_skill_01_27.png,2026-06-28T21:25:16+09:00
+hk_skill_01_15.png,정의 집행,홀리나이트,holyknight,holyknight/hk_skill_01_15.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_15.png,hk_skill_01_15.png,2026-06-28T21:25:16+09:00
+hk_skill_01_5.png,정의의 검,홀리나이트,holyknight,holyknight/hk_skill_01_5.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_5.png,hk_skill_01_5.png,2026-06-28T21:25:16+09:00
+hk_skill_01_10.png,질주 베기,홀리나이트,holyknight,holyknight/hk_skill_01_10.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_10.png,hk_skill_01_10.png,2026-06-28T21:25:16+09:00
+hk_skill_01_13.png,집행자의 검,홀리나이트,holyknight,holyknight/hk_skill_01_13.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_13.png,hk_skill_01_13.png,2026-06-28T21:25:16+09:00
+hk_skill_01_8.png,처단,홀리나이트,holyknight,holyknight/hk_skill_01_8.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_8.png,hk_skill_01_8.png,2026-06-28T21:25:16+09:00
+hk_skill_01_17.png,천상의 축복,홀리나이트,holyknight,holyknight/hk_skill_01_17.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_17.png,hk_skill_01_17.png,2026-06-28T21:25:16+09:00
+hk_skill_01_24.png,판결 집행,홀리나이트,holyknight,holyknight/hk_skill_01_24.png,인성터진범고래,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_24.png,hk_skill_01_24.png,2026-06-28T21:25:16+09:00
+hk_skill_01_0.png,회전 베기,홀리나이트,holyknight,holyknight/hk_skill_01_0.png,인성터진범고래,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hk_skill/hk_skill_01_0.png,hk_skill_01_0.png,2026-06-28T21:25:16+09:00
+if_skill_01_29.png,극 : 파천섬멸권,인파이터,infighter,infighter/if_skill_01_29.png,헤다화,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_29.png,if_skill_01_29.png,2026-06-28T21:27:37+09:00
+if_skill_01_18.png,난타연권,인파이터,infighter,infighter/if_skill_01_18.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_18.png,if_skill_01_18.png,2026-06-28T21:27:37+09:00
+if_skill_01_14.png,맹호격,인파이터,infighter,infighter/if_skill_01_14.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_14.png,if_skill_01_14.png,2026-06-28T21:27:37+09:00
+if_skill_01_15.png,밀고 나가기,인파이터,infighter,infighter/if_skill_01_15.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_15.png,if_skill_01_15.png,2026-06-28T21:27:37+09:00
+if_skill_01_13.png,순간 타격,인파이터,infighter,infighter/if_skill_01_13.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_13.png,if_skill_01_13.png,2026-06-28T21:27:37+09:00
+if_skill_01_28.png,신룡창세,인파이터,infighter,infighter/if_skill_01_28.png,헤다화,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_28.png,if_skill_01_28.png,2026-06-28T21:27:37+09:00
+if_skill_01_9.png,심판,인파이터,infighter,infighter/if_skill_01_9.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_9.png,if_skill_01_9.png,2026-06-28T21:27:37+09:00
+if_skill_01_4.png,연환파신권,인파이터,infighter,infighter/if_skill_01_4.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_4.png,if_skill_01_4.png,2026-06-28T21:27:37+09:00
+if_skill_01_26.png,열혈폭격,인파이터,infighter,infighter/if_skill_01_26.png,헤다화,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_26.png,if_skill_01_26.png,2026-06-28T21:27:37+09:00
+if_skill_01_21.png,용왕불패,인파이터,infighter,infighter/if_skill_01_21.png,헤다화,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_21.png,if_skill_01_21.png,2026-06-28T21:27:37+09:00
+if_skill_01_5.png,용의 강림,인파이터,infighter,infighter/if_skill_01_5.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_5.png,if_skill_01_5.png,2026-06-28T21:27:37+09:00
+if_skill_01_12.png,일망 타진,인파이터,infighter,infighter/if_skill_01_12.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_12.png,if_skill_01_12.png,2026-06-28T21:27:37+09:00
+if_skill_01_0.png,전진의 일격,인파이터,infighter,infighter/if_skill_01_0.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_0.png,if_skill_01_0.png,2026-06-28T21:27:37+09:00
+if_skill_01_10.png,죽음의 선고,인파이터,infighter,infighter/if_skill_01_10.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_10.png,if_skill_01_10.png,2026-06-28T21:27:37+09:00
+if_skill_01_23.png,진 : 극멸권,인파이터,infighter,infighter/if_skill_01_23.png,헤다화,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_23.png,if_skill_01_23.png,2026-06-28T21:27:37+09:00
+if_skill_01_20.png,진 용출권,인파이터,infighter,infighter/if_skill_01_20.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_20.png,if_skill_01_20.png,2026-06-28T21:27:37+09:00
+if_skill_01_27.png,천지파권,인파이터,infighter,infighter/if_skill_01_27.png,헤다화,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_27.png,if_skill_01_27.png,2026-06-28T21:27:37+09:00
+if_skill_01_19.png,철포난격,인파이터,infighter,infighter/if_skill_01_19.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_19.png,if_skill_01_19.png,2026-06-28T21:27:37+09:00
+if_skill_01_11.png,초신성 폭발,인파이터,infighter,infighter/if_skill_01_11.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_11.png,if_skill_01_11.png,2026-06-28T21:27:37+09:00
+if_skill_01_22.png,파쇄격,인파이터,infighter,infighter/if_skill_01_22.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_22.png,if_skill_01_22.png,2026-06-28T21:27:37+09:00
+if_skill_01_2.png,파쇄의 강타,인파이터,infighter,infighter/if_skill_01_2.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_2.png,if_skill_01_2.png,2026-06-28T21:27:37+09:00
+if_skill_01_25.png,폭렬권,인파이터,infighter,infighter/if_skill_01_25.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_25.png,if_skill_01_25.png,2026-06-28T21:27:37+09:00
+if_skill_01_24.png,풍신권,인파이터,infighter,infighter/if_skill_01_24.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_24.png,if_skill_01_24.png,2026-06-28T21:27:37+09:00
+if_skill_01_7.png,회심의 일격,인파이터,infighter,infighter/if_skill_01_7.png,헤다화,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/if_skill/if_skill_01_7.png,if_skill_01_7.png,2026-06-28T21:27:37+09:00
+lm_skill_01_17.png,공의연무,창술사,lancemaster,lancemaster/lm_skill_01_17.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_17.png,lm_skill_01_17.png,2026-06-28T21:28:05+09:00
+lm_skill_01_22.png,굉열파,창술사,lancemaster,lancemaster/lm_skill_01_22.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_22.png,lm_skill_01_22.png,2026-06-28T21:28:05+09:00
+lm_skill_01_20.png,나선창,창술사,lancemaster,lancemaster/lm_skill_01_20.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_20.png,lm_skill_01_20.png,2026-06-28T21:28:05+09:00
+lm_skill_01_28.png,맹룡난무,창술사,lancemaster,lancemaster/lm_skill_01_28.png,사과잼민이,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_28.png,lm_skill_01_28.png,2026-06-28T21:28:05+09:00
+lm_skill_01_15.png,맹룡열파,창술사,lancemaster,lancemaster/lm_skill_01_15.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_15.png,lm_skill_01_15.png,2026-06-28T21:28:05+09:00
+lm_skill_01_12.png,반월섬,창술사,lancemaster,lancemaster/lm_skill_01_12.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_12.png,lm_skill_01_12.png,2026-06-28T21:28:05+09:00
+lm_skill_01_21.png,사두룡격,창술사,lancemaster,lancemaster/lm_skill_01_21.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_21.png,lm_skill_01_21.png,2026-06-28T21:28:05+09:00
+lm_skill_01_16.png,선풍참혼,창술사,lancemaster,lancemaster/lm_skill_01_16.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_16.png,lm_skill_01_16.png,2026-06-28T21:28:05+09:00
+lm_skill_01_31.png,연가창식: 마룡합일섬,창술사,lancemaster,lancemaster/lm_skill_01_31.png,사과잼민이,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_31.png,lm_skill_01_31.png,2026-06-28T21:28:05+09:00
+lm_skill_01_30.png,연가창식: 은하비섬창,창술사,lancemaster,lancemaster/lm_skill_01_30.png,사과잼민이,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_30.png,lm_skill_01_30.png,2026-06-28T21:28:05+09:00
+lm_skill_01_26.png,연가창식: 은하유성탄,창술사,lancemaster,lancemaster/lm_skill_01_26.png,사과잼민이,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_26.png,lm_skill_01_26.png,2026-06-28T21:28:05+09:00
+lm_skill_01_27.png,연가창식: 적룡질풍격,창술사,lancemaster,lancemaster/lm_skill_01_27.png,사과잼민이,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_27.png,lm_skill_01_27.png,2026-06-28T21:28:05+09:00
+lm_skill_01_13.png,연환섬,창술사,lancemaster,lancemaster/lm_skill_01_13.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_13.png,lm_skill_01_13.png,2026-06-28T21:28:05+09:00
+lm_skill_01_7.png,열공참,창술사,lancemaster,lancemaster/lm_skill_01_7.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_7.png,lm_skill_01_7.png,2026-06-28T21:28:05+09:00
+lm_skill_01_23.png,유성강천,창술사,lancemaster,lancemaster/lm_skill_01_23.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_23.png,lm_skill_01_23.png,2026-06-28T21:28:05+09:00
+lm_skill_01_5.png,이연격,창술사,lancemaster,lancemaster/lm_skill_01_5.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_5.png,lm_skill_01_5.png,2026-06-28T21:28:05+09:00
+lm_skill_01_9.png,일섬각,창술사,lancemaster,lancemaster/lm_skill_01_9.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_9.png,lm_skill_01_9.png,2026-06-28T21:28:05+09:00
+lm_skill_01_25.png,적룡포,창술사,lancemaster,lancemaster/lm_skill_01_25.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_25.png,lm_skill_01_25.png,2026-06-28T21:28:05+09:00
+lm_skill_01_29.png,적룡필살,창술사,lancemaster,lancemaster/lm_skill_01_29.png,사과잼민이,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_29.png,lm_skill_01_29.png,2026-06-28T21:28:05+09:00
+lm_skill_01_24.png,절룡세,창술사,lancemaster,lancemaster/lm_skill_01_24.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_24.png,lm_skill_01_24.png,2026-06-28T21:28:05+09:00
+lm_skill_01_14.png,질풍참,창술사,lancemaster,lancemaster/lm_skill_01_14.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_14.png,lm_skill_01_14.png,2026-06-28T21:28:05+09:00
+lm_skill_01_10.png,철량추,창술사,lancemaster,lancemaster/lm_skill_01_10.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_10.png,lm_skill_01_10.png,2026-06-28T21:28:05+09:00
+lm_skill_01_18.png,청룡진,창술사,lancemaster,lancemaster/lm_skill_01_18.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_18.png,lm_skill_01_18.png,2026-06-28T21:28:05+09:00
+lm_skill_01_11.png,청룡출수,창술사,lancemaster,lancemaster/lm_skill_01_11.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_11.png,lm_skill_01_11.png,2026-06-28T21:28:05+09:00
+lm_skill_01_6.png,풍진격,창술사,lancemaster,lancemaster/lm_skill_01_6.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_6.png,lm_skill_01_6.png,2026-06-28T21:28:05+09:00
+lm_skill_01_8.png,회선창,창술사,lancemaster,lancemaster/lm_skill_01_8.png,사과잼민이,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/lm_skill/lm_skill_01_8.png,lm_skill_01_8.png,2026-06-28T21:28:05+09:00
+rp_skill_01_18.png,댄싱 오브 퓨리,리퍼,reaper,reaper/rp_skill_01_18.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_18.png,rp_skill_01_18.png,2026-06-28T21:33:19+09:00
+rp_skill_01_9.png,데스 사이드,리퍼,reaper,reaper/rp_skill_01_9.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_9.png,rp_skill_01_9.png,2026-06-28T21:33:19+09:00
+rp_skill_01_10.png,디스토션,리퍼,reaper,reaper/rp_skill_01_10.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_10.png,rp_skill_01_10.png,2026-06-28T21:33:19+09:00
+rp_skill_01_15.png,라스트 그래피티,리퍼,reaper,reaper/rp_skill_01_15.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_15.png,rp_skill_01_15.png,2026-06-28T21:33:19+09:00
+rp_skill_01_16.png,레이지 스피어,리퍼,reaper,reaper/rp_skill_01_16.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_16.png,rp_skill_01_16.png,2026-06-28T21:33:19+09:00
+rp_skill_01_27.png,레퀴엠 델 솔,리퍼,reaper,reaper/rp_skill_01_27.png,Artback,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_27.png,rp_skill_01_27.png,2026-06-28T21:33:19+09:00
+rp_skill_01_13.png,블랙 미스트,리퍼,reaper,reaper/rp_skill_01_13.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_13.png,rp_skill_01_13.png,2026-06-28T21:33:19+09:00
+rp_skill_01_11.png,블링크,리퍼,reaper,reaper/rp_skill_01_11.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_11.png,rp_skill_01_11.png,2026-06-28T21:33:19+09:00
+rp_skill_01_17.png,사일런트 스매셔,리퍼,reaper,reaper/rp_skill_01_17.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_17.png,rp_skill_01_17.png,2026-06-28T21:33:19+09:00
+rp_skill_01_8.png,샤벨 스팅거,리퍼,reaper,reaper/rp_skill_01_8.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_8.png,rp_skill_01_8.png,2026-06-28T21:33:19+09:00
+rp_skill_01_28.png,쉐도우 나이프,리퍼,reaper,reaper/rp_skill_01_28.png,Artback,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_28.png,rp_skill_01_28.png,2026-06-28T21:33:19+09:00
+rp_skill_01_5.png,쉐도우 닷,리퍼,reaper,reaper/rp_skill_01_5.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_5.png,rp_skill_01_5.png,2026-06-28T21:33:19+09:00
+rp_skill_01_21.png,쉐도우 스톰,리퍼,reaper,reaper/rp_skill_01_21.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_21.png,rp_skill_01_21.png,2026-06-28T21:33:19+09:00
+rp_skill_01_14.png,쉐도우 트랩,리퍼,reaper,reaper/rp_skill_01_14.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_14.png,rp_skill_01_14.png,2026-06-28T21:33:19+09:00
+rp_skill_01_3.png,스피닝 대거,리퍼,reaper,reaper/rp_skill_01_3.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_3.png,rp_skill_01_3.png,2026-06-28T21:33:19+09:00
+rp_skill_01_4.png,스피릿 캐치,리퍼,reaper,reaper/rp_skill_01_4.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_4.png,rp_skill_01_4.png,2026-06-28T21:33:19+09:00
+rp_skill_01_19.png,월식 : 카덴차,리퍼,reaper,reaper/rp_skill_01_19.png,Artback,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_19.png,rp_skill_01_19.png,2026-06-28T21:33:19+09:00
+rp_skill_01_7.png,이블리스토,리퍼,reaper,reaper/rp_skill_01_7.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_7.png,rp_skill_01_7.png,2026-06-28T21:33:19+09:00
+rp_skill_01_20.png,일식 : 레퀴엠,리퍼,reaper,reaper/rp_skill_01_20.png,Artback,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_20.png,rp_skill_01_20.png,2026-06-28T21:33:19+09:00
+rp_skill_01_26.png,카덴차 델 루나,리퍼,reaper,reaper/rp_skill_01_26.png,Artback,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_26.png,rp_skill_01_26.png,2026-06-28T21:33:19+09:00
+rp_skill_01_12.png,콜 오브 나이프,리퍼,reaper,reaper/rp_skill_01_12.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_12.png,rp_skill_01_12.png,2026-06-28T21:33:19+09:00
+rp_skill_01_22.png,팬텀 댄서,리퍼,reaper,reaper/rp_skill_01_22.png,Artback,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_22.png,rp_skill_01_22.png,2026-06-28T21:33:19+09:00
+rp_skill_01_29.png,피니쉬 스텝,리퍼,reaper,reaper/rp_skill_01_29.png,Artback,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/rp_skill/rp_skill_01_29.png,rp_skill_01_29.png,2026-06-28T21:33:19+09:00
+sc_skill_01_5.png,고전압탄,스카우터,scouter,scouter/sc_skill_01_5.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_5.png,sc_skill_01_5.png,2026-06-28T21:30:03+09:00
+sc_skill_01_4.png,과충전 배터리,스카우터,scouter,scouter/sc_skill_01_4.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_4.png,sc_skill_01_4.png,2026-06-28T21:30:03+09:00
+sc_skill_01_9.png,기동 타격,스카우터,scouter,scouter/sc_skill_01_9.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_9.png,sc_skill_01_9.png,2026-06-28T21:30:03+09:00
+sc_skill_01_36.png,네오 파이어,스카우터,scouter,scouter/sc_skill_01_36.png,꼬마완두,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_36.png,sc_skill_01_36.png,2026-06-28T21:30:03+09:00
+sc_skill_01_26.png,레이저 블레이드,스카우터,scouter,scouter/sc_skill_01_26.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_26.png,sc_skill_01_26.png,2026-06-28T21:30:03+09:00
+sc_skill_01_15.png,명령 : M143 기관총,스카우터,scouter,scouter/sc_skill_01_15.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_15.png,sc_skill_01_15.png,2026-06-28T21:30:03+09:00
+sc_skill_01_18.png,명령 : 레이드 미사일,스카우터,scouter,scouter/sc_skill_01_18.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_18.png,sc_skill_01_18.png,2026-06-28T21:30:03+09:00
+sc_skill_01_17.png,명령 : 베이비 드론,스카우터,scouter,scouter/sc_skill_01_17.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_17.png,sc_skill_01_17.png,2026-06-28T21:30:03+09:00
+sc_skill_01_14.png,명령 : 블록케이드,스카우터,scouter,scouter/sc_skill_01_14.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_14.png,sc_skill_01_14.png,2026-06-28T21:30:03+09:00
+sc_skill_01_13.png,명령 : 액티브 펄스,스카우터,scouter,scouter/sc_skill_01_13.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_13.png,sc_skill_01_13.png,2026-06-28T21:30:03+09:00
+sc_skill_01_12.png,명령 : 카펫,스카우터,scouter,scouter/sc_skill_01_12.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_12.png,sc_skill_01_12.png,2026-06-28T21:30:03+09:00
+sc_skill_01_16.png,명령 : 플레어 빔,스카우터,scouter,scouter/sc_skill_01_16.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_16.png,sc_skill_01_16.png,2026-06-28T21:30:03+09:00
+sc_skill_01_34.png,배틀쉽 오퍼레이션,스카우터,scouter,scouter/sc_skill_01_34.png,꼬마완두,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_34.png,sc_skill_01_34.png,2026-06-28T21:30:03+09:00
+sc_skill_01_8.png,백플립 스트라이크,스카우터,scouter,scouter/sc_skill_01_8.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_8.png,sc_skill_01_8.png,2026-06-28T21:30:03+09:00
+sc_skill_01_28.png,버스트 블로우,스카우터,scouter,scouter/sc_skill_01_28.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_28.png,sc_skill_01_28.png,2026-06-28T21:30:03+09:00
+sc_skill_01_3.png,불릿 해일,스카우터,scouter,scouter/sc_skill_01_3.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_3.png,sc_skill_01_3.png,2026-06-28T21:30:03+09:00
+sc_skill_01_25.png,슬러그 샷,스카우터,scouter,scouter/sc_skill_01_25.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_25.png,sc_skill_01_25.png,2026-06-28T21:30:03+09:00
+sc_skill_01_37.png,싱크 프로토콜,스카우터,scouter,scouter/sc_skill_01_37.png,꼬마완두,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_37.png,sc_skill_01_37.png,2026-06-28T21:30:03+09:00
+sc_skill_01_11.png,아발란체,스카우터,scouter,scouter/sc_skill_01_11.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_11.png,sc_skill_01_11.png,2026-06-28T21:30:03+09:00
+sc_skill_01_19.png,어나힐레이션 모드,스카우터,scouter,scouter/sc_skill_01_19.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_19.png,sc_skill_01_19.png,2026-06-28T21:30:03+09:00
+sc_skill_01_21.png,에너지 버스터,스카우터,scouter,scouter/sc_skill_01_21.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_21.png,sc_skill_01_21.png,2026-06-28T21:30:03+09:00
+sc_skill_01_30.png,에어 스트라이크,스카우터,scouter,scouter/sc_skill_01_30.png,꼬마완두,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_30.png,sc_skill_01_30.png,2026-06-28T21:30:03+09:00
+sc_skill_01_27.png,엑셀리온 빔,스카우터,scouter,scouter/sc_skill_01_27.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_27.png,sc_skill_01_27.png,2026-06-28T21:30:03+09:00
+sc_skill_01_20.png,이스케이프,스카우터,scouter,scouter/sc_skill_01_20.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_20.png,sc_skill_01_20.png,2026-06-28T21:30:03+09:00
+sc_skill_01_6.png,전술 사격,스카우터,scouter,scouter/sc_skill_01_6.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_6.png,sc_skill_01_6.png,2026-06-28T21:30:03+09:00
+sc_skill_01_24.png,코멧 스트라이크,스카우터,scouter,scouter/sc_skill_01_24.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_24.png,sc_skill_01_24.png,2026-06-28T21:30:03+09:00
+sc_skill_01_29.png,크림슨 브레이커,스카우터,scouter,scouter/sc_skill_01_29.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_29.png,sc_skill_01_29.png,2026-06-28T21:30:03+09:00
+sc_skill_01_7.png,펄스 파이어,스카우터,scouter,scouter/sc_skill_01_7.png,꼬마완두,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_7.png,sc_skill_01_7.png,2026-06-28T21:30:03+09:00
+sc_skill_01_33.png,포인트 익스클루션,스카우터,scouter,scouter/sc_skill_01_33.png,꼬마완두,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_33.png,sc_skill_01_33.png,2026-06-28T21:30:03+09:00
+sc_skill_01_38.png,프로젝트 타이탄,스카우터,scouter,scouter/sc_skill_01_38.png,꼬마완두,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sc_skill/sc_skill_01_38.png,sc_skill_01_38.png,2026-06-28T21:30:03+09:00
+ddk_skill_01_31.png,가디언 백래시,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_31.png,사과잼용기삽니다,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_31.png,ddk_skill_01_31.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_30.png,가디언즈 크래시,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_30.png,사과잼용기삽니다,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_30.png,ddk_skill_01_30.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_8.png,길로틴 스핀,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_8.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_8.png,ddk_skill_01_8.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_29.png,딥 임팩트,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_29.png,사과잼용기삽니다,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_29.png,ddk_skill_01_29.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_21.png,렌딩 피니셔,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_21.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_21.png,ddk_skill_01_21.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_13.png,리벤지 블로우,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_13.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_13.png,ddk_skill_01_13.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_14.png,리벤지 스피어,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_14.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_14.png,ddk_skill_01_14.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_9.png,미티어 크래시,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_9.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_9.png,ddk_skill_01_9.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_33.png,브레스 오브 엠버레스,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_33.png,사과잼용기삽니다,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_33.png,ddk_skill_01_33.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_19.png,블레이즈 스윕,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_19.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_19.png,ddk_skill_01_19.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_20.png,블레이즈 플래시,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_20.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_20.png,ddk_skill_01_20.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_28.png,소울 디바이드,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_28.png,사과잼용기삽니다,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_28.png,ddk_skill_01_28.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_15.png,스피닝 플레임,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_15.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_15.png,ddk_skill_01_15.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_7.png,쓰러스트,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_7.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_7.png,ddk_skill_01_7.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_16.png,아바돈 플레임,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_16.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_16.png,ddk_skill_01_16.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_32.png,어웨이큰,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_32.png,사과잼용기삽니다,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_32.png,ddk_skill_01_32.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_6.png,와일드 어퍼,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_6.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_6.png,ddk_skill_01_6.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_18.png,윙 래시,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_18.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_18.png,ddk_skill_01_18.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_17.png,윙 스팅어,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_17.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_17.png,ddk_skill_01_17.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_22.png,익스플로전 피니셔,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_22.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_22.png,ddk_skill_01_22.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_11.png,임페일 쇼크,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_11.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_11.png,ddk_skill_01_11.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_10.png,퀘이크 스매시,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_10.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_10.png,ddk_skill_01_10.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_5.png,클리브,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_5.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_5.png,ddk_skill_01_5.png,2026-06-28T21:36:02+09:00
+ddk_skill_01_12.png,프렌지 스윕,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/ddk_skill_01_12.png,사과잼용기삽니다,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/ddk_skill/ddk_skill_01_12.png,ddk_skill_01_12.png,2026-06-28T21:36:02+09:00
+bk_skill_01_22.png,그라운드 스매시,슬레이어,slayer,slayer/bk_skill_01_22.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_22.png,bk_skill_01_22.png,2026-06-28T21:24:19+09:00
+bk_skill_01_30.png,길로틴,슬레이어,slayer,slayer/bk_skill_01_30.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_30.png,bk_skill_01_30.png,2026-06-28T21:24:19+09:00
+bk_skill_01_34.png,라그나 브레이크,슬레이어,slayer,slayer/bk_skill_01_34.png,코니참모총장,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_34.png,bk_skill_01_34.png,2026-06-28T21:24:19+09:00
+bk_skill_01_44.png,라그나 블레이드,슬레이어,slayer,slayer/bk_skill_01_44.png,코니참모총장,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_44.png,bk_skill_01_44.png,2026-06-28T21:24:19+09:00
+bk_skill_01_43.png,레이지 슬래셔,슬레이어,slayer,slayer/bk_skill_01_43.png,코니참모총장,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_43.png,bk_skill_01_43.png,2026-06-28T21:24:19+09:00
+bk_skill_01_19.png,마운틴 클리브,슬레이어,slayer,slayer/bk_skill_01_19.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_19.png,bk_skill_01_19.png,2026-06-28T21:24:19+09:00
+bk_skill_01_0.png,볼케이노 이럽션,슬레이어,slayer,slayer/bk_skill_01_0.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_0.png,bk_skill_01_0.png,2026-06-28T21:24:19+09:00
+bk_skill_01_31.png,브루탈 임팩트,슬레이어,slayer,slayer/bk_skill_01_31.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_31.png,bk_skill_01_31.png,2026-06-28T21:24:19+09:00
+bk_skill_01_41.png,스파이럴 블레이드,슬레이어,slayer,slayer/bk_skill_01_41.png,코니참모총장,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_41.png,bk_skill_01_41.png,2026-06-28T21:24:19+09:00
+bk_skill_01_21.png,스피닝 소드,슬레이어,slayer,slayer/bk_skill_01_21.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_21.png,bk_skill_01_21.png,2026-06-28T21:24:19+09:00
+bk_skill_01_5.png,와일드 러시,슬레이어,slayer,slayer/bk_skill_01_5.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_5.png,bk_skill_01_5.png,2026-06-28T21:24:19+09:00
+bk_skill_01_16.png,와일드 스톰프,슬레이어,slayer,slayer/bk_skill_01_16.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_16.png,bk_skill_01_16.png,2026-06-28T21:24:19+09:00
+bk_skill_01_33.png,익스큐션,슬레이어,slayer,slayer/bk_skill_01_33.png,코니참모총장,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_33.png,bk_skill_01_33.png,2026-06-28T21:24:19+09:00
+bk_skill_01_1.png,크로스 블레이드,슬레이어,slayer,slayer/bk_skill_01_1.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_1.png,bk_skill_01_1.png,2026-06-28T21:24:19+09:00
+bk_skill_01_32.png,크루얼 피어스,슬레이어,slayer,slayer/bk_skill_01_32.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_32.png,bk_skill_01_32.png,2026-06-28T21:24:19+09:00
+bk_skill_01_12.png,파이널 블로,슬레이어,slayer,slayer/bk_skill_01_12.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_12.png,bk_skill_01_12.png,2026-06-28T21:24:19+09:00
+bk_skill_01_28.png,퍼니싱 드로,슬레이어,slayer,slayer/bk_skill_01_28.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_28.png,bk_skill_01_28.png,2026-06-28T21:24:19+09:00
+bk_skill_01_14.png,페이탈 소드,슬레이어,slayer,slayer/bk_skill_01_14.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_14.png,bk_skill_01_14.png,2026-06-28T21:24:19+09:00
+bk_skill_01_4.png,퓨리 블레이드,슬레이어,slayer,slayer/bk_skill_01_4.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_4.png,bk_skill_01_4.png,2026-06-28T21:24:19+09:00
+bk_skill_01_29.png,퓨리어스 클로,슬레이어,slayer,slayer/bk_skill_01_29.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_29.png,bk_skill_01_29.png,2026-06-28T21:24:19+09:00
+bk_skill_01_13.png,플라잉 스트라이크,슬레이어,slayer,slayer/bk_skill_01_13.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_13.png,bk_skill_01_13.png,2026-06-28T21:24:19+09:00
+bk_skill_01_7.png,플래시 블레이드,슬레이어,slayer,slayer/bk_skill_01_7.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_7.png,bk_skill_01_7.png,2026-06-28T21:24:19+09:00
+bk_skill_01_42.png,플레임 블레이드,슬레이어,slayer,slayer/bk_skill_01_42.png,코니참모총장,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_42.png,bk_skill_01_42.png,2026-06-28T21:24:19+09:00
+bk_skill_01_3.png,허리케인 소드,슬레이어,slayer,slayer/bk_skill_01_3.png,코니참모총장,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bk_skill/bk_skill_01_3.png,bk_skill_01_3.png,2026-06-28T21:24:19+09:00
+scs_skill_01_17.png,돌풍,소서리스,sorceress,sorceress/scs_skill_01_17.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_17.png,scs_skill_01_17.png,2026-06-28T21:31:54+09:00
+scs_skill_01_26.png,라바 블래스트,소서리스,sorceress,sorceress/scs_skill_01_26.png,응슈쿵,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_26.png,scs_skill_01_26.png,2026-06-28T21:31:54+09:00
+scs_skill_01_12.png,라이트닝 볼텍스,소서리스,sorceress,sorceress/scs_skill_01_12.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_12.png,scs_skill_01_12.png,2026-06-28T21:31:54+09:00
+scs_skill_01_13.png,라이트닝 볼트,소서리스,sorceress,sorceress/scs_skill_01_13.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_13.png,scs_skill_01_13.png,2026-06-28T21:31:54+09:00
+scs_skill_01_27.png,러닝 글레이셔,소서리스,sorceress,sorceress/scs_skill_01_27.png,응슈쿵,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_27.png,scs_skill_01_27.png,2026-06-28T21:31:54+09:00
+scs_skill_01_16.png,리버스 그래비티,소서리스,sorceress,sorceress/scs_skill_01_16.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_16.png,scs_skill_01_16.png,2026-06-28T21:31:54+09:00
+scs_skill_01_3.png,블레이즈,소서리스,sorceress,sorceress/scs_skill_01_3.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_3.png,scs_skill_01_3.png,2026-06-28T21:31:54+09:00
+scs_skill_01_7.png,서릿발,소서리스,sorceress,sorceress/scs_skill_01_7.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_7.png,scs_skill_01_7.png,2026-06-28T21:31:54+09:00
+scs_skill_01_11.png,숭고한 해일,소서리스,sorceress,sorceress/scs_skill_01_11.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_11.png,scs_skill_01_11.png,2026-06-28T21:31:54+09:00
+scs_skill_01_8.png,아이스 애로우,소서리스,sorceress,sorceress/scs_skill_01_8.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_8.png,scs_skill_01_8.png,2026-06-28T21:31:54+09:00
+scs_skill_01_25.png,아포칼립스,소서리스,sorceress,sorceress/scs_skill_01_25.png,응슈쿵,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_25.png,scs_skill_01_25.png,2026-06-28T21:31:54+09:00
+scs_skill_01_15.png,에너지 방출,소서리스,sorceress,sorceress/scs_skill_01_15.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_15.png,scs_skill_01_15.png,2026-06-28T21:31:54+09:00
+scs_skill_01_21.png,엔비스카의 권능,소서리스,sorceress,sorceress/scs_skill_01_21.png,응슈쿵,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_21.png,scs_skill_01_21.png,2026-06-28T21:31:54+09:00
+scs_skill_01_10.png,엘레기안의 손길,소서리스,sorceress,sorceress/scs_skill_01_10.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_10.png,scs_skill_01_10.png,2026-06-28T21:31:54+09:00
+scs_skill_01_18.png,엘리멘탈 리액트,소서리스,sorceress,sorceress/scs_skill_01_18.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_18.png,scs_skill_01_18.png,2026-06-28T21:31:54+09:00
+scs_skill_01_5.png,익스플로전,소서리스,sorceress,sorceress/scs_skill_01_5.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_5.png,scs_skill_01_5.png,2026-06-28T21:31:54+09:00
+scs_skill_01_4.png,인페르노,소서리스,sorceress,sorceress/scs_skill_01_4.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_4.png,scs_skill_01_4.png,2026-06-28T21:31:54+09:00
+scs_skill_01_6.png,종말의 날,소서리스,sorceress,sorceress/scs_skill_01_6.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_6.png,scs_skill_01_6.png,2026-06-28T21:31:54+09:00
+scs_skill_01_22.png,종말의 부름,소서리스,sorceress,sorceress/scs_skill_01_22.png,응슈쿵,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_22.png,scs_skill_01_22.png,2026-06-28T21:31:54+09:00
+scs_skill_01_14.png,천벌,소서리스,sorceress,sorceress/scs_skill_01_14.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_14.png,scs_skill_01_14.png,2026-06-28T21:31:54+09:00
+scs_skill_01_24.png,초월자의 심판,소서리스,sorceress,sorceress/scs_skill_01_24.png,응슈쿵,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_24.png,scs_skill_01_24.png,2026-06-28T21:31:54+09:00
+scs_skill_01_9.png,혹한의 부름,소서리스,sorceress,sorceress/scs_skill_01_9.png,응슈쿵,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/scs_skill/scs_skill_01_9.png,scs_skill_01_9.png,2026-06-28T21:31:54+09:00
+se_skill_01_8.png,고스트 스텝,소울이터,souleater,souleater/se_skill_01_8.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_8.png,se_skill_01_8.png,2026-06-28T21:34:14+09:00
+se_skill_01_10.png,글러트니,소울이터,souleater,souleater/se_skill_01_10.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_10.png,se_skill_01_10.png,2026-06-28T21:34:14+09:00
+se_skill_01_18.png,길로틴 스윙,소울이터,souleater,souleater/se_skill_01_18.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_18.png,se_skill_01_18.png,2026-06-28T21:34:14+09:00
+se_skill_01_23.png,더 페이탈리티,소울이터,souleater,souleater/se_skill_01_23.png,희영,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_23.png,se_skill_01_23.png,2026-06-28T21:34:14+09:00
+se_skill_01_20.png,데스 브링어,소울이터,souleater,souleater/se_skill_01_20.png,희영,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_20.png,se_skill_01_20.png,2026-06-28T21:34:14+09:00
+se_skill_01_15.png,데스 야드,소울이터,souleater,souleater/se_skill_01_15.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_15.png,se_skill_01_15.png,2026-06-28T21:34:14+09:00
+se_skill_01_11.png,데스 오더,소울이터,souleater,souleater/se_skill_01_11.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_11.png,se_skill_01_11.png,2026-06-28T21:34:14+09:00
+se_skill_01_17.png,데스 위핑,소울이터,souleater,souleater/se_skill_01_17.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_17.png,se_skill_01_17.png,2026-06-28T21:34:14+09:00
+se_skill_01_22.png,데스 콤비네이션,소울이터,souleater,souleater/se_skill_01_22.png,희영,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_22.png,se_skill_01_22.png,2026-06-28T21:34:14+09:00
+se_skill_01_24.png,데스 피날레,소울이터,souleater,souleater/se_skill_01_24.png,희영,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_24.png,se_skill_01_24.png,2026-06-28T21:34:14+09:00
+se_skill_01_21.png,디 엔드,소울이터,souleater,souleater/se_skill_01_21.png,희영,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_21.png,se_skill_01_21.png,2026-06-28T21:34:14+09:00
+se_skill_01_6.png,러스트 네일,소울이터,souleater,souleater/se_skill_01_6.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_6.png,se_skill_01_6.png,2026-06-28T21:34:14+09:00
+se_skill_01_5.png,루나틱 엣지,소울이터,souleater,souleater/se_skill_01_5.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_5.png,se_skill_01_5.png,2026-06-28T21:34:14+09:00
+se_skill_01_9.png,리탈 스피닝,소울이터,souleater,souleater/se_skill_01_9.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_9.png,se_skill_01_9.png,2026-06-28T21:34:14+09:00
+se_skill_01_19.png,베스티지,소울이터,souleater,souleater/se_skill_01_19.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_19.png,se_skill_01_19.png,2026-06-28T21:34:14+09:00
+se_skill_01_14.png,소울 드레인,소울이터,souleater,souleater/se_skill_01_14.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_14.png,se_skill_01_14.png,2026-06-28T21:34:14+09:00
+se_skill_01_16.png,소울 시너스,소울이터,souleater,souleater/se_skill_01_16.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_16.png,se_skill_01_16.png,2026-06-28T21:34:14+09:00
+se_skill_01_7.png,스레싱,소울이터,souleater,souleater/se_skill_01_7.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_7.png,se_skill_01_7.png,2026-06-28T21:34:14+09:00
+se_skill_01_12.png,스펙트럴 코핀,소울이터,souleater,souleater/se_skill_01_12.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_12.png,se_skill_01_12.png,2026-06-28T21:34:14+09:00
+se_skill_01_13.png,아스타로스,소울이터,souleater,souleater/se_skill_01_13.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_13.png,se_skill_01_13.png,2026-06-28T21:34:14+09:00
+se_skill_01_25.png,프랜지 사이드,소울이터,souleater,souleater/se_skill_01_25.png,희영,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_25.png,se_skill_01_25.png,2026-06-28T21:34:14+09:00
+se_skill_01_4.png,하베스트,소울이터,souleater,souleater/se_skill_01_4.png,희영,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/se_skill/se_skill_01_4.png,se_skill_01_4.png,2026-06-28T21:34:14+09:00
+so_skill_01_25.png,극상마섬광,기공사,soulmaster,soulmaster/so_skill_01_25.png,게임할시간없음,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_25.png,so_skill_01_25.png,2026-06-28T21:25:44+09:00
+so_skill_01_18.png,기공장,기공사,soulmaster,soulmaster/so_skill_01_18.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_18.png,so_skill_01_18.png,2026-06-28T21:25:44+09:00
+so_skill_01_15.png,낙영장,기공사,soulmaster,soulmaster/so_skill_01_15.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_15.png,so_skill_01_15.png,2026-06-28T21:25:44+09:00
+so_skill_01_29.png,낙일멸천옥,기공사,soulmaster,soulmaster/so_skill_01_29.png,게임할시간없음,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_29.png,so_skill_01_29.png,2026-06-28T21:25:44+09:00
+so_skill_01_6.png,난화격,기공사,soulmaster,soulmaster/so_skill_01_6.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_6.png,so_skill_01_6.png,2026-06-28T21:25:44+09:00
+so_skill_01_33.png,단천벽력수,기공사,soulmaster,soulmaster/so_skill_01_33.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_33.png,so_skill_01_33.png,2026-06-28T21:25:44+09:00
+so_skill_01_1.png,무공탄,기공사,soulmaster,soulmaster/so_skill_01_1.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_1.png,so_skill_01_1.png,2026-06-28T21:25:44+09:00
+so_skill_01_7.png,번천장,기공사,soulmaster,soulmaster/so_skill_01_7.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_7.png,so_skill_01_7.png,2026-06-28T21:25:44+09:00
+so_skill_01_5.png,벽력장,기공사,soulmaster,soulmaster/so_skill_01_5.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_5.png,so_skill_01_5.png,2026-06-28T21:25:44+09:00
+so_skill_01_2.png,섬열파,기공사,soulmaster,soulmaster/so_skill_01_2.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_2.png,so_skill_01_2.png,2026-06-28T21:25:44+09:00
+so_skill_01_19.png,순보,기공사,soulmaster,soulmaster/so_skill_01_19.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_19.png,so_skill_01_19.png,2026-06-28T21:25:44+09:00
+so_skill_01_8.png,여래신장,기공사,soulmaster,soulmaster/so_skill_01_8.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_8.png,so_skill_01_8.png,2026-06-28T21:25:44+09:00
+so_skill_01_32.png,음양신장,기공사,soulmaster,soulmaster/so_skill_01_32.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_32.png,so_skill_01_32.png,2026-06-28T21:25:44+09:00
+so_skill_01_27.png,천공참,기공사,soulmaster,soulmaster/so_skill_01_27.png,게임할시간없음,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_27.png,so_skill_01_27.png,2026-06-28T21:25:44+09:00
+so_skill_01_34.png,천류나선장,기공사,soulmaster,soulmaster/so_skill_01_34.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_34.png,so_skill_01_34.png,2026-06-28T21:25:44+09:00
+so_skill_01_28.png,천하군림보,기공사,soulmaster,soulmaster/so_skill_01_28.png,게임할시간없음,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_28.png,so_skill_01_28.png,2026-06-28T21:25:44+09:00
+so_skill_01_3.png,천하섬멸옥,기공사,soulmaster,soulmaster/so_skill_01_3.png,게임할시간없음,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_3.png,so_skill_01_3.png,2026-06-28T21:25:44+09:00
+so_skill_01_30.png,초신마섬광,기공사,soulmaster,soulmaster/so_skill_01_30.png,게임할시간없음,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_30.png,so_skill_01_30.png,2026-06-28T21:25:44+09:00
+so_skill_01_13.png,파쇄장,기공사,soulmaster,soulmaster/so_skill_01_13.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_13.png,so_skill_01_13.png,2026-06-28T21:25:44+09:00
+so_skill_01_14.png,풍뢰일광포,기공사,soulmaster,soulmaster/so_skill_01_14.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_14.png,so_skill_01_14.png,2026-06-28T21:25:44+09:00
+so_skill_01_26.png,환영격,기공사,soulmaster,soulmaster/so_skill_01_26.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_26.png,so_skill_01_26.png,2026-06-28T21:25:44+09:00
+so_skill_01_17.png,회선격추,기공사,soulmaster,soulmaster/so_skill_01_17.png,게임할시간없음,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/so_skill/so_skill_01_17.png,so_skill_01_17.png,2026-06-28T21:25:44+09:00
+bm_skill_01_32.png,격호각,스트라이커,striker,striker/bm_skill_01_32.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_32.png,bm_skill_01_32.png,2026-06-28T21:27:08+09:00
+bm_skill_01_33.png,광폭진,스트라이커,striker,striker/bm_skill_01_33.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_33.png,bm_skill_01_33.png,2026-06-28T21:27:08+09:00
+bmm_skill_01_3.png,극의 : 산군포효,스트라이커,striker,striker/bmm_skill_01_3.png,유우시,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bmm_skill/bmm_skill_01_3.png,bmm_skill_01_3.png,2026-06-28T21:27:08+09:00
+bm_skill_01_37.png,극의 : 진천각,스트라이커,striker,striker/bm_skill_01_37.png,유우시,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_37.png,bm_skill_01_37.png,2026-06-28T21:27:08+09:00
+bmm_skill_01_4.png,극의 : 진천낙뢰각,스트라이커,striker,striker/bmm_skill_01_4.png,유우시,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bmm_skill/bmm_skill_01_4.png,bmm_skill_01_4.png,2026-06-28T21:27:08+09:00
+bm_skill_01_36.png,극의 : 폭열각,스트라이커,striker,striker/bm_skill_01_36.png,유우시,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_36.png,bm_skill_01_36.png,2026-06-28T21:27:08+09:00
+bm_skill_01_18.png,뇌명각,스트라이커,striker,striker/bm_skill_01_18.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_18.png,bm_skill_01_18.png,2026-06-28T21:27:08+09:00
+bm_skill_01_26.png,방천격,스트라이커,striker,striker/bm_skill_01_26.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_26.png,bm_skill_01_26.png,2026-06-28T21:27:08+09:00
+bm_skill_01_28.png,번개의 속삭임,스트라이커,striker,striker/bm_skill_01_28.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_28.png,bm_skill_01_28.png,2026-06-28T21:27:08+09:00
+bm_skill_01_14.png,붕천퇴,스트라이커,striker,striker/bm_skill_01_14.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_14.png,bm_skill_01_14.png,2026-06-28T21:27:08+09:00
+bm_skill_01_6.png,삼연권,스트라이커,striker,striker/bm_skill_01_6.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_6.png,bm_skill_01_6.png,2026-06-28T21:27:08+09:00
+bm_skill_01_3.png,섬열란아,스트라이커,striker,striker/bm_skill_01_3.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_3.png,bm_skill_01_3.png,2026-06-28T21:27:08+09:00
+bm_skill_01_11.png,오의 : 나선경,스트라이커,striker,striker/bm_skill_01_11.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_11.png,bm_skill_01_11.png,2026-06-28T21:27:08+09:00
+bm_skill_01_35.png,오의 : 뇌호격,스트라이커,striker,striker/bm_skill_01_35.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_35.png,bm_skill_01_35.png,2026-06-28T21:27:08+09:00
+bmm_skill_01_2.png,오의 : 청염각,스트라이커,striker,striker/bmm_skill_01_2.png,유우시,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bmm_skill/bmm_skill_01_2.png,bmm_skill_01_2.png,2026-06-28T21:27:08+09:00
+bm_skill_01_1.png,오의 : 폭쇄진,스트라이커,striker,striker/bm_skill_01_1.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_1.png,bm_skill_01_1.png,2026-06-28T21:27:08+09:00
+bm_skill_01_8.png,오의 : 풍신초래,스트라이커,striker,striker/bm_skill_01_8.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_8.png,bm_skill_01_8.png,2026-06-28T21:27:08+09:00
+bm_skill_01_34.png,오의 : 호왕출현,스트라이커,striker,striker/bm_skill_01_34.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_34.png,bm_skill_01_34.png,2026-06-28T21:27:08+09:00
+bm_skill_01_29.png,운룡각,스트라이커,striker,striker/bm_skill_01_29.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_29.png,bm_skill_01_29.png,2026-06-28T21:27:08+09:00
+bm_skill_01_16.png,월섬각,스트라이커,striker,striker/bm_skill_01_16.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_16.png,bm_skill_01_16.png,2026-06-28T21:27:08+09:00
+bm_skill_01_2.png,잠룡승천축,스트라이커,striker,striker/bm_skill_01_2.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_2.png,bm_skill_01_2.png,2026-06-28T21:27:08+09:00
+bmm_skill_01_1.png,전진패도격,스트라이커,striker,striker/bmm_skill_01_1.png,유우시,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bmm_skill/bmm_skill_01_1.png,bmm_skill_01_1.png,2026-06-28T21:27:08+09:00
+bm_skill_01_23.png,초풍각,스트라이커,striker,striker/bm_skill_01_23.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_23.png,bm_skill_01_23.png,2026-06-28T21:27:08+09:00
+bm_skill_01_12.png,화조강림,스트라이커,striker,striker/bm_skill_01_12.png,유우시,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/bm_skill/bm_skill_01_12.png,bm_skill_01_12.png,2026-06-28T21:27:08+09:00
+sm_skill_01_20.png,고대의 창,서머너,summoner,summoner/sm_skill_01_20.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_20.png,sm_skill_01_20.png,2026-06-28T21:31:27+09:00
+sm_skill_01_3.png,끈적이는 이끼늪,서머너,summoner,summoner/sm_skill_01_3.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_3.png,sm_skill_01_3.png,2026-06-28T21:31:27+09:00
+sm_skill_01_18.png,대지 붕괴,서머너,summoner,summoner/sm_skill_01_18.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_18.png,sm_skill_01_18.png,2026-06-28T21:31:27+09:00
+sm_skill_01_4.png,레이네의 가호,서머너,summoner,summoner/sm_skill_01_4.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_4.png,sm_skill_01_4.png,2026-06-28T21:31:27+09:00
+sm_skill_01_1.png,마력의 결정체,서머너,summoner,summoner/sm_skill_01_1.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_1.png,sm_skill_01_1.png,2026-06-28T21:31:27+09:00
+sm_skill_01_2.png,마력의 질주,서머너,summoner,summoner/sm_skill_01_2.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_2.png,sm_skill_01_2.png,2026-06-28T21:31:27+09:00
+sm_skill_01_39.png,마리린,서머너,summoner,summoner/sm_skill_01_39.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_39.png,sm_skill_01_39.png,2026-06-28T21:31:27+09:00
+sm_skill_01_45.png,마리포사,서머너,summoner,summoner/sm_skill_01_45.png,마리린은내말안들어,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_45.png,sm_skill_01_45.png,2026-06-28T21:31:27+09:00
+sm_skill_01_19.png,물의 정령,서머너,summoner,summoner/sm_skill_01_19.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_19.png,sm_skill_01_19.png,2026-06-28T21:31:27+09:00
+sm_skill_01_44.png,바그론의 광란,서머너,summoner,summoner/sm_skill_01_44.png,마리린은내말안들어,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_44.png,sm_skill_01_44.png,2026-06-28T21:31:27+09:00
+sm_skill_01_34.png,바그론의 분노,서머너,summoner,summoner/sm_skill_01_34.png,마리린은내말안들어,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_34.png,sm_skill_01_34.png,2026-06-28T21:31:27+09:00
+sm_skill_01_14.png,방출된 의지,서머너,summoner,summoner/sm_skill_01_14.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_14.png,sm_skill_01_14.png,2026-06-28T21:31:27+09:00
+sm_skill_01_5.png,순간 폭발,서머너,summoner,summoner/sm_skill_01_5.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_5.png,sm_skill_01_5.png,2026-06-28T21:31:27+09:00
+sm_skill_01_25.png,슈르디,서머너,summoner,summoner/sm_skill_01_25.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_25.png,sm_skill_01_25.png,2026-06-28T21:31:27+09:00
+sm_skill_01_43.png,심판자 켈시온,서머너,summoner,summoner/sm_skill_01_43.png,마리린은내말안들어,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_43.png,sm_skill_01_43.png,2026-06-28T21:31:27+09:00
+sm_skill_01_6.png,쏜살 바람새,서머너,summoner,summoner/sm_skill_01_6.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_6.png,sm_skill_01_6.png,2026-06-28T21:31:27+09:00
+sm_skill_01_36.png,엘씨드,서머너,summoner,summoner/sm_skill_01_36.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_36.png,sm_skill_01_36.png,2026-06-28T21:31:27+09:00
+sm_skill_01_16.png,윙드 스피릿,서머너,summoner,summoner/sm_skill_01_16.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_16.png,sm_skill_01_16.png,2026-06-28T21:31:27+09:00
+sm_skill_01_46.png,이그나,서머너,summoner,summoner/sm_skill_01_46.png,마리린은내말안들어,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_46.png,sm_skill_01_46.png,2026-06-28T21:31:27+09:00
+sm_skill_01_21.png,전기 폭풍,서머너,summoner,summoner/sm_skill_01_21.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_21.png,sm_skill_01_21.png,2026-06-28T21:31:27+09:00
+sm_skill_01_17.png,전류 방출,서머너,summoner,summoner/sm_skill_01_17.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_17.png,sm_skill_01_17.png,2026-06-28T21:31:27+09:00
+sm_skill_01_23.png,켈시온,서머너,summoner,summoner/sm_skill_01_23.png,마리린은내말안들어,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_23.png,sm_skill_01_23.png,2026-06-28T21:31:27+09:00
+sm_skill_01_37.png,파우루,서머너,summoner,summoner/sm_skill_01_37.png,마리린은내말안들어,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/sm_skill/sm_skill_01_37.png,sm_skill_01_37.png,2026-06-28T21:31:27+09:00
+hkf_skill_01_3.png,간파 베기,발키리,valkyrie,valkyrie/hkf_skill_01_3.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_3.png,hkf_skill_01_3.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_25.png,개벽,발키리,valkyrie,valkyrie/hkf_skill_01_25.png,겐시유,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_25.png,hkf_skill_01_25.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_9.png,계시의 검,발키리,valkyrie,valkyrie/hkf_skill_01_9.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_9.png,hkf_skill_01_9.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_10.png,계시의 진격,발키리,valkyrie,valkyrie/hkf_skill_01_10.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_10.png,hkf_skill_01_10.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_11.png,계시의 집행,발키리,valkyrie,valkyrie/hkf_skill_01_11.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_11.png,hkf_skill_01_11.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_19.png,구원의 은총,발키리,valkyrie,valkyrie/hkf_skill_01_19.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_19.png,hkf_skill_01_19.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_17.png,구원의 터,발키리,valkyrie,valkyrie/hkf_skill_01_17.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_17.png,hkf_skill_01_17.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_7.png,단죄의 성흔,발키리,valkyrie,valkyrie/hkf_skill_01_7.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_7.png,hkf_skill_01_7.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_8.png,단죄의 속삭임,발키리,valkyrie,valkyrie/hkf_skill_01_8.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_8.png,hkf_skill_01_8.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_6.png,단죄의 쇄도,발키리,valkyrie,valkyrie/hkf_skill_01_6.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_6.png,hkf_skill_01_6.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_27.png,브뢴디아의 계시,발키리,valkyrie,valkyrie/hkf_skill_01_27.png,겐시유,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_27.png,hkf_skill_01_27.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_30.png,브뢴디아의 성역,발키리,valkyrie,valkyrie/hkf_skill_01_30.png,겐시유,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_30.png,hkf_skill_01_30.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_28.png,브뢴디아의 의식,발키리,valkyrie,valkyrie/hkf_skill_01_28.png,겐시유,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_28.png,hkf_skill_01_28.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_29.png,브뢴디아의 화신,발키리,valkyrie,valkyrie/hkf_skill_01_29.png,겐시유,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_29.png,hkf_skill_01_29.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_20.png,숭고한 도약,발키리,valkyrie,valkyrie/hkf_skill_01_20.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_20.png,hkf_skill_01_20.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_18.png,숭고한 맹세,발키리,valkyrie,valkyrie/hkf_skill_01_18.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_18.png,hkf_skill_01_18.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_26.png,신의 증명,발키리,valkyrie,valkyrie/hkf_skill_01_26.png,겐시유,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_26.png,hkf_skill_01_26.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_13.png,안식의 비,발키리,valkyrie,valkyrie/hkf_skill_01_13.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_13.png,hkf_skill_01_13.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_14.png,안식의 재,발키리,valkyrie,valkyrie/hkf_skill_01_14.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_14.png,hkf_skill_01_14.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_12.png,안식의 폭풍,발키리,valkyrie,valkyrie/hkf_skill_01_12.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_12.png,hkf_skill_01_12.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_4.png,유성 찌르기,발키리,valkyrie,valkyrie/hkf_skill_01_4.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_4.png,hkf_skill_01_4.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_5.png,전진 찌르기,발키리,valkyrie,valkyrie/hkf_skill_01_5.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_5.png,hkf_skill_01_5.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_16.png,진리의 륜,발키리,valkyrie,valkyrie/hkf_skill_01_16.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_16.png,hkf_skill_01_16.png,2026-06-28T21:14:29+09:00
+hkf_skill_01_15.png,진리의 선고,발키리,valkyrie,valkyrie/hkf_skill_01_15.png,겐시유,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/hkf_skill/hkf_skill_01_15.png,hkf_skill_01_15.png,2026-06-28T21:14:29+09:00
+gl_skill_01_16.png,가디언의 낙뢰,워로드,warlord,warlord/gl_skill_01_16.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_16.png,gl_skill_01_16.png,2026-06-28T21:24:47+09:00
+gl_skill_01_28.png,가디언의 수호,워로드,warlord,warlord/gl_skill_01_28.png,천황무인,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_28.png,gl_skill_01_28.png,2026-06-28T21:24:47+09:00
+gl_skill_01_17.png,갈고리 사슬,워로드,warlord,warlord/gl_skill_01_17.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_17.png,gl_skill_01_17.png,2026-06-28T21:24:47+09:00
+gl_skill_01_19.png,날카로운 창,워로드,warlord,warlord/gl_skill_01_19.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_19.png,gl_skill_01_19.png,2026-06-28T21:24:47+09:00
+gl_skill_01_15.png,넬라시아의 기운,워로드,warlord,warlord/gl_skill_01_15.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_15.png,gl_skill_01_15.png,2026-06-28T21:24:47+09:00
+gl_skill_01_8.png,대쉬 어퍼 파이어,워로드,warlord,warlord/gl_skill_01_8.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_8.png,gl_skill_01_8.png,2026-06-28T21:24:47+09:00
+gl_skill_01_20.png,라이징 스피어,워로드,warlord,warlord/gl_skill_01_20.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_20.png,gl_skill_01_20.png,2026-06-28T21:24:47+09:00
+gl_skill_01_5.png,리프 어택,워로드,warlord,warlord/gl_skill_01_5.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_5.png,gl_skill_01_5.png,2026-06-28T21:24:47+09:00
+gl_skill_01_18.png,방패 격동,워로드,warlord,warlord/gl_skill_01_18.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_18.png,gl_skill_01_18.png,2026-06-28T21:24:47+09:00
+gl_skill_01_3.png,방패 돌진,워로드,warlord,warlord/gl_skill_01_3.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_3.png,gl_skill_01_3.png,2026-06-28T21:24:47+09:00
+gl_skill_01_22.png,방패 밀치기,워로드,warlord,warlord/gl_skill_01_22.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_22.png,gl_skill_01_22.png,2026-06-28T21:24:47+09:00
+gl_skill_01_1.png,배쉬,워로드,warlord,warlord/gl_skill_01_1.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_1.png,gl_skill_01_1.png,2026-06-28T21:24:47+09:00
+gl_skill_01_9.png,버스트 캐넌,워로드,warlord,warlord/gl_skill_01_9.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_9.png,gl_skill_01_9.png,2026-06-28T21:24:47+09:00
+gl_skill_01_37.png,수호의 맹세,워로드,warlord,warlord/gl_skill_01_37.png,천황무인,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_37.png,gl_skill_01_37.png,2026-06-28T21:24:47+09:00
+gl_skill_01_27.png,스피어 샷,워로드,warlord,warlord/gl_skill_01_27.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_27.png,gl_skill_01_27.png,2026-06-28T21:24:47+09:00
+gl_skill_01_36.png,실드 대시,워로드,warlord,warlord/gl_skill_01_36.png,천황무인,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_36.png,gl_skill_01_36.png,2026-06-28T21:24:47+09:00
+gl_skill_01_34.png,심판의 창,워로드,warlord,warlord/gl_skill_01_34.png,천황무인,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_34.png,gl_skill_01_34.png,2026-06-28T21:24:47+09:00
+gl_skill_01_38.png,정의 실현,워로드,warlord,warlord/gl_skill_01_38.png,천황무인,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_38.png,gl_skill_01_38.png,2026-06-28T21:24:47+09:00
+gl_skill_01_14.png,증오의 함성,워로드,warlord,warlord/gl_skill_01_14.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_14.png,gl_skill_01_14.png,2026-06-28T21:24:47+09:00
+gl_skill_01_30.png,차지 스팅거,워로드,warlord,warlord/gl_skill_01_30.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_30.png,gl_skill_01_30.png,2026-06-28T21:24:47+09:00
+gl_skill_01_29.png,카운터 스피어,워로드,warlord,warlord/gl_skill_01_29.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_29.png,gl_skill_01_29.png,2026-06-28T21:24:47+09:00
+gl_skill_01_2.png,파이어 불릿,워로드,warlord,warlord/gl_skill_01_2.png,천황무인,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_2.png,gl_skill_01_2.png,2026-06-28T21:24:47+09:00
+gl_skill_01_41.png,풀배럴 캐넌,워로드,warlord,warlord/gl_skill_01_41.png,천황무인,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_skill/gl_skill_01_41.png,gl_skill_01_41.png,2026-06-28T21:24:47+09:00
+dr_skill_01_13.png,까마귀 대소동,환수사,wildsoul,wildsoul/dr_skill_01_13.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_13.png,dr_skill_01_13.png,2026-06-28T21:35:35+09:00
+dr_skill_01_10.png,까마귀 대행진,환수사,wildsoul,wildsoul/dr_skill_01_10.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_10.png,dr_skill_01_10.png,2026-06-28T21:35:35+09:00
+dr_skill_01_11.png,꼬리 바람,환수사,wildsoul,wildsoul/dr_skill_01_11.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_11.png,dr_skill_01_11.png,2026-06-28T21:35:35+09:00
+dr_skill_01_32.png,꿀밤 강타,환수사,wildsoul,wildsoul/dr_skill_01_32.png,둠칫곰탱,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_32.png,dr_skill_01_32.png,2026-06-28T21:35:35+09:00
+dr_skill_01_14.png,데굴방아,환수사,wildsoul,wildsoul/dr_skill_01_14.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_14.png,dr_skill_01_14.png,2026-06-28T21:35:35+09:00
+dr_skill_01_28.png,두둥실 여우곰,환수사,wildsoul,wildsoul/dr_skill_01_28.png,둠칫곰탱,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_28.png,dr_skill_01_28.png,2026-06-28T21:35:35+09:00
+dr_skill_01_17.png,뒤집 곰,환수사,wildsoul,wildsoul/dr_skill_01_17.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_17.png,dr_skill_01_17.png,2026-06-28T21:35:35+09:00
+dr_skill_01_12.png,마구 쪼기,환수사,wildsoul,wildsoul/dr_skill_01_12.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_12.png,dr_skill_01_12.png,2026-06-28T21:35:35+09:00
+dr_skill_01_19.png,바위 곰,환수사,wildsoul,wildsoul/dr_skill_01_19.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_19.png,dr_skill_01_19.png,2026-06-28T21:35:35+09:00
+dr_skill_01_15.png,빙글빙글 꽝,환수사,wildsoul,wildsoul/dr_skill_01_15.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_15.png,dr_skill_01_15.png,2026-06-28T21:35:35+09:00
+dr_skill_01_16.png,슈웅 곰,환수사,wildsoul,wildsoul/dr_skill_01_16.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_16.png,dr_skill_01_16.png,2026-06-28T21:35:35+09:00
+dr_skill_01_8.png,얍!,환수사,wildsoul,wildsoul/dr_skill_01_8.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_8.png,dr_skill_01_8.png,2026-06-28T21:35:35+09:00
+dr_skill_01_18.png,어흥 곰,환수사,wildsoul,wildsoul/dr_skill_01_18.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_18.png,dr_skill_01_18.png,2026-06-28T21:35:35+09:00
+dr_skill_01_23.png,여우 구슬,환수사,wildsoul,wildsoul/dr_skill_01_23.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_23.png,dr_skill_01_23.png,2026-06-28T21:35:35+09:00
+dr_skill_01_20.png,여우 꼬리물기,환수사,wildsoul,wildsoul/dr_skill_01_20.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_20.png,dr_skill_01_20.png,2026-06-28T21:35:35+09:00
+dr_skill_01_21.png,여우 불꽃,환수사,wildsoul,wildsoul/dr_skill_01_21.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_21.png,dr_skill_01_21.png,2026-06-28T21:35:35+09:00
+dr_skill_01_22.png,여우 폴짝,환수사,wildsoul,wildsoul/dr_skill_01_22.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_22.png,dr_skill_01_22.png,2026-06-28T21:35:35+09:00
+dr_skill_01_31.png,여우불의 춤,환수사,wildsoul,wildsoul/dr_skill_01_31.png,둠칫곰탱,101,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_31.png,dr_skill_01_31.png,2026-06-28T21:35:35+09:00
+dr_skill_01_29.png,우당탕탕 대난투,환수사,wildsoul,wildsoul/dr_skill_01_29.png,둠칫곰탱,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_29.png,dr_skill_01_29.png,2026-06-28T21:35:35+09:00
+dr_skill_01_30.png,지진 방아,환수사,wildsoul,wildsoul/dr_skill_01_30.png,둠칫곰탱,100,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_30.png,dr_skill_01_30.png,2026-06-28T21:35:35+09:00
+dr_skill_01_27.png,한방 곰,환수사,wildsoul,wildsoul/dr_skill_01_27.png,둠칫곰탱,1,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_27.png,dr_skill_01_27.png,2026-06-28T21:35:35+09:00
+dr_skill_01_9.png,할퀴기,환수사,wildsoul,wildsoul/dr_skill_01_9.png,둠칫곰탱,0,,https://cdn-lostark.game.onstove.com/efui_iconatlas/dr_skill/dr_skill_01_9.png,dr_skill_01_9.png,2026-06-28T21:35:35+09:00
+gs_kongangari.png,공간가르기,기상술사,aeromancer,aeromancer/gs_kongangari.png,manual_identity_icon,identity,,,gs_kongangari.png,2026-06-29T15:54:37+09:00
+gs_nunbushin.png,눈부신 나날들,기상술사,aeromancer,aeromancer/gs_nunbushin.png,manual_identity_icon,identity,,,gs_nunbushin.png,2026-06-29T15:54:37+09:00
+Fox Rain.png,여우비,기상술사,aeromancer,aeromancer/Fox Rain.png,manual_identity_icon,identity,,,Fox Rain.png,2026-06-29T15:54:37+09:00
+gn_inferno.png,인페르노 버스트,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/gn_inferno.png,manual_identity_icon,identity,,,gn_inferno.png,2026-06-29T15:54:37+09:00
+gn_guardian_fear.png,가디언 피어,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/gn_guardian_fear.png,manual_identity_icon,identity,,,gn_guardian_fear.png,2026-06-29T15:54:37+09:00
+gn_guardian_scale.png,가디언 스케일,가디언나이트,skill_class_a91e45bc,skill_class_a91e45bc/gn_guardian_scale.png,manual_identity_icon,identity,,,gn_guardian_scale.png,2026-06-29T15:54:37+09:00
+vk_light_knight.png,빛의 기사,발키리,valkyrie,valkyrie/vk_light_knight.png,manual_identity_icon,identity,,,vk_light_knight.png.webp,2026-06-29T15:54:37+09:00
+vk_final_light.png,종언의 빛,발키리,valkyrie,valkyrie/vk_final_light.png,manual_identity_icon,identity,,,vk_final_light.png.png,2026-06-29T15:54:37+09:00
+vk_light_release.png,빛의 해방,발키리,valkyrie,valkyrie/vk_light_release.png,manual_identity_icon,identity,,,vk_light_release.png,2026-06-29T15:54:37+09:00
+vk_faith_light.png,신념의 빛,발키리,valkyrie,valkyrie/vk_faith_light.png,manual_identity_icon,identity,,,vk_faith_light.png,2026-06-29T15:54:37+09:00
+bl_overheat.png,오버히트,블래스터,blaster,blaster/bl_overheat.png,manual_identity_icon,identity,,,bl_overheat.png,2026-06-29T15:54:37+09:00
+bl_bombardment.png,포화 공격,블래스터,blaster,blaster/bl_bombardment.png,manual_identity_icon,identity,,,bl_bombardment.png,2026-06-29T15:54:37+09:00
+bl_Artillerist_Barrage-_Energy_Cannon.png,포격 에너지포,블래스터,blaster,blaster/bl_Artillerist_Barrage-_Energy_Cannon.png,manual_identity_icon,identity,,,bl_Artillerist_Barrage-_Energy_Cannon.png,2026-06-29T15:54:37+09:00
+sm_osh.png,오쉬,서머너,summoner,summoner/sm_osh.png,manual_identity_icon,identity,,,sm_osh.png,2026-06-29T15:54:37+09:00
+sm_alimaji.png,알리마지,서머너,summoner,summoner/sm_alimaji.png,manual_identity_icon,identity,,,sm_alimaji.png,2026-06-29T15:54:37+09:00
+sm_phoenix.png,피닉스,서머너,summoner,summoner/sm_phoenix.png,manual_identity_icon,identity,,,sm_phoenix.png,2026-06-29T15:54:37+09:00
+sm_akir.png,아키르,서머너,summoner,summoner/sm_akir.png,manual_identity_icon,identity,,,sm_akir.png,2026-06-29T15:54:37+09:00
+sl_bloodlust.png,블러드러스트,슬레이어,slayer,slayer/sl_bloodlust.png,manual_identity_icon,identity,,,sl_bloodlust.png,2026-06-29T15:54:37+09:00
+rp_nightmare.png,나이트메어,리퍼,reaper,reaper/rp_nightmare.png,manual_identity_icon,identity,,,rp_nightmare.png,2026-06-29T15:54:37+09:00
+hn_divine_justice.png,신의 집행자,홀리나이트,holyknight,holyknight/hn_divine_justice.png,manual_identity_icon,identity,,,hn_divine_justice.png,2026-06-29T15:54:37+09:00
+hn_judgment_blade.png,심판의 칼날,홀리나이트,holyknight,holyknight/hn_judgment_blade.png,manual_identity_icon,identity,,,hn_judgment_blade.png,2026-06-29T15:54:37+09:00
+hn_holy_aura.png,신성의 오라,홀리나이트,holyknight,holyknight/hn_holy_aura.png,manual_identity_icon,identity,,,hn_holy_aura.png,2026-06-29T15:54:37+09:00
+hn_holy_wave.png,신성 파도,홀리나이트,holyknight,holyknight/hn_holy_wave.png,manual_identity_icon,identity,,,hn_holy_wave.png,2026-06-29T15:54:37+09:00
+hs_goldbear.png,금술 : 찢 곰,환수사,wildsoul,wildsoul/hs_goldbear.png,manual_identity_icon,identity,,,hs_goldbear.png,2026-06-29T15:54:37+09:00
+hs_goldfox.png,금술 : 여우 별 소나기,환수사,wildsoul,wildsoul/hs_goldfox.png,manual_identity_icon,identity,,,hs_goldfox.png,2026-06-29T15:54:37+09:00
+hs_beast_awaken.png,환수 각성,환수사,wildsoul,wildsoul/hs_beast_awaken.png,manual_identity_icon,identity,,,hs_beast_awaken.png,2026-06-29T15:54:37+09:00
+if_earth_slash.png,대지 가르기,인파이터,infighter,infighter/if_earth_slash.png,manual_identity_icon,identity,,,if_earth_slash.png,2026-06-29T15:54:37+09:00
+bd_courage.png,용맹의 세레나데,바드,bard,bard/bd_courage.png,manual_identity_icon,identity,,,bd_courage.png,2026-06-29T15:54:37+09:00
+bd_salvation.png,구원의 세레나데,바드,bard,bard/bd_salvation.png,manual_identity_icon,identity,,,bd_salvation.png,2026-06-29T15:54:37+09:00
+bd_tempest.png,템페스트,바드,bard,bard/bd_tempest.png,manual_identity_icon,identity,,,bd_tempest.png,2026-06-29T15:54:37+09:00
+dh_setting_moon.png,저무는 달,도화가,artist,artist/dh_setting_moon.png,manual_identity_icon,identity,,,dh_setting_moon.png,2026-06-29T15:54:37+09:00
+dh_rising_sun.png,떠오르는 해,도화가,artist,artist/dh_rising_sun.png,manual_identity_icon,identity,,,dh_rising_sun.png,2026-06-29T15:54:37+09:00
+dh_Sun_Well.png,묵법 파죽,도화가,artist,artist/dh_Sun_Well.png,manual_identity_icon,identity,,,dh_Sun_Well.png,2026-06-29T15:54:37+09:00
+ds_gravity_zone.png,중력 가중 영역,디스트로이어,destroyer,destroyer/ds_gravity_zone.png,manual_identity_icon,identity,,,ds_gravity_zone.png,2026-06-29T15:54:37+09:00
+ds_vortex.png,볼텍스 그라비티,디스트로이어,destroyer,destroyer/ds_vortex.png,manual_identity_icon,identity,,,ds_vortex.png,2026-06-29T15:54:37+09:00
+wl_shield_stance.png,방어태세,워로드,warlord,warlord/wl_shield_stance.png,manual_identity_icon,identity,,,wl_shield_stance.png,2026-06-29T15:54:37+09:00
+wl_shield_of_war.png,전장의 방패,워로드,warlord,warlord/wl_shield_of_war.png,manual_identity_icon,identity,,,wl_shield_of_war.png,2026-06-29T15:54:37+09:00
+wl_advance.png,진격태세,워로드,warlord,warlord/wl_advance.png,manual_identity_icon,identity,,,wl_advance.png,2026-06-29T15:54:37+09:00
+wl_spear_of_war.png,전장의 창,워로드,warlord,warlord/wl_spear_of_war.png,manual_identity_icon,identity,,,wl_spear_of_war.png,2026-06-29T15:54:37+09:00
+sor_discharge.png,마력 방출,소서리스,sorceress,sorceress/sor_discharge.png,manual_identity_icon,identity,,,sor_discharge.png,2026-06-29T15:54:37+09:00
+sor_blink.png,점멸,소서리스,sorceress,sorceress/sor_blink.png,manual_identity_icon,identity,,,sor_blink.png,2026-06-29T15:54:37+09:00
+hk_storm_wing.png,폭풍의 날개,호크아이,hawkeye,hawkeye/hk_storm_wing.png,manual_identity_icon,identity,,,hk_storm_wing.png,2026-06-29T15:54:37+09:00
+hk_final_strike.png,최후의 습격,호크아이,hawkeye,hawkeye/hk_final_strike.png,manual_identity_icon,identity,,,hk_final_strike.png,2026-06-29T15:54:37+09:00
+hk_silverhawk.png,실버호크 강습,호크아이,hawkeye,hawkeye/hk_silverhawk.png,manual_identity_icon,identity,,,hk_silverhawk.png,2026-06-29T15:54:37+09:00
+hk_Silverhawk_MK-II .png,실버호크 MK2,호크아이,hawkeye,hawkeye/hk_Silverhawk_MK-II .png,manual_identity_icon,identity,,,hk_Silverhawk_MK-II .png,2026-06-29T15:54:37+09:00
+gun_rose_blossom.png,로즈 블로썸,건슬링어,gunslinger,gunslinger/gun_rose_blossom.png,manual_identity_icon,identity,,,gun_rose_blossom.png,2026-06-29T15:54:37+09:00
+ch_yungabi.png,연가비기,창술사,lancemaster,lancemaster/ch_yungabi.png,manual_identity_icon,identity,,,ch_yungabi.png,2026-06-29T15:54:37+09:00
+bs_bloody_rush.png,블러디 러쉬,버서커,berserker,berserker/bs_bloody_rush.png,manual_identity_icon,identity,,,bs_bloody_rush.png,2026-06-29T15:54:37+09:00
+bs_dark_rush.png,다크 러쉬,버서커,berserker,berserker/bs_dark_rush.png,manual_identity_icon,identity,,,bs_dark_rush.png,2026-06-29T15:54:37+09:00
+br_geonwang.png,권왕태세,브레이커,breaker,breaker/br_geonwang.png,manual_identity_icon,identity,,,br_geonwang.png,2026-06-29T15:54:37+09:00
+br_geonwang_final.png,권왕파천무,브레이커,breaker,breaker/br_geonwang_final.png,manual_identity_icon,identity,,,br_geonwang_final.png,2026-06-29T15:54:37+09:00
+br_sura.png,수라의 길,브레이커,breaker,breaker/br_sura.png,manual_identity_icon,identity,,,br_sura.png,2026-06-29T15:54:37+09:00
+br_Asura_Destruction_Basic_Attack.png,수라결 기본 공격,브레이커,breaker,breaker/br_Asura_Destruction_Basic_Attack.png,manual_identity_icon,identity,,,br_Asura_Destruction_Basic_Attack.png,2026-06-29T15:54:37+09:00
+br_Fist _of_King_12_Storm.png,권왕십이식 풍랑,브레이커,breaker,breaker/br_Fist _of_King_12_Storm.png,manual_identity_icon,identity,,,br_Fist _of_King_12_Storm.png,2026-06-29T15:54:37+09:00
+br_Twelve_Forms_Falling_Blossoms.png,권왕십이식 낙화,브레이커,breaker,breaker/br_Twelve_Forms_Falling_Blossoms.png,manual_identity_icon,identity,,,br_Twelve_Forms_Falling_Blossoms.png.png,2026-06-29T15:54:37+09:00
+gk_musangsingwon.png,무상신권,기공사,soulmaster,soulmaster/gk_musangsingwon.png,manual_identity_icon,identity,,,gk_musangsingwon.png,2026-06-29T15:54:37+09:00
+gk_musangsinjang.png,무상신장,기공사,soulmaster,soulmaster/gk_musangsinjang.png,manual_identity_icon,identity,,,gk_musangsinjang.png,2026-06-29T15:54:37+09:00
+gk_musangsingag.png,무상신각,기공사,soulmaster,soulmaster/gk_musangsingag.png,manual_identity_icon,identity,,,gk_musangsingag.png,2026-06-29T15:54:37+09:00
+dm_demon_form.png,악마화,데모닉,demonic,demonic/dm_demon_form.png,manual_identity_icon,identity,,,dm_demon_form.png,2026-06-29T15:54:37+09:00
+dm_Fatal_Step.png,페이탈 스텝,데모닉,demonic,demonic/dm_Fatal_Step.png,manual_identity_icon,identity,,,dm_Fatal_Step.png,2026-06-29T15:54:37+09:00
+dm_Blood_Genocide.png,블러드 제노사이드,데모닉,demonic,demonic/dm_Blood_Genocide.png,manual_identity_icon,identity,,,dm_Blood_Genocide.png,2026-06-29T15:54:37+09:00
+bl_Beyblade_Burst.png,블레이드 버스트,블레이드,blade,blade/bl_Beyblade_Burst.png,manual_identity_icon,identity,,,bl_Beyblade_Burst.png,2026-06-29T15:54:37+09:00
+se_Soul_Decapitation.png,영혼 참수,소울이터,souleater,souleater/se_Soul_Decapitation.png,manual_identity_icon,identity,,,se_Soul_Decapitation.png,2026-06-29T15:54:37+09:00
+arc_emperor.png,황제,아르카나,arcana,arcana/arc_emperor.png,manual_identity_icon,identity,,,arc_emperor.png,2026-06-29T15:54:37+09:00
+arc_Knight_of_the_Empress.png,황후의 기사,아르카나,arcana,arcana/arc_Knight_of_the_Empress.png,manual_identity_icon,identity,,,arc_Knight_of_the_Empress.png,2026-06-29T15:54:37+09:00
+dh2_Secret_Weapon.png,비밀병기,데빌헌터,devilhunter,devilhunter/dh2_Secret_Weapon.png,manual_identity_icon,identity,,,dh2_Secret_Weapon.png,2026-06-29T15:54:37+09:00

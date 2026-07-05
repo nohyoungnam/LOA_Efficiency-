@@ -1,0 +1,15 @@
+# add_icon 공용 아이콘 매핑 파일 (UTF-8)
+# 형식:  영어파일명 = 한글 표시명
+#   - 파일명은 반드시 영어(ASCII)로!
+#   - 한글 이름은 이 파일 '내용'에만 적으면 됨(UTF-8이라 안전)
+#   - '#' 로 시작하는 줄은 주석
+#   - 아이콘 PNG 파일이 add_icon/common/ 에 존재할 때만 활성화됨
+#   - 이 폴더는 모든 클래스 캐릭터가 공통으로 사용 (성능/메모리 최적)
+
+# ── 공용 UI 아이콘 (모든 클래스) ──────────────────────────
+etc_attack.png = 기타
+basic_attack.png = 기본 공격
+bleed_rune.png = 스킬룬 출혈
+poison_rune.png = 스킬룬 중독
+Bleed rune.png = 스킬룬 출혈
+Poison rune.png = 스킬룬 중독

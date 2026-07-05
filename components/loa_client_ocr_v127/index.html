@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LOA Browser OCR v127</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:transparent; color:#e5e7eb; }
+    .wrap { border:1px solid rgba(148,163,184,.32); border-radius:12px; padding:14px 16px; background:rgba(15,23,42,.35); }
+    .head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
+    .title { font-weight:900; font-size:18px; color:#f8fafc; }
+    .badge { font-size:12px; border:1px solid rgba(96,165,250,.35); color:#bfdbfe; background:rgba(37,99,235,.16); border-radius:999px; padding:4px 9px; white-space:nowrap; }
+    .desc { font-size:13px; color:#cbd5e1; line-height:1.55; margin-bottom:12px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media (max-width:760px){ .grid{grid-template-columns:1fr;} }
+    .card { border:1px solid rgba(148,163,184,.20); border-radius:10px; padding:10px; background:rgba(2,6,23,.38); }
+    .card h4 { margin:0 0 6px 0; font-size:14px; }
+    .small { font-size:12px; color:#94a3b8; white-space:pre-line; }
+    button { width:100%; border:0; border-radius:10px; background:#2563eb; color:white; font-weight:900; padding:11px 12px; cursor:pointer; margin-top:10px; }
+    button:disabled { opacity:.55; cursor:not-allowed; }
+    .progress { height:8px; border-radius:999px; overflow:hidden; background:rgba(148,163,184,.18); margin:10px 0; }
+    .bar { height:100%; width:0%; background:#60a5fa; transition:width .15s ease; }
+    pre { max-height:210px; overflow:auto; background:rgba(2,6,23,.55); padding:10px; border-radius:10px; border:1px solid rgba(148,163,184,.18); font-size:12px; color:#dbeafe; }
+    .warn { color:#fde68a; font-size:12px; margin-top:8px; line-height:1.45; }
+    .ok { color:#86efac; }
+    .bad { color:#fca5a5; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="title">브라우저 OCR · 방문자 CPU 사용</div>
+    <div class="badge">v127 summary-fix</div>
+  </div>
+  <div class="desc">
+    이 컴포넌트는 서버 Python/RapidOCR을 쓰지 않고 현재 브라우저에서 Tesseract.js/WASM으로 숫자 OCR을 실행합니다. 웹 배포 시 OCR 부하는 방문자 브라우저 CPU로 이동합니다.
+  </div>
+  <div class="grid">
+    <div class="card"><h4>실전 이미지</h4><div id="realStatus" class="small">대기 중</div></div>
+    <div class="card"><h4>허수/기준 이미지</h4><div id="dummyStatus" class="small">대기 중</div></div>
+  </div>
+  <button id="runBtn">브라우저 OCR 실행</button>
+  <div class="progress"><div id="bar" class="bar"></div></div>
+  <div id="status" class="small">컴포넌트 준비 중...</div>
+  <div class="warn">첫 실행은 브라우저가 OCR 스크립트/WASM/model을 내려받아 느릴 수 있습니다. 이후에는 브라우저 캐시가 적용됩니다.</div>
+  <pre id="log"></pre>
+</div>
+<script>
+// Streamlit component lib를 외부 CDN에서 받지 않고, 필요한 postMessage 프로토콜만 직접 구현합니다.
+(function(){
+  const Streamlit = {
+    RENDER_EVENT: 'streamlit:render',
+    events: { addEventListener: function(type, cb){ window.addEventListener('message', function(e){ const d=e.data||{}; if(d.type===type){ cb({detail:d}); } }); } },
+    setComponentReady: function(){ window.parent.postMessage({isStreamlitMessage:true, type:'streamlit:componentReady', apiVersion:1}, '*'); },
+    setFrameHeight: function(height){ window.parent.postMessage({isStreamlitMessage:true, type:'streamlit:setFrameHeight', height:height}, '*'); },
+    setComponentValue: function(value){ window.parent.postMessage({isStreamlitMessage:true, type:'streamlit:setComponentValue', value:value, dataType:'json'}, '*'); }
+  };
+  window.Streamlit = Streamlit;
+})();
+</script>
+<script>
+const Streamlit = window.Streamlit;
+let latestArgs = {};
+let running = false;
+let worker = null;
+let logLines = [];
+const $ = (id) => document.getElementById(id);
+function log(msg){ logLines.push(`[${new Date().toLocaleTimeString()}] ${msg}`); if(logLines.length>100) logLines=logLines.slice(-100); $('log').textContent = logLines.join('\n'); }
+function setProgress(p, msg){ $('bar').style.width = `${Math.max(0, Math.min(100, p))}%`; if(msg) $('status').textContent = msg; Streamlit.setFrameHeight(document.body.scrollHeight + 20); }
+function summarizeInputs(args){
+  const real = [], dum = [];
+  if(args.real_summary_data_url) real.push('종합정보');
+  if(args.real_attack_data_url) real.push('공격정보');
+  if(args.dummy_summary_data_url) dum.push('종합정보');
+  if(args.dummy_attack_data_url) dum.push('공격정보');
+  $('realStatus').textContent = real.length ? real.join(' + ') : '업로드 없음';
+  $('dummyStatus').textContent = dum.length ? dum.join(' + ') : '업로드 없음';
+}
+function cleanText(t){ return String(t||'').replace(/[\n\r]+/g,' ').replace(/\s+/g,' ').trim(); }
+function loadScript(src){ return new Promise((resolve,reject)=>{ const s=document.createElement('script'); s.src=src; s.async=true; s.onload=resolve; s.onerror=()=>reject(new Error('script load failed: '+src)); document.head.appendChild(s); }); }
+async function ensureTesseract(){
+  if(window.Tesseract) return window.Tesseract;
+  const urls = [
+    'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js',
+    'https://unpkg.com/tesseract.js@5/dist/tesseract.min.js'
+  ];
+  let lastErr = null;
+  for(const url of urls){
+    try{ setProgress(2, 'Tesseract.js 로딩 중...'); log('load '+url); await loadScript(url); if(window.Tesseract) return window.Tesseract; }
+    catch(e){ lastErr=e; log('로드 실패: '+url); }
+  }
+  throw lastErr || new Error('Tesseract.js 로드 실패');
+}
+async function getWorker(){
+  if(worker) return worker;
+  const Tesseract = await ensureTesseract();
+  setProgress(4, '브라우저 OCR 엔진 초기화 중...');
+  worker = await Tesseract.createWorker('eng', 1, {
+    logger: m => { if(m && m.status){ const pct=m.progress?Math.round(m.progress*100):0; $('status').textContent=`${m.status} ${pct}%`; } }
+  });
+  try { await worker.setParameters({ tessedit_char_whitelist:'0123456789.,:%:- ', preserve_interword_spaces:'1' }); } catch(e) {}
+  log('Tesseract worker ready');
+  return worker;
+}
+function loadImage(dataUrl){ return new Promise((resolve,reject)=>{ if(!dataUrl) return resolve(null); const img=new Image(); img.onload=()=>resolve(img); img.onerror=reject; img.src=dataUrl; }); }
+function cropCanvas(img, box, scale=2.5, mode='normal'){
+  const x1=Math.max(0,Math.round(box[0]*img.width)), y1=Math.max(0,Math.round(box[1]*img.height));
+  const x2=Math.min(img.width,Math.round(box[2]*img.width)), y2=Math.min(img.height,Math.round(box[3]*img.height));
+  const w=Math.max(1,x2-x1), h=Math.max(1,y2-y1);
+  const src=document.createElement('canvas'); src.width=Math.max(1,Math.round(w*scale)); src.height=Math.max(1,Math.round(h*scale));
+  const sctx=src.getContext('2d',{willReadFrequently:true});
+  sctx.imageSmoothingEnabled=true;
+  sctx.drawImage(img,x1,y1,w,h,0,0,src.width,src.height);
+
+  // 숫자 전용 OCR은 Tesseract가 잘 보는 검은 글자/흰 배경으로 바꿉니다.
+  // 기존 v126은 어두운 배경+흰/노란 글자 그대로 OCR해서 종합정보가 크게 흔들렸습니다.
+  const imgData=sctx.getImageData(0,0,src.width,src.height);
+  const data=imgData.data;
+  for(let i=0;i<data.length;i+=4){
+    const r=data[i], g=data[i+1], b=data[i+2];
+    const mx=Math.max(r,g,b), mn=Math.min(r,g,b);
+    let isText=false;
+    if(mode==='yellow'){
+      // 전투시간/큰 노란 숫자: 노란 글자만 남김
+      isText = (r>120 && g>95 && b<115 && (r-g)<95);
+    } else if(mode==='white'){
+      // 카드 하단 원시 숫자: 흰 글자만 남김. 파란 빛/별 배경은 제거.
+      const avg=(r+g+b)/3;
+      isText = (avg>125 && (mx-mn)<70);
+    } else {
+      const avg=(r+g+b)/3;
+      isText = avg>135 || (r>120 && g>95 && b<120);
+    }
+    const v=isText ? 0 : 255;
+    data[i]=v; data[i+1]=v; data[i+2]=v; data[i+3]=255;
+  }
+  sctx.putImageData(imgData,0,0);
+  return src;
+}
+
+async function ocrBox(img, box, label, scale=2.5, mode='normal'){
+  const w=await getWorker(); const c=cropCanvas(img,box,scale,mode); const t0=performance.now();
+  const ret=await w.recognize(c);
+  const text=cleanText(ret&&ret.data?ret.data.text:''); const ms=Math.round(performance.now()-t0);
+  log(`${label}: ${ms}ms → ${text || '-'}`); return {text,ms};
+}
+function onlyDigitsCount(s){ return (String(s||'').match(/\d/g)||[]).length; }
+function pickRawOrUnit(rawText, unitText, unit){
+  const raw=String(rawText||'').trim();
+  const uni=String(unitText||'').trim();
+  // 쉼표가 포함된 하단 원시 숫자가 가장 정확합니다.
+  if(onlyDigitsCount(raw)>=7) return raw;
+  // 하단 원시 숫자를 실패하면 큰 노란 숫자를 억 단위로 폴백합니다.
+  if(onlyDigitsCount(uni)>=2) return uni + unit;
+  return raw || uni;
+}
+
+function fixedWindow(img){ return {x1:214/1920, y1:68/1080, x2:1670/1920, y2:958/1080}; }
+function relBox(win, rx1, ry1, rx2, ry2){ return [win.x1+(win.x2-win.x1)*rx1, win.y1+(win.y2-win.y1)*ry1, win.x1+(win.x2-win.x1)*rx2, win.y1+(win.y2-win.y1)*ry2]; }
+function detectRowsByIcon(img,rowCount){
+  const win=fixedWindow(img); const sx1=Math.round((win.x1+(win.x2-win.x1)*0.006)*img.width), sx2=Math.round((win.x1+(win.x2-win.x1)*0.047)*img.width); const sy1=Math.round((win.y1+(win.y2-win.y1)*0.235)*img.height), sy2=Math.round((win.y1+(win.y2-win.y1)*0.94)*img.height);
+  const c=document.createElement('canvas'); c.width=img.width; c.height=img.height; const ctx=c.getContext('2d',{willReadFrequently:true}); ctx.drawImage(img,0,0); const ww=Math.max(1,sx2-sx1), hh=Math.max(1,sy2-sy1); const data=ctx.getImageData(sx1,sy1,ww,hh).data;
+  const counts=[]; for(let y=0;y<hh;y++){ let cnt=0; for(let x=0;x<ww;x++){ const i=(y*ww+x)*4; const r=data[i],g=data[i+1],b=data[i+2]; const mx=Math.max(r,g,b),mn=Math.min(r,g,b); if((mx-mn)>48 && mx>45) cnt++; } counts.push(cnt); }
+  const runs=[]; let inRun=false, st=0, gap=0; for(let y=0;y<hh;y++){ const active=counts[y]>7; if(active&&!inRun){inRun=true;st=y;gap=0;} else if(!active&&inRun){gap++; if(gap>4){runs.push([st,y-gap]); inRun=false; gap=0;}} else if(active&&inRun){gap=0;} } if(inRun) runs.push([st,hh-1]);
+  let centers=runs.filter(r=>(r[1]-r[0])>=14 && (r[1]-r[0])<=65).map(r=>sy1+(r[0]+r[1])/2).sort((a,b)=>a-b); const merged=[]; centers.forEach(cy=>{ if(merged.length && Math.abs(cy-merged[merged.length-1])<16) merged[merged.length-1]=(merged[merged.length-1]+cy)/2; else merged.push(cy); }); centers=merged.slice(0,rowCount);
+  let rowH=43/1080*img.height; if(centers.length>=2){ const diffs=[]; for(let i=0;i<centers.length-1;i++){ const d=centers[i+1]-centers[i]; if(d>=28&&d<=65) diffs.push(d); } if(diffs.length){ diffs.sort((a,b)=>a-b); rowH=diffs[Math.floor(diffs.length/2)]; } }
+  if(centers.length<Math.min(8,rowCount)){ centers=[]; const start=win.y1+(win.y2-win.y1)*0.2506, rh=(win.y2-win.y1)*0.04835; for(let i=0;i<rowCount;i++) centers.push((start+rh*(i+0.5))*img.height); rowH=rh*img.height; }
+  return centers.map((cy,idx)=>({idx,y1:(cy-rowH/2)/img.height,y2:(cy+rowH/2)/img.height}));
+}
+async function parseSummary(dataUrl,prefix){
+  const img=await loadImage(dataUrl); if(!img) return null; const t0=performance.now();
+  // v127 보정: 실제 전투분석기 종합정보 카드 하단 원시 숫자 위치를 직접 crop합니다.
+  // 기존 v126은 탭/카드 경계 쪽을 잘라서 total_damage_text가 "0 26 ---"처럼 깨졌습니다.
+  const elapsed=await ocrBox(img,[300/1920,205/1080,475/1920,238/1080],`${prefix} elapsed_time`,4.0,'yellow');
+  const totalRaw=await ocrBox(img,[320/1920,345/1080,565/1920,388/1080],`${prefix} total_raw_exact`,4.0,'white');
+  const dpsRaw=await ocrBox(img,[665/1920,345/1080,930/1920,388/1080],`${prefix} dps_raw_exact`,4.0,'white');
+  // 폴백: 하단 원시 숫자를 놓쳤을 때만 큰 노란 숫자를 억 단위로 사용합니다.
+  const totalYellow=await ocrBox(img,[300/1920,292/1080,560/1920,338/1080],`${prefix} total_yellow_fallback`,3.5,'yellow');
+  const dpsYellow=await ocrBox(img,[660/1920,292/1080,930/1920,338/1080],`${prefix} dps_yellow_fallback`,3.5,'yellow');
+  return {
+    elapsed_text:elapsed.text,
+    total_damage_text:pickRawOrUnit(totalRaw.text,totalYellow.text,'억'),
+    dps_text:pickRawOrUnit(dpsRaw.text,dpsYellow.text,'억'),
+    total_damage_raw_text:totalRaw.text,
+    total_damage_yellow_text:totalYellow.text,
+    dps_raw_text:dpsRaw.text,
+    dps_yellow_text:dpsYellow.text,
+    browser_ms:Math.round(performance.now()-t0)
+  };
+}
+
+async function parseAttack(dataUrl,prefix,rowCount){
+  const img=await loadImage(dataUrl); if(!img) return null; const t0=performance.now(); const win=fixedWindow(img); const rows=detectRowsByIcon(img,rowCount||14);
+  const cols=[['damage','피해량',0.1813,0.2988,2.8],['back_share','백비중',0.4162,0.5337,2.5],['crit_share','치비중',0.6525,0.7685,2.5],['casts','횟수',0.7685,0.8860,2.5],['cooldown','쿨',0.8860,0.9920,2.5]];
+  const out=rows.map(r=>({row_index:r.idx})); let call=0,totalCalls=rows.length*cols.length;
+  for(const r of rows){ for(const [key,label,rx1,rx2,scale] of cols){ call++; setProgress(10+(call/Math.max(1,totalCalls))*78,`${prefix} 공격정보 OCR ${call}/${totalCalls}`); const box=relBox(win,rx1,r.y1,rx2,r.y2); const res=await ocrBox(img,box,`${prefix} r${r.idx} ${label}`,scale); out[r.idx][key]=res.text; } }
+  return {rows:out.filter(Boolean),row_count:rows.length,browser_ms:Math.round(performance.now()-t0)};
+}
+async function runAll(){
+  if(running) return; running=true; $('runBtn').disabled=true; logLines=[]; $('log').textContent=''; const args=latestArgs||{}; const rowCount=Number(args.row_count||14); const result={version:'v126_browser_only_ocr',done:false,started_at:new Date().toISOString(),real:{},dummy:{},timings:{}}; const t0=performance.now();
+  try{ setProgress(1,'브라우저 OCR 시작'); if(args.real_summary_data_url) result.real.summary=await parseSummary(args.real_summary_data_url,'실전'); if(args.real_attack_data_url) result.real.attack=await parseAttack(args.real_attack_data_url,'실전',rowCount); if(args.dummy_summary_data_url) result.dummy.summary=await parseSummary(args.dummy_summary_data_url,'허수'); if(args.dummy_attack_data_url) result.dummy.attack=await parseAttack(args.dummy_attack_data_url,'허수',rowCount); result.done=true; result.timings.total_browser_ms=Math.round(performance.now()-t0); setProgress(100,`완료 · ${result.timings.total_browser_ms}ms`); log('브라우저 OCR 완료'); Streamlit.setComponentValue(result); }
+  catch(e){ result.error=String(e&&e.stack?e.stack:e); setProgress(100,'오류 발생'); log('ERROR: '+result.error); Streamlit.setComponentValue(result); }
+  finally{ $('runBtn').disabled=false; running=false; Streamlit.setFrameHeight(document.body.scrollHeight+20); }
+}
+function onRender(event){ latestArgs=event.detail.args||{}; summarizeInputs(latestArgs); $('status').textContent='준비됨'; $('runBtn').onclick=runAll; Streamlit.setFrameHeight(document.body.scrollHeight+20); }
+Streamlit.events.addEventListener(Streamlit.RENDER_EVENT,onRender);
+Streamlit.setComponentReady();
+Streamlit.setFrameHeight(document.body.scrollHeight+20);
+</script>
+</body>
+</html>
