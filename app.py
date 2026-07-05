@@ -8256,6 +8256,7 @@ def _fetch_api_bundle_timed_v117(token: str, character_name: str) -> tuple[dict[
     t = _time_v117_app.perf_counter()
     bundle = client.fetch_armory_bundle(character_name)
     timing["fetch_armory_bundle_ms"] = round((_time_v117_app.perf_counter() - t) * 1000.0, 3)
+    timing["endpoint_timings_ms"] = getattr(client, "last_timings", {})
 
     t = _time_v117_app.perf_counter()
     serial = serializable_bundle(bundle)

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import json
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 from urllib.parse import quote
 
 import requests
@@ -20,14 +21,14 @@ class ApiResult:
 
 
 class LostArkApiClient:
-    def __init__(self, jwt_token: str, config_path: str | Path = "configs/api_endpoints.yaml", timeout: int = 15):
+    def __init__(self, jwt_token: str, config_path: str | Path = "configs/api_endpoints.yaml", timeout: int = 8):
         self.jwt_token = self._normalize_token(jwt_token)
         self.timeout = timeout
         with open(config_path, "r", encoding="utf-8") as f:
             self.config = yaml.safe_load(f)
         self.base_url = self.config.get("base_url", "https://developer-lostark.game.onstove.com").rstrip("/")
-        # v70.5: keep-alive/커넥션 풀링용 공유 세션. 매 요청마다 TCP/TLS 핸드셰이크를
-        # 다시 하지 않으므로 동일 호스트로의 다중 요청이 훨씬 빨라집니다.
+        self.last_timings: Dict[str, float] = {}
+
         self._session = requests.Session()
         self._session.headers.update({
             "accept": "application/json",
@@ -42,8 +43,7 @@ class LostArkApiClient:
         token = (token or "").strip()
         if not token:
             return ""
-        lower = token.lower()
-        if lower.startswith("bearer "):
+        if token.lower().startswith("bearer "):
             return token
         return f"bearer {token}"
 
@@ -56,8 +56,10 @@ class LostArkApiClient:
 
     def get(self, path: str) -> ApiResult:
         url = f"{self.base_url}{path}"
+        t0 = time.perf_counter()
         try:
             res = self._session.get(url, timeout=self.timeout)
+            self.last_timings[path] = round((time.perf_counter() - t0) * 1000.0, 3)
             if res.status_code == 204:
                 return ApiResult(True, res.status_code, None)
             try:
@@ -67,23 +69,49 @@ class LostArkApiClient:
             if 200 <= res.status_code < 300:
                 return ApiResult(True, res.status_code, payload)
             return ApiResult(False, res.status_code, payload, error=f"HTTP {res.status_code}")
-        except Exception as e:  # noqa: BLE001 - 화면에 오류 표시용
+        except Exception as e:  # noqa: BLE001
+            self.last_timings[path] = round((time.perf_counter() - t0) * 1000.0, 3)
             return ApiResult(False, 0, None, error=str(e))
 
-    def fetch_armory_bundle(self, character_name: str) -> Dict[str, ApiResult]:
-        """v70.5: 9개 엔드포인트를 순차 호출 대신 병렬로 동시에 요청합니다.
+    def _bundle_from_summary(self, summary_result: ApiResult) -> Dict[str, ApiResult]:
+        if not summary_result.ok or not isinstance(summary_result.data, dict):
+            return {"summary": summary_result}
 
-        기존에는 for 루프로 summary→profiles→...→arkgrid를 하나씩 기다려서
-        총 소요시간 = 9개 요청 시간의 '합'이었습니다.
-        병렬 처리하면 총 소요시간 ≈ 가장 느린 단일 요청 시간으로 줄어듭니다.
-        반환 구조(dict[key] -> ApiResult)는 기존과 100% 동일합니다.
-        """
+        data = summary_result.data
+        mapping = {
+            "profiles": "ArmoryProfile",
+            "equipment": "ArmoryEquipment",
+            "combat_skills": "ArmorySkills",
+            "engravings": "ArmoryEngraving",
+            "cards": "ArmoryCard",
+            "gems": "ArmoryGem",
+            "arkpassive": "ArkPassive",
+            "arkgrid": "ArkGrid",
+        }
+        bundle: Dict[str, ApiResult] = {"summary": summary_result}
+        for key, summary_key in mapping.items():
+            bundle[key] = ApiResult(True, summary_result.status_code, data.get(summary_key))
+        return bundle
+
+    def fetch_armory_bundle(self, character_name: str) -> Dict[str, ApiResult]:
         encoded_name = quote(character_name.strip(), safe="")
         endpoints = self.config.get("endpoints", {})
+
+        summary_meta = endpoints.get("summary") or {}
+        if self.config.get("use_summary_first", False) and summary_meta.get("enabled", True):
+            summary_path = summary_meta["path"].format(characterName=encoded_name)
+            summary_result = self.get(summary_path)
+            if (
+                summary_result.ok
+                and isinstance(summary_result.data, dict)
+                and "ArmoryProfile" in summary_result.data
+            ):
+                return self._bundle_from_summary(summary_result)
+
         tasks = {
             key: meta["path"].format(characterName=encoded_name)
             for key, meta in endpoints.items()
-            if meta.get("enabled", True)
+            if key != "summary" and meta.get("enabled", True)
         }
         results: Dict[str, ApiResult] = {}
         if not tasks:
@@ -99,16 +127,13 @@ class LostArkApiClient:
                 key = future_to_key[future]
                 try:
                     results[key] = future.result()
-                except Exception as e:  # noqa: BLE001 - 개별 요청 실패 격리
+                except Exception as e:  # noqa: BLE001
                     results[key] = ApiResult(False, 0, None, error=str(e))
 
-        # 원래 endpoints 정의 순서를 유지해서 다운스트림 표시/디버그 일관성을 보장합니다.
-        ordered = {key: results[key] for key in tasks if key in results}
-        return ordered
+        return {key: results[key] for key in tasks if key in results}
 
 
 def serializable_bundle(bundle: Dict[str, ApiResult]) -> Dict[str, Any]:
-    """Streamlit session/debug용으로 ApiResult를 dict로 변환합니다."""
     out: Dict[str, Any] = {}
     for key, result in bundle.items():
         out[key] = {
