@@ -12450,7 +12450,10 @@ def _pred231_motion_defaults_v162() -> dict[str, float]:
 def _pred231_ensure_motion_defaults_v162() -> dict[str, float]:
     defaults = _pred231_motion_defaults_v162()
     for key, default in defaults.items():
-        cur = _safe_float_v160(st.session_state.get(key), None)
+        try:
+            cur = float(st.session_state.get(key))
+        except Exception:
+            cur = None
         if cur is None or (key != "hurricane_post_motion_cooldown" and cur <= 0):
             st.session_state[key] = float(default)
     return defaults
