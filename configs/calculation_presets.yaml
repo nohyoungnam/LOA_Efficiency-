@@ -8,6 +8,10 @@ defaults:
   binomial_proc_probability: 0.75 # 231 회오리: 허리케인 1회당 브루탈 기대 초기화 확률 예시.
   hurricane_motion_time: 1.3
   hurricane_post_motion_cooldown: 0.0
+  pred231_brutal_motion_time: 0.666666667
+  pred231_stomp_motion_time: 0.466666667
+  pred231_flame_motion_time: 1.15
+  pred231_stomp_base_period: 5.0
 
 skill_groups:
   main_damage:

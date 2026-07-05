@@ -12337,7 +12337,8 @@ def _render_step_guide(step: int, title: str, items: list[str]) -> None:  # type
                 <li>헤드어택 적중률, 헤드어택 비중</li>
                 <li>피해량 지분</li>
               </ul>
-              <p>순서는 바뀌어도 괜찮지만, 캡처 화면의 상위 9개 항목 안에 모두 보여야 인식이 안정적입니다.</p>
+              <p>순서는 바뀌어도 괜찮지만, 캡처 화면의 상위 항목 안에 필요한 값이 모두 보여야 인식이 안정적입니다.</p>
+              <p>공격 정보가 한 페이지에 다 보이지 않으면 <b>2페이지까지 캡처</b>해주세요. 순서 변경한 리스트에 있는 스킬들이 실전/허수 공격 정보에 모두 등록되어야 합니다.</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -12431,6 +12432,28 @@ _PRED231_STOMP_BASE_PERIOD_V161 = 5.0
 _PRED231_BRUTAL_MOTION_TIME_V161 = 20.0 / 30.0
 _PRED231_STOMP_MOTION_TIME_V161 = 14.0 / 30.0
 _PRED231_FLAME_MOTION_TIME_V161 = 1.15
+
+
+def _pred231_motion_defaults_v162() -> dict[str, float]:
+    calc_config = load_yaml(str(CONFIG_DIR / "calculation_presets.yaml"))
+    defaults = calc_config.get("defaults", {}) if isinstance(calc_config, dict) else {}
+    return {
+        "hurricane_motion_time": float(defaults.get("hurricane_motion_time", 1.3)),
+        "hurricane_post_motion_cooldown": float(defaults.get("hurricane_post_motion_cooldown", 0.0)),
+        "pred231_brutal_motion_time": float(defaults.get("pred231_brutal_motion_time", _PRED231_BRUTAL_MOTION_TIME_V161)),
+        "pred231_stomp_motion_time": float(defaults.get("pred231_stomp_motion_time", _PRED231_STOMP_MOTION_TIME_V161)),
+        "pred231_flame_motion_time": float(defaults.get("pred231_flame_motion_time", _PRED231_FLAME_MOTION_TIME_V161)),
+        "pred231_stomp_base_period": float(defaults.get("pred231_stomp_base_period", _PRED231_STOMP_BASE_PERIOD_V161)),
+    }
+
+
+def _pred231_ensure_motion_defaults_v162() -> dict[str, float]:
+    defaults = _pred231_motion_defaults_v162()
+    for key, default in defaults.items():
+        cur = _safe_float_v160(st.session_state.get(key), None)
+        if cur is None or (key != "hurricane_post_motion_cooldown" and cur <= 0):
+            st.session_state[key] = float(default)
+    return defaults
 
 
 def _pred231_contains_skill_v161(df: pd.DataFrame | None, keyword: str) -> bool:
@@ -12609,13 +12632,14 @@ def _pred231_compute_v161() -> dict[str, Any]:
     dummy_stats = _pred231_table_stats_v161(st.session_state.get("dummy_table"), dummy_elapsed)
     display_scale = _pred231_display_scale_v161(real_stats["total_damage"], dummy_stats["total_damage"])
 
-    calc_config = load_yaml(str(CONFIG_DIR / "calculation_presets.yaml"))
-    defaults = calc_config.get("defaults", {}) if isinstance(calc_config, dict) else {}
-    st.session_state.setdefault("hurricane_motion_time", float(defaults.get("hurricane_motion_time", 1.3)))
-    st.session_state.setdefault("hurricane_post_motion_cooldown", float(defaults.get("hurricane_post_motion_cooldown", 0.0)))
+    _pred231_ensure_motion_defaults_v162()
 
     hurricane_motion_time = float(st.session_state.get("hurricane_motion_time") or 1.3)
     hurricane_post_motion_cooldown = float(st.session_state.get("hurricane_post_motion_cooldown") or 0.0)
+    brutal_motion_time = float(st.session_state.get("pred231_brutal_motion_time") or _PRED231_BRUTAL_MOTION_TIME_V161)
+    stomp_motion_time = float(st.session_state.get("pred231_stomp_motion_time") or _PRED231_STOMP_MOTION_TIME_V161)
+    flame_motion_time = float(st.session_state.get("pred231_flame_motion_time") or _PRED231_FLAME_MOTION_TIME_V161)
+    stomp_base_period = float(st.session_state.get("pred231_stomp_base_period") or _PRED231_STOMP_BASE_PERIOD_V161)
     hurricane_effective_time = hurricane_motion_time + hurricane_post_motion_cooldown
     self_reset = _PRED231_HURRICANE_SELF_RESET_PROB_V161
     brutal_prob = _PRED231_BRUTAL_RESET_PROB_V161
@@ -12625,15 +12649,15 @@ def _pred231_compute_v161() -> dict[str, Any]:
     chain_stomp_expected = stomp_prob / (1.0 - self_reset)
     chain_expected_time = (
         chain_hurricane_expected * hurricane_effective_time
-        + chain_brutal_expected * _PRED231_BRUTAL_MOTION_TIME_V161
-        + chain_stomp_expected * _PRED231_STOMP_MOTION_TIME_V161
+        + chain_brutal_expected * brutal_motion_time
+        + chain_stomp_expected * stomp_motion_time
     )
-    base_stomp_count = math.floor(real_elapsed / _PRED231_STOMP_BASE_PERIOD_V161) if real_elapsed > 0 else 0.0
+    base_stomp_count = math.floor(real_elapsed / stomp_base_period) if real_elapsed > 0 and stomp_base_period > 0 else 0.0
     flame_count = real_stats["flame"]["casts"]
     fixed_time = (
-        _PRED231_START_BRUTAL_FIXED_COUNT_V161 * _PRED231_BRUTAL_MOTION_TIME_V161
-        + flame_count * _PRED231_FLAME_MOTION_TIME_V161
-        + base_stomp_count * _PRED231_STOMP_MOTION_TIME_V161
+        _PRED231_START_BRUTAL_FIXED_COUNT_V161 * brutal_motion_time
+        + flame_count * flame_motion_time
+        + base_stomp_count * stomp_motion_time
     )
     chain_start_count = max(0.0, (real_elapsed - fixed_time) / chain_expected_time) if chain_expected_time > 0 else 0.0
     full_counts = {
@@ -12699,6 +12723,10 @@ def _pred231_compute_v161() -> dict[str, Any]:
         "hurricane_motion_time": hurricane_motion_time,
         "hurricane_post_motion_cooldown": hurricane_post_motion_cooldown,
         "hurricane_effective_time": hurricane_effective_time,
+        "brutal_motion_time": brutal_motion_time,
+        "stomp_motion_time": stomp_motion_time,
+        "flame_motion_time": flame_motion_time,
+        "stomp_base_period": stomp_base_period,
         "chain_hurricane_expected": chain_hurricane_expected,
         "chain_brutal_expected": chain_brutal_expected,
         "chain_stomp_expected": chain_stomp_expected,
@@ -12722,6 +12750,7 @@ def _pred231_compute_v161() -> dict[str, Any]:
 def _render_predator_231_result_v161() -> None:
     st.subheader("231 포식자 전용 결과")
     st.caption("브루탈 - 허리케인 - 플레임 블레이드 시작 사이클 기준으로, 엑셀의 이항분포 계산 구조를 앱 안에서 자동 계산합니다.")
+    _pred231_ensure_motion_defaults_v162()
     c = st.columns([1, 1, 1])
     with c[0]:
         st.number_input(
@@ -12744,6 +12773,49 @@ def _render_predator_231_result_v161() -> None:
     data = _pred231_compute_v161()
     with c[2]:
         st.metric("허리케인 실제 1회 소요시간(초)", f"{data['hurricane_effective_time']:.2f}")
+    st.markdown("**세부 모션 설정**")
+    d1, d2, d3, d4 = st.columns(4)
+    with d1:
+        st.number_input(
+            "브루탈 모션시간(초)",
+            min_value=0.01,
+            max_value=10.0,
+            step=0.01,
+            format="%.3f",
+            key="pred231_brutal_motion_time",
+            help="브루탈 임팩트가 실제로 시전되는 시간입니다. 기본값은 20/30초입니다.",
+        )
+    with d2:
+        st.number_input(
+            "스톰프 모션시간(초)",
+            min_value=0.01,
+            max_value=10.0,
+            step=0.01,
+            format="%.3f",
+            key="pred231_stomp_motion_time",
+            help="와일드 스톰프가 실제로 시전되는 시간입니다. 기본값은 14/30초입니다.",
+        )
+    with d3:
+        st.number_input(
+            "플레임 모션시간(초)",
+            min_value=0.01,
+            max_value=10.0,
+            step=0.01,
+            format="%.3f",
+            key="pred231_flame_motion_time",
+            help="플레임 블레이드가 실제로 시전되는 시간입니다.",
+        )
+    with d4:
+        st.number_input(
+            "스톰프 사용 주기(초)",
+            min_value=0.1,
+            max_value=60.0,
+            step=0.1,
+            format="%.1f",
+            key="pred231_stomp_base_period",
+            help="스톰프를 몇 초에 한 번씩 기본으로 쓰는지 입력합니다. 예: 5초마다 쓰면 5.0",
+        )
+    data = _pred231_compute_v161()
     st.info(
         "허리케인 모션 후 남은 쿨타임이 길수록 허수처럼 풀가동 가능한 허리케인 횟수가 줄어듭니다. "
         "그래서 같은 실전 시간이라도 허리케인 쿨타임이 긴 세팅은 이론상 풀가동 평균 DPS가 낮아질 수 있습니다."
@@ -12825,6 +12897,12 @@ def _render_predator_231_result_v161() -> None:
 
     with st.expander("자동 계산 상세", expanded=False):
         detail_df = pd.DataFrame([
+            {"항목": "허리케인 모션시간", "값": _pred231_fmt_num_v161(data["hurricane_motion_time"], 3), "단위": "초", "설명": "허리케인 소드가 실제로 시전되는 시간", "비고": "사용자 설정"},
+            {"항목": "허리케인 모션 후 남은 쿨타임", "값": _pred231_fmt_num_v161(data["hurricane_post_motion_cooldown"], 3), "단위": "초", "설명": "모션이 끝난 뒤 다음 허리케인을 쓰기까지 기다리는 시간", "비고": "사용자 설정"},
+            {"항목": "브루탈 모션시간", "값": _pred231_fmt_num_v161(data["brutal_motion_time"], 3), "단위": "초", "설명": "브루탈 임팩트가 실제로 시전되는 시간", "비고": "사용자 설정"},
+            {"항목": "스톰프 모션시간", "값": _pred231_fmt_num_v161(data["stomp_motion_time"], 3), "단위": "초", "설명": "와일드 스톰프가 실제로 시전되는 시간", "비고": "사용자 설정"},
+            {"항목": "플레임 모션시간", "값": _pred231_fmt_num_v161(data["flame_motion_time"], 3), "단위": "초", "설명": "플레임 블레이드가 실제로 시전되는 시간", "비고": "사용자 설정"},
+            {"항목": "스톰프 사용 주기", "값": _pred231_fmt_num_v161(data["stomp_base_period"], 1), "단위": "초", "설명": "스톰프를 몇 초에 한 번씩 기본으로 쓰는지", "비고": "사용자 설정"},
             {"항목": "체인당 허리케인 기대횟수", "값": _pred231_fmt_num_v161(data["chain_hurricane_expected"]), "단위": "회", "설명": "1/(1-허리케인 자기초기화 확률)", "비고": ""},
             {"항목": "체인당 브루탈 기대횟수", "값": _pred231_fmt_num_v161(data["chain_brutal_expected"]), "단위": "회", "설명": "브루탈 확률/(1-허리케인 자기초기화 확률)", "비고": ""},
             {"항목": "체인당 스톰프 추가 기대횟수", "값": _pred231_fmt_num_v161(data["chain_stomp_expected"]), "단위": "회", "설명": "스톰프 확률/(1-허리케인 자기초기화 확률)", "비고": ""},
