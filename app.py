@@ -6163,6 +6163,63 @@ def _render_integrated_debug_button_v99() -> None:
             pass
 
 
+def _build_speed_debug_download_v154() -> tuple[bytes, str, bool]:
+    timing = st.session_state.get("api_last_timing_v120") or st.session_state.get("api_last_timing_v119") or st.session_state.get("api_last_timing_v117") or {}
+    summary = st.session_state.get("api_summary") or {}
+    bundle = st.session_state.get("api_bundle") or {}
+    profile = summary.get("profile_summary", {}) if isinstance(summary, dict) else {}
+
+    endpoint_status: dict[str, Any] = {}
+    if isinstance(bundle, dict):
+        for key, value in bundle.items():
+            if isinstance(value, dict):
+                data = value.get("data")
+                endpoint_status[str(key)] = {
+                    "ok": value.get("ok"),
+                    "status_code": value.get("status_code"),
+                    "error": value.get("error"),
+                    "data_type": type(data).__name__,
+                    "data_size_chars": len(str(data)) if data is not None else 0,
+                }
+
+    recommendations: list[str] = []
+    if isinstance(timing, dict):
+        fetch_ms = float(timing.get("fetch_armory_bundle_ms") or 0)
+        summarize_ms = float(timing.get("summarize_all_ms") or 0)
+        enrich_ms = float(timing.get("enrich_summary_with_identity_ms") or 0)
+        wall_ms = float(timing.get("search_button_wall_before_render_ms_v121") or timing.get("total_ms") or 0)
+        endpoint_timings = timing.get("endpoint_timings_ms") or {}
+        if fetch_ms > 5000:
+            recommendations.append("API 응답 시간이 5초를 넘었습니다. endpoint_timings_ms에서 느린 Lost Ark API 요청을 확인하세요.")
+        if summarize_ms > 3000:
+            recommendations.append("API 응답 이후 계산표 생성이 3초를 넘었습니다. summarize_detail_v117 안의 단계별 시간을 확인하세요.")
+        if enrich_ms > 2000:
+            recommendations.append("직업/아이덴티티 보정 계산이 2초를 넘었습니다. enrich_summary_with_identity_ms가 병목일 수 있습니다.")
+        if wall_ms > fetch_ms + summarize_ms + enrich_ms + 2000:
+            recommendations.append("측정된 API/계산 시간보다 화면 대기 시간이 큽니다. Streamlit 재실행 또는 화면 렌더링 비용을 의심할 수 있습니다.")
+        if isinstance(endpoint_timings, dict) and endpoint_timings:
+            slowest = sorted(endpoint_timings.items(), key=lambda item: float(item[1] or 0), reverse=True)[:3]
+            recommendations.append(f"가장 느린 API 요청 TOP3: {slowest}")
+        if not recommendations:
+            recommendations.append("큰 단일 병목은 기록되지 않았습니다. total_ms, endpoint_timings_ms, summarize_detail_v117을 함께 비교하세요.")
+
+    payload = {
+        "debug_version": "v154_search_speed_download",
+        "created_at_epoch": _time_v120_app.time(),
+        "character_name": st.session_state.get("character_name", ""),
+        "profile_summary": profile,
+        "timing": timing,
+        "endpoint_status": endpoint_status,
+        "summary_keys": list(summary.keys()) if isinstance(summary, dict) else [],
+        "recommendations": recommendations,
+        "note": "API 키 원문은 포함하지 않습니다.",
+    }
+    raw_name = str(st.session_state.get("character_name") or "loa").strip()
+    safe_name = re.sub(r"[^0-9A-Za-z가-힣_-]+", "_", raw_name)[:40] or "loa"
+    data = _json_v117_app.dumps(payload, ensure_ascii=False, indent=2, default=str).encode("utf-8")
+    return data, f"loa_search_speed_debug_{safe_name}.json", bool(timing)
+
+
 def sidebar_controls() -> None:  # type: ignore[override]
     """v99: 좌측 검색 아래에 통합 디버그 버튼을 고정 노출합니다."""
     calc_config = load_yaml(str(CONFIG_DIR / "calculation_presets.yaml"))
@@ -12032,6 +12089,16 @@ def sidebar_controls() -> None:  # type: ignore[override]
                     st.session_state.api_last_timing_v117 = timing
                     st.session_state.api_last_timing_v116 = timing
                     st.session_state.api_last_timing_v114 = timing
+
+        debug_data, debug_file_name, has_debug = _build_speed_debug_download_v154()
+        st.download_button(
+            "속도 디버그 파일 다운로드",
+            data=debug_data,
+            file_name=debug_file_name,
+            mime="application/json",
+            disabled=not has_debug,
+            use_container_width=True,
+        )
 
         summary = st.session_state.get("api_summary") or {}
         profile = summary.get("profile_summary", {}) if isinstance(summary, dict) else {}
