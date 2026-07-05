@@ -7849,8 +7849,18 @@ def _summarize_all_detailed_v115(bundle: dict[str, Any]) -> tuple[dict[str, Any]
 
     try:
         t = _time_v115.perf_counter()
-        crit_tables = ap.estimate_skill_crit_tables(bundle)
-        timings["estimate_skill_crit_tables_ms"] = round((_time_v115.perf_counter() - t) * 1000.0, 3)
+        crit_tables = {
+            "skill_crit_estimates": pd.DataFrame(),
+            "crit_sources": pd.DataFrame(),
+            "damage_sources": pd.DataFrame(),
+            "base_crit_percent": 0.0,
+            "base_crit_raw": "deferred_until_result_tab",
+            "global_static_crit_rate_percent": 0.0,
+            "global_static_crit_damage_percent": 0.0,
+            "avg_evolution_damage_percent": 0.0,
+            "avg_final_multiplier": 1.0,
+        }
+        timings["estimate_skill_crit_tables_skipped"] = "deferred_until_result_tab"
     except Exception as e:
         timings["estimate_skill_crit_tables_error"] = repr(e)
         crit_tables = {
@@ -9477,7 +9487,6 @@ def api_tab() -> None:  # type: ignore[override]
     t0 = _time_v120_app.perf_counter()
     st.header("캐릭터 세팅 확인")
     st.caption("캐릭터 세팅과 계산에 사용된 값을 한눈에 확인할 수 있습니다.")
-    ensure_api_summary_current()
     summary = st.session_state.get("api_summary") or {}
     if not summary:
         st.info("왼쪽에서 API Key와 캐릭터명을 넣고 검색하면 여기에 표시됩니다.")
@@ -12118,7 +12127,6 @@ def api_tab() -> None:  # type: ignore[override]
     t0 = _time_v120_app.perf_counter()
     st.header("캐릭터 세팅 확인")
     st.caption("캐릭터 세팅과 계산에 사용된 값을 한눈에 확인할 수 있습니다.")
-    ensure_api_summary_current()
     summary = st.session_state.get("api_summary") or {}
     if not summary:
         st.info("왼쪽에서 캐릭터명을 넣고 검색하면 여기에 표시됩니다.")
@@ -12134,6 +12142,17 @@ def api_tab() -> None:  # type: ignore[override]
         ("직업", profile.get("직업") or "-"),
         ("아이템 레벨", profile.get("아이템레벨") or "-"),
     ])
+    final_df = summary.get("arkgrid_final_skill_estimates")
+    if not isinstance(final_df, pd.DataFrame) or final_df.empty:
+        final_df = summary.get("skill_crit_estimates")
+    if not isinstance(final_df, pd.DataFrame) or final_df.empty:
+        _v121_render_table("전투/캐릭터 요약", _v121_combat_overview(summary), 80)
+        timing = st.session_state.get("api_last_timing_v120") or {}
+        if isinstance(timing, dict):
+            timing["api_tab_render_ms_v153"] = round((_time_v120_app.perf_counter() - t0) * 1000.0, 3)
+            timing["detail_calc_deferred_v155"] = True
+            st.session_state.api_last_timing_v120 = timing
+        return
     _v121_render_table(
         "최종 계산표",
         _v121_final_calc(summary),
@@ -12212,6 +12231,8 @@ def result_tab() -> None:  # type: ignore[override]
         if st.session_state.get("_hide_result_json_block_v153"):
             return False
         return orig_download(*args, **kwargs)
+
+    ensure_api_summary_current()
 
     try:
         st.expander = public_expander  # type: ignore[assignment]
