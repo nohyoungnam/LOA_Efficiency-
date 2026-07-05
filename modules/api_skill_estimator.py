@@ -152,6 +152,45 @@ def _safe_data(bundle: Dict[str, Any], key: str) -> Any:
     return value
 
 
+_BUNDLE_ALL_TEXT_CACHE_V158: Dict[int, Tuple[Tuple[Any, ...], str]] = {}
+_BUNDLE_RAW_TEXT_CACHE_V158: Dict[int, Tuple[Tuple[Any, ...], str]] = {}
+_BUNDLE_SKILL_REF_TEXT_CACHE_V158: Dict[int, Tuple[Tuple[Any, ...], str]] = {}
+
+
+def _bundle_text_signature_v158(bundle: Dict[str, Any]) -> Tuple[Any, ...]:
+    if not isinstance(bundle, dict):
+        return (id(bundle),)
+    try:
+        profile = _safe_data(bundle, "profiles") or _safe_data(bundle, "summary") or {}
+        character_name = profile.get("CharacterName") if isinstance(profile, dict) else ""
+    except Exception:
+        character_name = ""
+    return (
+        character_name,
+        id(_safe_data(bundle, "summary")),
+        id(_safe_data(bundle, "combat_skills")),
+        id(_safe_data(bundle, "arkgrid")),
+        id(_safe_data(bundle, "arkpassive")),
+        id(_safe_data(bundle, "gems")),
+    )
+
+
+def _bundle_text_cache_get_v158(cache: Dict[int, Tuple[Tuple[Any, ...], str]], bundle: Dict[str, Any]) -> str | None:
+    key = id(bundle)
+    signature = _bundle_text_signature_v158(bundle)
+    cached = cache.get(key)
+    if cached and cached[0] == signature:
+        return cached[1]
+    return None
+
+
+def _bundle_text_cache_set_v158(cache: Dict[int, Tuple[Tuple[Any, ...], str]], bundle: Dict[str, Any], text: str) -> str:
+    if len(cache) > 32:
+        cache.clear()
+    cache[id(bundle)] = (_bundle_text_signature_v158(bundle), text)
+    return text
+
+
 def _clean_text(text: Any) -> str:
     text = re.sub(r"<[^>]+>", " ", str(text))
     text = (
@@ -1520,6 +1559,9 @@ def estimate_skill_crit_tables(bundle: Dict[str, Any]) -> Dict[str, Any]:
 
 def _bundle_all_text(bundle: Dict[str, Any]) -> str:
     """API bundle 전체에서 텍스트를 넓게 모읍니다. 직업각인 감지 실패를 줄이기 위한 보조 함수."""
+    cached = _bundle_text_cache_get_v158(_BUNDLE_ALL_TEXT_CACHE_V158, bundle)
+    if cached is not None:
+        return cached
     texts: List[str] = []
     for key in [
         "profiles", "summary", "engravings", "equipment", "combat_skills", "cards", "gems",
@@ -1531,7 +1573,7 @@ def _bundle_all_text(bundle: Dict[str, Any]) -> str:
                 texts.append(_flatten(data))
         except Exception:
             pass
-    return _clean_text(" ".join(texts))
+    return _bundle_text_cache_set_v158(_BUNDLE_ALL_TEXT_CACHE_V158, bundle, _clean_text(" ".join(texts)))
 
 
 def _active_job_names(bundle: Dict[str, Any]) -> List[str]:  # type: ignore[override]
@@ -2442,6 +2484,8 @@ def estimate_skill_crit_tables(bundle: Dict[str, Any]) -> Dict[str, Any]:  # typ
         t_add_summary = _time_v157.perf_counter()
         final_result = _add_v12_summary(result, bundle)
         estimator_timings["add_v12_summary_ms"] = round((_time_v157.perf_counter() - t_add_summary) * 1000.0, 3)
+        if isinstance(final_result.get("_add_summary_timing_v158"), dict):
+            estimator_timings["add_summary_detail_v158"] = final_result.get("_add_summary_timing_v158")
         estimator_timings["total_ms"] = round((_time_v157.perf_counter() - estimator_t0) * 1000.0, 3)
         timing_rows = []
         for k, v in estimator_timings.items():
@@ -3030,13 +3074,16 @@ _old_add_v12_summary_v16 = _add_v12_summary
 
 def _v17_raw_text_for_skill_reference(bundle: Dict[str, Any]) -> str:
     """도약/아크패시브/아크그리드 원문에서 Level 1 초각성 스킬명 감지용 텍스트 생성."""
+    cached = _bundle_text_cache_get_v158(_BUNDLE_SKILL_REF_TEXT_CACHE_V158, bundle)
+    if cached is not None:
+        return cached
     parts: List[str] = []
     for key in ["arkpassive", "arkgrid", "equipment", "combat_skills"]:
         try:
             parts.append(_flatten(_safe_data(bundle, key) or ""))
         except Exception:
             pass
-    return _clean_text(" ".join(parts))
+    return _bundle_text_cache_set_v158(_BUNDLE_SKILL_REF_TEXT_CACHE_V158, bundle, _clean_text(" ".join(parts)))
 
 
 def _v17_referenced_skill_names(bundle: Dict[str, Any]) -> set[str]:
@@ -3828,8 +3875,11 @@ _old_add_v12_summary_v60_for_v61 = _add_v12_summary
 
 
 def _v61_bundle_raw_text(bundle: Dict[str, Any]) -> str:
+    cached = _bundle_text_cache_get_v158(_BUNDLE_RAW_TEXT_CACHE_V158, bundle or {})
+    if cached is not None:
+        return cached
     try:
-        return _clean_text(_flatten(bundle or {}))
+        return _bundle_text_cache_set_v158(_BUNDLE_RAW_TEXT_CACHE_V158, bundle or {}, _clean_text(_flatten(bundle or {})))
     except Exception:
         return ""
 
@@ -4045,16 +4095,28 @@ def _v61_refresh_summary_metrics(result: Dict[str, Any]) -> None:
 
 
 def _add_v12_summary(result: Dict[str, Any], bundle: Dict[str, Any]) -> Dict[str, Any]:  # type: ignore[override]
+    add_timing = result.setdefault("_add_summary_timing_v158", {})
+    add_t0 = _time_v157.perf_counter()
     result["_defer_v17_rebuild"] = True
+    t_old = _time_v157.perf_counter()
     result = _old_add_v12_summary_v60_for_v61(result, bundle)
+    add_timing = result.setdefault("_add_summary_timing_v158", add_timing)
+    add_timing["old_add_v12_summary_chain_ms"] = round((_time_v157.perf_counter() - t_old) * 1000.0, 3)
     result.pop("_defer_v17_rebuild", None)
     try:
+        t_rebuild_sources = _time_v157.perf_counter()
         _v61_rebuild_sources_for_result(result, bundle)
+        add_timing["v61_rebuild_sources_for_result_ms"] = round((_time_v157.perf_counter() - t_rebuild_sources) * 1000.0, 3)
+        t_rebuild_tables = _time_v157.perf_counter()
         _v17_rebuild_merged_and_delta(result)
+        add_timing["v17_rebuild_merged_and_delta_final_ms"] = round((_time_v157.perf_counter() - t_rebuild_tables) * 1000.0, 3)
+        t_refresh = _time_v157.perf_counter()
         _v61_refresh_summary_metrics(result)
+        add_timing["v61_refresh_summary_metrics_ms"] = round((_time_v157.perf_counter() - t_refresh) * 1000.0, 3)
         result["estimator_version"] = ESTIMATOR_VERSION
     except Exception as e:
         result["estimator_version"] = ESTIMATOR_VERSION + f"-partial:{type(e).__name__}"
+    add_timing["v61_add_summary_total_ms"] = round((_time_v157.perf_counter() - add_t0) * 1000.0, 3)
     return result
 
 
