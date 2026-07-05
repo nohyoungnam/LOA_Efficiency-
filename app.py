@@ -9114,6 +9114,37 @@ def _v121_render_table(title: str, df: pd.DataFrame, max_rows: int = 80, help_te
     st.markdown(_v121_table_html(df, max_rows=max_rows, full_height=full_height), unsafe_allow_html=True)
 
 
+def _v155_source_table(summary: dict[str, Any], key: str, max_cols: int = 8) -> pd.DataFrame:
+    df = _v121_as_df(summary.get(key))
+    if df.empty:
+        return df
+    drop_words = ["아이콘", "Icon", "icon", "Tooltip", "tooltip", "툴팁", "설명"]
+    out = df.drop(columns=[c for c in df.columns if any(w in str(c) for w in drop_words)], errors="ignore").copy()
+    if len(out.columns) > max_cols:
+        out = out.iloc[:, :max_cols]
+    return out
+
+
+def _v155_render_character_source_tables(summary: dict[str, Any]) -> None:
+    sections = [
+        ("스탯", "stats", 12, 6),
+        ("장비", "equipment", 20, 7),
+        ("전투 스킬", "skills", 40, 8),
+        ("각인", "engravings", 20, 6),
+        ("카드", "cards", 20, 6),
+        ("보석", "gems", 20, 6),
+        ("아크패시브", "arkpassive", 40, 6),
+    ]
+    rendered = False
+    for title, key, max_rows, max_cols in sections:
+        df = _v155_source_table(summary, key, max_cols=max_cols)
+        if isinstance(df, pd.DataFrame) and not df.empty:
+            _v121_render_table(title, df, max_rows)
+            rendered = True
+    if not rendered:
+        _v121_render_table("전투/캐릭터 요약", _v121_combat_overview(summary), 80)
+
+
 def _v121_cards(items: list[tuple[str, Any]]) -> None:
     html_cards = []
     for k, v in items:
@@ -12146,7 +12177,7 @@ def api_tab() -> None:  # type: ignore[override]
     if not isinstance(final_df, pd.DataFrame) or final_df.empty:
         final_df = summary.get("skill_crit_estimates")
     if not isinstance(final_df, pd.DataFrame) or final_df.empty:
-        _v121_render_table("전투/캐릭터 요약", _v121_combat_overview(summary), 80)
+        _v155_render_character_source_tables(summary)
         timing = st.session_state.get("api_last_timing_v120") or {}
         if isinstance(timing, dict):
             timing["api_tab_render_ms_v153"] = round((_time_v120_app.perf_counter() - t0) * 1000.0, 3)
