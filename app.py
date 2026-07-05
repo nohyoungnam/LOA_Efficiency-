@@ -12124,13 +12124,31 @@ def _render_dummy_average_results_v170() -> None:
         min_dps = corrected_dps
     if max_dps is None:
         max_dps = corrected_dps
+    min_damage = (min_dps * elapsed) if min_dps is not None and elapsed > 0 else None
+    avg_damage = (avg_dps * elapsed) if avg_dps is not None and elapsed > 0 else None
+    max_damage = (max_dps * elapsed) if max_dps is not None and elapsed > 0 else None
+    min_percentile = _finite_float(pc.get("최소 백분위(%)"), 0.1) if isinstance(pc, dict) else 0.1
+    adopted = ", ".join(str(x) for x in (pc.get("채용") or []) if str(x).strip()) if isinstance(pc, dict) else ""
+    adopted_text = adopted or "치명타 확률"
 
     st.markdown("### 확률 효과 보정 (치명타 확률 변동)")
     st.caption("치명타가 실제로 얼마나 터졌는지에 따라 허수 DPS가 흔들릴 수 있어서, 같은 세팅의 평균값과 낮게/높게 뜰 수 있는 구간을 같이 보여줍니다.")
     r1, r2, r3 = st.columns(3)
-    r1.metric("최소 DPS", format_korean_number(min_dps))
-    r2.metric("평균 DPS", format_korean_number(avg_dps))
-    r3.metric("최대 DPS", format_korean_number(max_dps))
+    r1.metric(
+        "최소 DPS / 피해량",
+        f"{format_korean_number(min_dps)} / {format_korean_number(min_damage)}",
+        help=f"{adopted_text} 기준 치명타 분포에서 하위 약 {min_percentile:.1f}% 지점입니다. 모든 타격이 비치명으로 나온 극단값보다 낮아지지 않게 보정합니다.",
+    )
+    r2.metric(
+        "평균 DPS / 피해량",
+        f"{format_korean_number(avg_dps)} / {format_korean_number(avg_damage)}",
+        help="API 기대 치명률, 총 치명타 피해, 뭉툭한 가시 치명 상한/진화형 피해를 반영한 평균 기대값입니다.",
+    )
+    r3.metric(
+        "최대 DPS / 피해량",
+        f"{format_korean_number(max_dps)} / {format_korean_number(max_damage)}",
+        help="치명타 확률 변동에서 높게 뜨는 쪽의 이론 상한입니다. 카드 같은 별도 확률 효과는 평균값 기준으로 둡니다.",
+    )
 
     if result_df is not None and not result_df.empty:
         with st.expander("스킬별 보정값 확인", expanded=False):
@@ -12220,6 +12238,27 @@ def sidebar_controls() -> None:  # type: ignore[override]
     # (전투시간·총피해량·DPS 옆에서 각각 확인/수정). 사이드바 중복 입력은 제거합니다.
 
 
+def _render_main_page_nav_v171() -> str:
+    options = ["① 캐릭터 세팅", "② 전투분석기 입력", "③ 실력 분석 결과", "허수 평균 데이터"]
+    current = st.session_state.get("main_page_v153")
+    if current not in options:
+        current = options[0]
+        st.session_state["main_page_v153"] = current
+    cols = st.columns(4)
+    for i, opt in enumerate(options):
+        with cols[i]:
+            clicked = st.button(
+                opt,
+                key=f"main_page_nav_btn_v171_{i}",
+                use_container_width=True,
+                type="primary" if opt == current else "secondary",
+            )
+        if clicked:
+            st.session_state["main_page_v153"] = opt
+            st.rerun()
+    return str(st.session_state.get("main_page_v153") or current)
+
+
 def main() -> None:  # type: ignore[override]
     init_state()
     sidebar_controls()
@@ -12240,13 +12279,7 @@ def main() -> None:  # type: ignore[override]
     # 기본적으로 숨김. 신규 캐릭터 작업 시 사이드바의 '🔧 디버그 도구 표시'를 켜면 다시 나타납니다.
     if st.session_state.get("show_debug_tools", False):
         _render_icon_match_inline_result_v150()
-    page = st.radio(
-        "화면",
-        ["① 캐릭터 세팅", "② 전투분석기 입력", "③ 실력 분석 결과", "허수 평균 데이터"],
-        horizontal=True,
-        label_visibility="collapsed",
-        key="main_page_v153",
-    )
+    page = _render_main_page_nav_v171()
     if page == "① 캐릭터 세팅":
         api_tab()
     elif page == "② 전투분석기 입력":
@@ -12630,10 +12663,32 @@ def api_tab() -> None:  # type: ignore[override]
 
 
 _render_step_guide_private_v153 = globals().get("_render_step_guide")
+
+
+def _current_api_class_name_v171() -> str:
+    try:
+        summary = st.session_state.get("api_summary") or {}
+        profile = summary.get("profile_summary", {}) if isinstance(summary, dict) else {}
+        cls = str((profile or {}).get("클래스") or (profile or {}).get("클래스명") or "").strip()
+        if cls:
+            return cls
+    except Exception:
+        pass
+    try:
+        bundle = st.session_state.get("api_bundle") or {}
+        profile = ((bundle.get("profile") or {}).get("data") or {}) if isinstance(bundle, dict) else {}
+        return str(profile.get("CharacterClassName") or profile.get("ClassName") or "").strip()
+    except Exception:
+        return ""
+
+
 def _render_step_guide(step: int, title: str, items: list[str]) -> None:  # type: ignore[override]
     if step == 2 and _public_mode_enabled_v153():
+        arcana_note = ""
+        if _current_api_class_name_v171() == "아르카나":
+            arcana_note = '<p><b>아르카나 추가 설정:</b> 종합 정보 설정에서 <b>카드 사용 횟수</b>가 보이게 설정을 해주세요.</p>'
         st.markdown(
-            """
+            f"""
             <div class="loa-preset-card">
               <h3>전투분석기 사전 세팅</h3>
               <p>전투분석기에서 <b>공격 정보</b> 탭을 열고 <b>순서 변경</b>을 눌러 아래 9개 항목이 상위 목록에 보이도록 설정해주세요.</p>
@@ -12646,6 +12701,7 @@ def _render_step_guide(step: int, title: str, items: list[str]) -> None:  # type
               </ul>
               <p>순서는 바뀌어도 괜찮지만, 캡처 화면의 상위 항목 안에 필요한 값이 모두 보여야 인식이 안정적입니다.</p>
               <p>공격 정보가 한 페이지에 다 보이지 않으면 <b>2페이지까지 캡처</b>해주세요. 순서 변경한 리스트에 있는 스킬들이 실전/허수 공격 정보에 모두 등록되어야 합니다.</p>
+              {arcana_note}
             </div>
             """,
             unsafe_allow_html=True,
