@@ -3501,14 +3501,15 @@ def ensure_api_summary_current() -> None:
     summary = st.session_state.get("api_summary")
     needs = not isinstance(summary, dict)
     if not needs:
-        needs = summary.get("_calc_version") != APP_CALC_VERSION
-    if not needs:
-        base_df = summary.get("lostbuilds_base_skill_estimates")
-        final_df = summary.get("skill_crit_estimates")
+        final_df = summary.get("arkgrid_final_skill_estimates")
+        if not isinstance(final_df, pd.DataFrame) or final_df.empty:
+            final_df = summary.get("skill_crit_estimates")
         skills_df = summary.get("skills")
         has_skills = isinstance(skills_df, pd.DataFrame) and not filter_adopted_skills_df(skills_df).empty
-        missing_calc = not isinstance(base_df, pd.DataFrame) or base_df.empty or not isinstance(final_df, pd.DataFrame) or final_df.empty
+        missing_calc = not isinstance(final_df, pd.DataFrame) or final_df.empty
         needs = has_skills and missing_calc
+        if not needs and summary.get("_calc_version") != APP_CALC_VERSION:
+            summary["_calc_version"] = APP_CALC_VERSION
     if needs:
         with st.spinner("API 원본 기준으로 계산표를 다시 생성하는 중..."):
             new_summary = enrich_summary_with_identity(summarize_all(bundle), bundle)
