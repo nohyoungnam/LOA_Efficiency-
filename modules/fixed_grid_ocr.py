@@ -9054,8 +9054,10 @@ def _iter_fixed_grid_rows_v111(image: Image.Image, window_box: tuple[int, int, i
     ww = max(1, wx2 - wx1)
     icon_boxes = _detect_icon_boxes_for_grid_v111(image, window_box, max_rows=max_rows)
     bands = _row_bands_from_icon_boxes_v111(icon_boxes, window_box, image, max_rows)
-    # 감지가 실패하면 v110 고정 그리드 폴백
-    if len(bands) < max(5, min(max_rows, 10)):
+    # 감지가 거의 실패한 경우에만 v110 고정 그리드 폴백.
+    # 231 포식자처럼 실제 사용 스킬이 9줄 정도인 표는 정상적으로 짧은 표이므로,
+    # 10줄 미만이라는 이유만으로 14줄 고정 폴백을 타면 빈 줄 OCR이 늘고 오인식이 생깁니다.
+    if len(bands) < 5:
         for i, row_box, icon_box in _iter_fixed_grid_rows_v110(image, window_box, max_rows):
             yield i, row_box, icon_box, 'v110_fixed_fallback'
         return
