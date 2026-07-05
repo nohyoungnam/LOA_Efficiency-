@@ -11245,7 +11245,7 @@ def _apply_browser_ocr_kind_v130(kind: str, title: str, payload: dict[str, Any] 
         if multi:
             # v136: 기본은 '가로 열만' 병합(맨 위 페이지의 컬럼 화면들만 합침).
             # 세로 스크롤 페이지를 합치려면 사이드바/OCR탭 옵션을 켜세요.
-            merge_scroll = bool(st.session_state.get("attack_merge_scroll_pages", False))
+            merge_scroll = bool(st.session_state.get("attack_merge_scroll_pages", True))
             merge_input = matched if merge_scroll else _select_primary_page_dfs_v136(matched)
             report["attack_merge_mode"] = "scroll_union" if merge_scroll else "primary_page_only"
             report["attack_images_used"] = len(merge_input)
@@ -11902,6 +11902,311 @@ def _render_battle_review_only_v115(kind: str, title: str) -> None:  # type: ign
             st.warning(f"숫자 변환 확인 중 오류: {e}")
 
 
+def _dummy_average_capture_uploads_v170() -> tuple[Any, list[Any]]:
+    summary_up = st.session_state.get("cap_dummy_avg_summary")
+    attack_ups = list(st.session_state.get("cap_dummy_avg_attack_list") or [])
+    return summary_up, attack_ups
+
+
+def _render_dummy_average_client_ocr_component_v170(
+    *,
+    dummy_summary_up: Any,
+    dummy_attack_ups: Any,
+    row_count: int,
+    dummy_summary_img: "Image.Image | None" = None,
+    dummy_attack_imgs: Any = None,
+) -> dict[str, Any] | None:
+    if _CLIENT_OCR_COMPONENT_V130 is None:
+        st.error("브라우저 OCR 컴포넌트를 불러오지 못했습니다.")
+        return None
+    dummy_attack_ups = list(dummy_attack_ups or [])
+    dummy_attack_imgs = list(dummy_attack_imgs or [])
+    sig = _input_sig_v130(dummy_summary_up, *dummy_attack_ups)
+
+    def _grids(imgs: Any, tag: str) -> list[dict[str, Any]]:
+        out: list[dict[str, Any]] = []
+        for i, im in enumerate(imgs or []):
+            try:
+                out.append(json.loads(_attack_columns_arg_v133(im, f"{tag}_{i}") or "{}"))
+            except Exception:
+                out.append({})
+        return out
+
+    dummy_grids = _grids(dummy_attack_imgs, "dummy_avg_attack")
+    dummy_urls = [_upload_to_data_url_v130(u) for u in dummy_attack_ups]
+    dummy_summary_anchor = _summary_anchor_arg_v134(dummy_summary_img, "dummy_avg_summary")
+    auto_run = bool(st.session_state.get("_dummy_avg_auto_run_after_capture", False))
+    res = _CLIENT_OCR_COMPONENT_V130(
+        real_summary_data_url=None,
+        real_attack_data_urls=json.dumps([]),
+        dummy_summary_data_url=_upload_to_data_url_v130(dummy_summary_up),
+        dummy_attack_data_urls=json.dumps(dummy_urls),
+        row_count=int(row_count or 14),
+        real_attack_grids=json.dumps([]),
+        dummy_attack_grids=json.dumps(dummy_grids, ensure_ascii=False),
+        real_summary_anchor=None,
+        dummy_summary_anchor=dummy_summary_anchor,
+        input_sig=sig,
+        auto_run_after_capture=auto_run,
+        cap_counts=json.dumps({
+            "real_attack": 0,
+            "dummy_attack": len(st.session_state.get("cap_dummy_avg_attack_list") or []),
+            "real_summary": 0,
+            "dummy_summary": 1 if st.session_state.get("cap_dummy_avg_summary") else 0,
+        }),
+        capture_mode="dummy_only",
+        required_capture_kinds=json.dumps(["dummy_summary", "dummy_attack"]),
+        default=None,
+        key="loa_dummy_average_ocr_component_v170",
+    )
+    if auto_run:
+        st.session_state.pop("_dummy_avg_auto_run_after_capture", None)
+    return res
+
+
+def _handle_dummy_average_capture_result_v170(client_result: Any) -> bool:
+    if not isinstance(client_result, dict):
+        return False
+    batch = client_result.get("capture_batch")
+    if not isinstance(batch, dict):
+        return False
+    stamp = str(client_result.get("ts") or "")
+    if stamp and st.session_state.get("_last_dummy_avg_capture_batch_ts") == stamp:
+        return False
+    stored = 0
+    for kind in ("dummy_summary", "dummy_attack"):
+        urls = batch.get(kind) or []
+        if not isinstance(urls, list):
+            continue
+        imgs: list[bytes] = []
+        for u in urls:
+            png = _png_bytes_from_data_url_v137(u)
+            if png:
+                imgs.append(png)
+        if not imgs:
+            continue
+        if kind == "dummy_attack":
+            lst = list(st.session_state.get("cap_dummy_avg_attack_list") or [])
+            for i, png in enumerate(imgs):
+                lst.append(_CapturedImageUpload(png, f"capture_dummy_avg_attack_{stamp}_{i}.jpg"))
+            st.session_state["cap_dummy_avg_attack_list"] = lst[-8:]
+            stored += len(imgs)
+        else:
+            st.session_state["cap_dummy_avg_summary"] = _CapturedImageUpload(imgs[-1], f"capture_dummy_avg_summary_{stamp}.jpg")
+            stored += 1
+    if not stored:
+        return False
+    st.session_state["_last_dummy_avg_capture_batch_ts"] = stamp
+    st.session_state["_dummy_avg_auto_run_after_capture"] = True
+    return True
+
+
+def _handle_dummy_average_clear_capture_v170(client_result: Any) -> bool:
+    if not isinstance(client_result, dict):
+        return False
+    kind = str(client_result.get("clear_capture") or "").strip()
+    if kind not in ("dummy_summary", "dummy_attack"):
+        return False
+    stamp = str(client_result.get("ts") or "")
+    if stamp and st.session_state.get("_last_dummy_avg_clear_capture_ts") == stamp:
+        return False
+    if kind == "dummy_attack":
+        st.session_state.pop("cap_dummy_avg_attack_list", None)
+    else:
+        st.session_state.pop("cap_dummy_avg_summary", None)
+    st.session_state["_last_dummy_avg_clear_capture_ts"] = stamp
+    return True
+
+
+def _clear_dummy_average_captures_v170() -> None:
+    for key in [
+        "cap_dummy_avg_attack_list",
+        "cap_dummy_avg_summary",
+        "_last_dummy_avg_capture_batch_ts",
+        "_dummy_avg_auto_run_after_capture",
+    ]:
+        st.session_state.pop(key, None)
+
+
+def _auto_apply_dummy_average_client_result_v170(
+    client_result: dict[str, Any],
+    *,
+    current_sig: str,
+    dummy_summary_img: "Image.Image | None",
+    dummy_attack_imgs: Any,
+    row_count: int,
+    icon_match_threshold: float,
+    name_match_threshold: float,
+    aggregate_unmatched: bool,
+) -> list[dict[str, Any]] | None:
+    if not isinstance(client_result, dict) or not client_result.get("done"):
+        return None
+    if str(client_result.get("input_sig") or "") != str(current_sig or ""):
+        return None
+    apply_id = f"v170_dummy_avg|{client_result.get('started_at','')}|{client_result.get('input_sig','')}|{client_result.get('timings',{}).get('total_browser_ms','')}"
+    if st.session_state.get("last_applied_dummy_average_ocr_v170") == apply_id:
+        return None
+    reports: list[dict[str, Any]] = []
+    if client_result.get("dummy"):
+        old_merge = st.session_state.get("attack_merge_scroll_pages", None)
+        st.session_state["attack_merge_scroll_pages"] = True
+        try:
+            reports.append(_apply_browser_ocr_kind_v130(
+                "dummy_avg", "허수 평균 데이터", client_result.get("dummy"), dummy_summary_img, dummy_attack_imgs,
+                row_count=int(row_count), icon_threshold=float(icon_match_threshold) / 100.0,
+                name_threshold=float(name_match_threshold) / 100.0, aggregate_unmatched=bool(aggregate_unmatched),
+            ))
+        finally:
+            if old_merge is None:
+                st.session_state.pop("attack_merge_scroll_pages", None)
+            else:
+                st.session_state["attack_merge_scroll_pages"] = old_merge
+    st.session_state["dummy_average_ocr_reports_v170"] = reports
+    st.session_state["last_applied_dummy_average_ocr_v170"] = apply_id
+    return reports
+
+
+def _dummy_average_elapsed_v170() -> float | None:
+    meta = st.session_state.get("dummy_avg_meta", {}) or {}
+    elapsed = meta.get("elapsed_seconds") or st.session_state.get("dummy_avg_elapsed_sec")
+    try:
+        elapsed = float(elapsed or 0.0)
+    except Exception:
+        elapsed = 0.0
+    return elapsed if elapsed > 0 else None
+
+
+def _render_dummy_average_results_v170() -> None:
+    table = st.session_state.get("dummy_avg_table")
+    if table is None or not isinstance(table, pd.DataFrame) or table.empty:
+        st.info("허수 종합 정보와 허수 공격 정보를 인식하면 결과가 여기에 표시됩니다.")
+        return
+    elapsed = _dummy_average_elapsed_v170()
+    if not elapsed:
+        st.warning("허수 전투 시간이 필요합니다. 아래 검수 영역에서 전투 시간을 확인해 주세요.")
+        return
+
+    meta = st.session_state.get("dummy_avg_meta", {}) or {}
+    observed_summary = apply_summary_overrides(summarize_battle(table, elapsed), meta)
+    target_gain_rate = float(st.session_state.get("target_gain_percent", 5.0)) / 100.0
+    result_df, _improve_df, _summary_df, analysis_meta = build_result_and_improvement_tables(
+        table, table, elapsed, elapsed, target_gain_rate, crit_synergy_count=0.0,
+    )
+
+    observed_total = _finite_float(meta.get("total_damage"), observed_summary.get("total_damage")) or 0.0
+    observed_dps = _finite_float(meta.get("dps"), observed_summary.get("dps")) or (observed_total / elapsed if elapsed > 0 else 0.0)
+    corrected_total = _finite_float(analysis_meta.get("total_real_avg_all"), None)
+    if corrected_total is None:
+        corrected_total = _finite_float(analysis_meta.get("total_real_avg"), observed_total) or observed_total
+    corrected_dps = corrected_total / elapsed if elapsed > 0 else None
+
+    st.markdown("### 결과")
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("허수 실측 총피해량", format_korean_number(observed_total))
+    c2.metric("허수 실측 DPS", format_korean_number(observed_dps))
+    c3.metric("확률 보정 총 피해량", format_korean_number(corrected_total))
+    c4.metric("확률 보정 DPS", format_korean_number(corrected_dps))
+
+    pc = analysis_meta.get("probability_correction") or {}
+    min_dps = _finite_float(pc.get("최소 DPS"), None) if isinstance(pc, dict) else None
+    avg_dps = _finite_float(pc.get("평균 DPS"), None) if isinstance(pc, dict) else None
+    max_dps = _finite_float(pc.get("최대 DPS"), None) if isinstance(pc, dict) else None
+    if min_dps is None or avg_dps is None or max_dps is None:
+        ranges = analysis_meta.get("expected_dps_range") or []
+        if ranges:
+            first = ranges[0] or {}
+            min_dps = _finite_float(first.get("예상 최소 DPS"), min_dps)
+            avg_dps = _finite_float(first.get("예상 평균 DPS"), avg_dps)
+            max_dps = _finite_float(first.get("예상 최대 DPS"), max_dps)
+    if avg_dps is None:
+        avg_dps = corrected_dps
+    if min_dps is None:
+        min_dps = corrected_dps
+    if max_dps is None:
+        max_dps = corrected_dps
+
+    st.markdown("### 확률 효과 보정 (치명타 확률 변동)")
+    st.caption("치명타가 실제로 얼마나 터졌는지에 따라 허수 DPS가 흔들릴 수 있어서, 같은 세팅의 평균값과 낮게/높게 뜰 수 있는 구간을 같이 보여줍니다.")
+    r1, r2, r3 = st.columns(3)
+    r1.metric("최소 DPS", format_korean_number(min_dps))
+    r2.metric("평균 DPS", format_korean_number(avg_dps))
+    r3.metric("최대 DPS", format_korean_number(max_dps))
+
+    if result_df is not None and not result_df.empty:
+        with st.expander("스킬별 보정값 확인", expanded=False):
+            cols = [c for c in ["스킬명", "실전 관측", "치명타 보정 값", "치명타 적중률", "치명타 비중", "실전 기대치명", "총 치피", "진화형 피해"] if c in result_df.columns]
+            st.dataframe(format_analysis_dataframe(result_df[cols]), use_container_width=True, hide_index=True)
+
+
+def dummy_average_tab() -> None:
+    st.header("허수 평균 데이터")
+    st.caption("허수 전투분석기만 넣어서 치명타 운과 뭉툭한 가시 같은 확률 효과를 평균값 기준으로 보정합니다.")
+
+    _render_step_guide(4, "허수 데이터만 인식하기", [
+        "아래에서 <b>화면 공유 시작</b>을 누르고, 전투분석기의 <b>허수 종합 정보</b>와 <b>허수 공격 정보</b>만 캡처하세요.",
+        "공격 정보가 2페이지로 나뉘어 있으면 두 페이지 모두 캡처한 뒤 <b>이미지 인식</b>을 누르세요.",
+        "인식 후 아래 검수표에서 전투 시간·총피해량·스킬 피해량을 확인하면 결과가 바로 갱신됩니다.",
+    ])
+
+    with st.container(border=True):
+        dummy_summary_up, dummy_attack_ups = _dummy_average_capture_uploads_v170()
+        dummy_summary_img = _image_from_uploader_or_session_v115(dummy_summary_up, "dummy_avg", "summary")
+        dummy_attack_imgs = _imgs_from_uploads_v135(dummy_attack_ups)
+        row_count = int(st.session_state.get("unified_row_count_v130", 14) or 14)
+        icon_match_threshold = int(st.session_state.get("unified_icon_threshold_v130", 74) or 74)
+        name_match_threshold = int(st.session_state.get("unified_name_threshold_v130", 52) or 52)
+        aggregate_unmatched = bool(st.session_state.get("unified_aggregate_unmatched_v130", False))
+
+        cap_count = len(dummy_attack_ups) + (1 if dummy_summary_up else 0)
+        if cap_count:
+            cc1, cc2 = st.columns([3, 1])
+            cc1.caption(f"화면 공유 캡처 {cap_count}장 사용 중 · 허수 공격 {len(dummy_attack_ups)} / 허수 종합 {1 if dummy_summary_up else 0}")
+            if cc2.button("캡처 초기화", key="clear_dummy_average_captures_v170"):
+                _clear_dummy_average_captures_v170()
+                st.rerun()
+        else:
+            st.info("허수 종합 정보와 허수 공격 정보를 화면 공유로 캡처해 주세요.")
+
+        current_sig = _input_sig_v130(dummy_summary_up, *dummy_attack_ups)
+        client_result = _render_dummy_average_client_ocr_component_v170(
+            dummy_summary_up=dummy_summary_up,
+            dummy_attack_ups=dummy_attack_ups,
+            row_count=row_count,
+            dummy_summary_img=dummy_summary_img,
+            dummy_attack_imgs=dummy_attack_imgs,
+        )
+        if isinstance(client_result, dict):
+            st.session_state["last_dummy_average_ocr_v170"] = client_result
+            if _handle_dummy_average_capture_result_v170(client_result):
+                st.rerun()
+            if _handle_dummy_average_clear_capture_v170(client_result):
+                st.rerun()
+            if client_result.get("error"):
+                st.error(str(client_result.get("error")))
+            elif client_result.get("done"):
+                st.success(f"이미지 인식 완료 · {client_result.get('timings', {}).get('total_browser_ms', '-')} ms")
+                reports_now = _auto_apply_dummy_average_client_result_v170(
+                    client_result,
+                    current_sig=current_sig,
+                    dummy_summary_img=dummy_summary_img,
+                    dummy_attack_imgs=dummy_attack_imgs,
+                    row_count=row_count,
+                    icon_match_threshold=float(icon_match_threshold),
+                    name_match_threshold=float(name_match_threshold),
+                    aggregate_unmatched=aggregate_unmatched,
+                )
+                if reports_now is not None:
+                    st.success("허수 평균 데이터에 인식 결과를 적용했습니다.")
+                    if cap_count:
+                        _clear_dummy_average_captures_v170()
+                        st.rerun()
+
+    _render_dummy_average_results_v170()
+
+    with st.expander("허수 데이터 검수", expanded=False):
+        _render_battle_review_only_v115("dummy_avg", "허수 평균 데이터")
+
+
 _sidebar_controls_prev_v130 = globals().get("sidebar_controls")
 def sidebar_controls() -> None:  # type: ignore[override]
     if callable(_sidebar_controls_prev_v130):
@@ -11937,7 +12242,7 @@ def main() -> None:  # type: ignore[override]
         _render_icon_match_inline_result_v150()
     page = st.radio(
         "화면",
-        ["① 캐릭터 세팅", "② 전투분석기 입력", "③ 실력 분석 결과"],
+        ["① 캐릭터 세팅", "② 전투분석기 입력", "③ 실력 분석 결과", "허수 평균 데이터"],
         horizontal=True,
         label_visibility="collapsed",
         key="main_page_v153",
@@ -11946,6 +12251,8 @@ def main() -> None:  # type: ignore[override]
         api_tab()
     elif page == "② 전투분석기 입력":
         ocr_tab()
+    elif page == "허수 평균 데이터":
+        dummy_average_tab()
     else:
         result_tab()
 

@@ -80,7 +80,7 @@
 
   <!-- v143: 인식 버튼은 업로드/캡처 '다음'에 둡니다(순서: 이미지 넣기 → 인식). -->
   <button id="runBtn" disabled>이미지 인식</button>
-  <div id="runHint" class="small" style="margin-top:6px;color:#fca5a5;">허수 종합 정보·허수 공격 정보·실전 종합 정보·실전 공격 정보가 각각 1장 이상 있어야 인식할 수 있습니다.</div>
+  <div id="runHint" class="small" style="margin-top:6px;color:#fca5a5;">필요한 전투분석기 화면을 각각 1장 이상 캡처하면 인식할 수 있습니다.</div>
 
   <div class="progress"><div id="bar" class="bar"></div></div>
   <div id="status" class="small">컴포넌트 준비 중...</div>
@@ -783,15 +783,19 @@ function _catPresent(kind){
   return false;
 }
 function refreshRunGate(){
-  // v143: 4종(실전 공격/종합, 허수 공격/종합)이 모두 1장 이상일 때만 '이미지 인식' 활성화.
-  const need=[['dummy_summary','허수 종합 정보'],['dummy_attack','허수 공격 정보'],['real_summary','실전 종합 정보'],['real_attack','실전 공격 정보']];
+  // v170: 기본은 4종 모두 필요하지만, 별도 화면에서는 허수 2종만 요구할 수 있습니다.
+  let req=null;
+  try{ req=JSON.parse(String((latestArgs||{}).required_capture_kinds||'')); }catch(e){ req=null; }
+  const defaultNeed=['dummy_summary','dummy_attack','real_summary','real_attack'];
+  const needKinds=Array.isArray(req)&&req.length?req:defaultNeed;
+  const need=needKinds.map(k=>[k,CAP_LABEL[k]||k]);
   const missing=need.filter(([k])=>!_catPresent(k)).map(([,label])=>label);
   const ready=missing.length===0;
   const rb=$('runBtn'); if(rb) rb.disabled=!ready || running;
   const hint=$('runHint');
   if(hint){
     if(ready){ hint.style.display='none'; }
-    else { hint.style.display='block'; hint.textContent='아직 없음: '+missing.join(', ')+' — 4종이 모두 1장 이상이어야 인식할 수 있어요.'; }
+    else { hint.style.display='block'; hint.textContent='아직 없음: '+missing.join(', ')+' / 필요한 화면을 모두 캡처해야 인식할 수 있어요.'; }
   }
 }
 function onRender(event){
@@ -799,6 +803,12 @@ function onRender(event){
   $('runBtn').onclick=runAll;
   const sb=$('shareStartBtn'); if(sb) sb.onclick=startShare;
   const xb=$('shareStopBtn'); if(xb) xb.onclick=stopShare;
+  const dummyOnly=String((latestArgs||{}).capture_mode||'')==='dummy_only';
+  document.querySelectorAll('#capBtns .capRow').forEach(row=>{
+    const btn=row.querySelector('.capBtn');
+    const kind=btn?String(btn.getAttribute('data-cap')||''):'';
+    row.style.display=(dummyOnly && kind.startsWith('real_'))?'none':'flex';
+  });
   document.querySelectorAll('#capBtns .capBtn').forEach(b=>{ b.onclick=()=>captureFrame(b.getAttribute('data-cap')); });
   document.querySelectorAll('#capBtns .capCancel').forEach(b=>{ b.onclick=()=>cancelCapture(b.getAttribute('data-cap')); });
   updateCapButtons();
