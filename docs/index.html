@@ -15,20 +15,29 @@
         overflow: hidden;
       }
 
+      .app-frame {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: #0e1117;
+      }
+
       iframe {
         display: block;
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh + 36px);
         border: 0;
         background: #0e1117;
       }
     </style>
   </head>
   <body>
-    <iframe
-      title="LOA 실전 효율 분석기"
-      src="https://loa-efficiency.streamlit.app/?embed=true"
-      allow="clipboard-read; clipboard-write; fullscreen"
-    ></iframe>
+    <div class="app-frame">
+      <iframe
+        title="LOA 실전 효율 분석기"
+        src="https://loa-efficiency.streamlit.app/?embed=true"
+        allow="clipboard-read; clipboard-write; fullscreen"
+      ></iframe>
+    </div>
   </body>
 </html>
