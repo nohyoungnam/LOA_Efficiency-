@@ -2439,6 +2439,9 @@ def estimate_skill_crit_tables(bundle: Dict[str, Any]) -> Dict[str, Any]:  # typ
             "has_back_attack_engraving": back_engraving,
             "has_head_attack_engraving": head_engraving,
         }
+        t_add_summary = _time_v157.perf_counter()
+        final_result = _add_v12_summary(result, bundle)
+        estimator_timings["add_v12_summary_ms"] = round((_time_v157.perf_counter() - t_add_summary) * 1000.0, 3)
         estimator_timings["total_ms"] = round((_time_v157.perf_counter() - estimator_t0) * 1000.0, 3)
         timing_rows = []
         for k, v in estimator_timings.items():
@@ -2448,8 +2451,8 @@ def estimate_skill_crit_tables(bundle: Dict[str, Any]) -> Dict[str, Any]:  # typ
                 except Exception:
                     pass
         estimator_timings["top_stages"] = sorted(timing_rows, key=lambda x: x["ms"], reverse=True)[:12]
-        result["_estimator_timing_v157"] = estimator_timings
-        return _add_v12_summary(result, bundle)
+        final_result["_estimator_timing_v157"] = estimator_timings
+        return final_result
     except Exception as e:  # noqa: BLE001
         return {
             "estimator_version": ESTIMATOR_VERSION,
@@ -3312,7 +3315,10 @@ def _add_v12_summary(result: Dict[str, Any], bundle: Dict[str, Any]) -> Dict[str
     if isinstance(result.get("base_damage_sources"), pd.DataFrame) and isinstance(result.get("arkgrid_damage_sources"), pd.DataFrame):
         result["damage_sources"] = _concat_sources(result.get("base_damage_sources"), result.get("arkgrid_damage_sources"))
 
-    _v17_rebuild_merged_and_delta(result)
+    if result.get("_defer_v17_rebuild"):
+        result["_v17_rebuild_deferred"] = True
+    else:
+        _v17_rebuild_merged_and_delta(result)
 
     final_df = result.get("arkgrid_final_skill_estimates")
     base_df = result.get("lostbuilds_base_skill_estimates")
@@ -4039,7 +4045,9 @@ def _v61_refresh_summary_metrics(result: Dict[str, Any]) -> None:
 
 
 def _add_v12_summary(result: Dict[str, Any], bundle: Dict[str, Any]) -> Dict[str, Any]:  # type: ignore[override]
+    result["_defer_v17_rebuild"] = True
     result = _old_add_v12_summary_v60_for_v61(result, bundle)
+    result.pop("_defer_v17_rebuild", None)
     try:
         _v61_rebuild_sources_for_result(result, bundle)
         _v17_rebuild_merged_and_delta(result)
