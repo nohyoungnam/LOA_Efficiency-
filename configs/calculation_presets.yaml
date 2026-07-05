@@ -6,6 +6,8 @@ defaults:
   back_attack_damage_bonus_percent: 5.0
   head_attack_damage_bonus_percent: 20.0
   binomial_proc_probability: 0.75 # 231 회오리: 허리케인 1회당 브루탈 기대 초기화 확률 예시.
+  hurricane_motion_time: 1.3
+  hurricane_post_motion_cooldown: 0.0
 
 skill_groups:
   main_damage:

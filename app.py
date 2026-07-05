@@ -12252,15 +12252,16 @@ def sidebar_controls() -> None:  # type: ignore[override]
                     st.session_state.api_last_timing_v116 = timing
                     st.session_state.api_last_timing_v114 = timing
 
-        debug_data, debug_file_name, has_debug = _build_speed_debug_download_v154()
-        st.download_button(
-            "속도 디버그 파일 다운로드",
-            data=debug_data,
-            file_name=debug_file_name,
-            mime="application/json",
-            disabled=not has_debug,
-            use_container_width=True,
-        )
+        with st.expander("디버그 도구", expanded=False):
+            debug_data, debug_file_name, has_debug = _build_speed_debug_download_v154()
+            st.download_button(
+                "속도 디버그 파일 다운로드",
+                data=debug_data,
+                file_name=debug_file_name,
+                mime="application/json",
+                disabled=not has_debug,
+                use_container_width=True,
+            )
 
         summary = st.session_state.get("api_summary") or {}
         profile = summary.get("profile_summary", {}) if isinstance(summary, dict) else {}
@@ -12404,6 +12405,189 @@ def result_tab() -> None:  # type: ignore[override]
         st.json = orig_json  # type: ignore[assignment]
         st.download_button = orig_download  # type: ignore[assignment]
         st.session_state["_hide_result_json_block_v153"] = False
+
+
+def _skill_row_by_keyword_v160(df: pd.DataFrame, keyword: str) -> dict[str, Any]:
+    try:
+        norm = normalize_battle_df(df)
+    except Exception:
+        norm = pd.DataFrame()
+    if not isinstance(norm, pd.DataFrame) or norm.empty:
+        return {}
+    for _, row in norm.iterrows():
+        if keyword in str(row.get("name") or ""):
+            return row.to_dict()
+    return {}
+
+
+def _safe_float_v160(value: Any, default: float = 0.0) -> float:
+    try:
+        if value is None or pd.isna(value):
+            return float(default)
+    except Exception:
+        pass
+    try:
+        return float(value)
+    except Exception:
+        return float(default)
+
+
+def _render_predator_231_calculator_v160(real_elapsed: float | None = None) -> None:
+    calc_config = load_yaml(str(CONFIG_DIR / "calculation_presets.yaml"))
+    defaults = calc_config.get("defaults", {}) if isinstance(calc_config, dict) else {}
+    st.session_state.setdefault("hurricane_motion_time", float(defaults.get("hurricane_motion_time", 1.3)))
+    st.session_state.setdefault("hurricane_post_motion_cooldown", float(defaults.get("hurricane_post_motion_cooldown", 0.0)))
+    st.session_state.setdefault("pred231_hurricane_expected_count", 2.0)
+    st.session_state.setdefault("pred231_brutal_expected_count", 3.0)
+    st.session_state.setdefault("pred231_stomp_extra_expected_count", 1.0)
+    st.session_state.setdefault("pred231_brutal_motion_time", 1.0)
+    st.session_state.setdefault("pred231_stomp_motion_time", 0.7)
+    st.session_state.setdefault("pred231_flame_motion_time", 0.9)
+    st.session_state.setdefault("pred231_start_brutal_fixed_count", 0.0)
+    st.session_state.setdefault("pred231_flame_count", 0.0)
+    st.session_state.setdefault("pred231_base_stomp_count", 0.0)
+
+    st.divider()
+    with st.expander("231 포식자 전용 계산기", expanded=False):
+        st.caption(
+            "허리케인을 1.3초 동안 때렸다고 해서 바로 다음 허리케인을 쓸 수 있는 게 아니라면, "
+            "기다리는 시간까지 계산에 넣어야 합니다."
+        )
+        st.info(
+            "허리케인 모션 후 남은 쿨타임이 길수록 허수처럼 풀가동 가능한 허리케인 횟수가 줄어듭니다. "
+            "그래서 같은 실전 시간이라도 허리케인 쿨타임이 긴 세팅은 이론상 풀가동 평균 DPS가 낮아질 수 있습니다."
+        )
+
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            hurricane_motion_time = st.number_input(
+                "허리케인 모션시간(초)",
+                min_value=0.0,
+                max_value=10.0,
+                step=0.1,
+                key="hurricane_motion_time",
+                help="허리케인 소드가 실제로 시전되는 시간입니다.",
+            )
+        with c2:
+            hurricane_post_motion_cooldown = st.number_input(
+                "허리케인 모션 후 남은 쿨타임(초)",
+                min_value=0.0,
+                max_value=30.0,
+                step=0.1,
+                key="hurricane_post_motion_cooldown",
+                help="허리케인 모션이 끝난 뒤, 다음 허리케인을 다시 쓰기까지 기다려야 하는 시간입니다.",
+            )
+        hurricane_effective_time = float(hurricane_motion_time) + float(hurricane_post_motion_cooldown)
+        with c3:
+            st.metric("허리케인 실제 1회 소요시간(초)", f"{hurricane_effective_time:.2f}")
+
+        st.caption(
+            f"예: 허리케인 모션시간 {float(hurricane_motion_time):.1f}초 + "
+            f"모션 후 남은 쿨타임 {float(hurricane_post_motion_cooldown):.1f}초 = "
+            f"허리케인 실제 1회 소요시간 {hurricane_effective_time:.1f}초"
+        )
+        st.dataframe(
+            pd.DataFrame([
+                {"항목": "허리케인 모션시간(초)", "값": f"{float(hurricane_motion_time):.1f}", "설명": "허리케인 소드가 실제로 시전되는 시간"},
+                {"항목": "허리케인 모션 후 남은 쿨타임(초)", "값": f"{float(hurricane_post_motion_cooldown):.1f}", "설명": "모션이 끝난 뒤 다음 허리케인을 쓰기까지 기다리는 시간"},
+                {"항목": "허리케인 실제 1회 소요시간(초)", "값": f"{hurricane_effective_time:.1f}", "설명": "모션시간 + 모션 후 남은 쿨타임"},
+            ]),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+        st.markdown("**체인 계산 설정**")
+        a1, a2, a3 = st.columns(3)
+        with a1:
+            hurricane_expected_count = st.number_input("허리케인 기대횟수", min_value=0.0, max_value=20.0, step=0.1, key="pred231_hurricane_expected_count")
+            start_brutal_fixed_count = st.number_input("시작 브루탈 고정횟수", min_value=0.0, max_value=20.0, step=1.0, key="pred231_start_brutal_fixed_count")
+        with a2:
+            brutal_expected_count = st.number_input("브루탈 기대횟수", min_value=0.0, max_value=20.0, step=0.1, key="pred231_brutal_expected_count")
+            flame_count = st.number_input("플레임 횟수", min_value=0.0, max_value=50.0, step=1.0, key="pred231_flame_count")
+        with a3:
+            stomp_extra_expected_count = st.number_input("스톰프 추가 기대횟수", min_value=0.0, max_value=20.0, step=0.1, key="pred231_stomp_extra_expected_count")
+            base_stomp_count = st.number_input("기본 스톰프 횟수", min_value=0.0, max_value=50.0, step=1.0, key="pred231_base_stomp_count")
+
+        b1, b2, b3 = st.columns(3)
+        with b1:
+            brutal_motion_time = st.number_input("브루탈 모션시간(초)", min_value=0.0, max_value=10.0, step=0.1, key="pred231_brutal_motion_time")
+        with b2:
+            stomp_motion_time = st.number_input("스톰프 모션시간(초)", min_value=0.0, max_value=10.0, step=0.1, key="pred231_stomp_motion_time")
+        with b3:
+            flame_motion_time = st.number_input("플레임 모션시간(초)", min_value=0.0, max_value=10.0, step=0.1, key="pred231_flame_motion_time")
+
+        fight_time = _safe_float_v160(real_elapsed, 0.0)
+        if fight_time <= 0:
+            fight_time = _safe_float_v160((st.session_state.get("real_meta") or {}).get("elapsed_seconds"), 0.0)
+        fixed_time = (
+            float(start_brutal_fixed_count) * float(brutal_motion_time)
+            + float(flame_count) * float(flame_motion_time)
+            + float(base_stomp_count) * float(stomp_motion_time)
+        )
+        chain_expected_time = (
+            float(hurricane_expected_count) * hurricane_effective_time
+            + float(brutal_expected_count) * float(brutal_motion_time)
+            + float(stomp_extra_expected_count) * float(stomp_motion_time)
+        )
+        chain_start_count = max(0.0, (fight_time - fixed_time) / chain_expected_time) if chain_expected_time > 0 else 0.0
+        hurricane_full_count = chain_start_count * float(hurricane_expected_count)
+        brutal_full_count = float(start_brutal_fixed_count) + chain_start_count * float(brutal_expected_count)
+        stomp_full_count = float(base_stomp_count) + chain_start_count * float(stomp_extra_expected_count)
+
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("실전 전투시간(초)", f"{fight_time:.1f}" if fight_time > 0 else "-")
+        m2.metric("체인당 기대 소요시간(초)", f"{chain_expected_time:.2f}")
+        m3.metric("허수처럼 풀가동 체인 시작횟수", f"{chain_start_count:.2f}")
+        m4.metric("풀가동 허리케인 기대횟수", f"{hurricane_full_count:.2f}")
+
+        st.caption(
+            "체인당 기대 소요시간 = 허리케인 기대횟수 × 허리케인 실제 1회 소요시간 "
+            "+ 브루탈 기대횟수 × 브루탈 모션시간 + 스톰프 추가 기대횟수 × 스톰프 모션시간"
+        )
+        st.dataframe(
+            pd.DataFrame([
+                {"항목": "허리케인 실제 1회 소요시간", "값": hurricane_effective_time},
+                {"항목": "체인당 기대 소요시간", "값": chain_expected_time},
+                {"항목": "허수처럼 풀가동 체인 시작횟수", "값": chain_start_count},
+                {"항목": "허수처럼 풀가동 허리케인 횟수", "값": hurricane_full_count},
+                {"항목": "허수처럼 풀가동 브루탈 횟수", "값": brutal_full_count},
+                {"항목": "허수처럼 풀가동 스톰프 횟수", "값": stomp_full_count},
+            ]),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+        real_table = st.session_state.get("real_table")
+        hurricane_row = _skill_row_by_keyword_v160(real_table, "허리케인")
+        brutal_row = _skill_row_by_keyword_v160(real_table, "브루탈")
+        stomp_row = _skill_row_by_keyword_v160(real_table, "스톰프")
+        per_hurricane = (_safe_float_v160(hurricane_row.get("damage"), 0.0) / _safe_float_v160(hurricane_row.get("casts"), 0.0)) if hurricane_row and _safe_float_v160(hurricane_row.get("casts"), 0.0) > 0 else 0.0
+        per_brutal = (_safe_float_v160(brutal_row.get("damage"), 0.0) / _safe_float_v160(brutal_row.get("casts"), 0.0)) if brutal_row and _safe_float_v160(brutal_row.get("casts"), 0.0) > 0 else 0.0
+        per_stomp = (_safe_float_v160(stomp_row.get("damage"), 0.0) / _safe_float_v160(stomp_row.get("casts"), 0.0)) if stomp_row and _safe_float_v160(stomp_row.get("casts"), 0.0) > 0 else 0.0
+        if fight_time > 0 and any(v > 0 for v in [per_hurricane, per_brutal, per_stomp]):
+            full_damage = hurricane_full_count * per_hurricane + brutal_full_count * per_brutal + stomp_full_count * per_stomp
+            st.metric("231 풀가동 예상 피해량 / DPS", f"{format_korean_number(full_damage)} / {format_korean_number(full_damage / fight_time)}")
+
+        graph_rows = []
+        for cd in [x / 10 for x in range(0, 51, 5)]:
+            effective = float(hurricane_motion_time) + cd
+            chain_time = (
+                float(hurricane_expected_count) * effective
+                + float(brutal_expected_count) * float(brutal_motion_time)
+                + float(stomp_extra_expected_count) * float(stomp_motion_time)
+            )
+            starts = max(0.0, (fight_time - fixed_time) / chain_time) if chain_time > 0 else 0.0
+            graph_rows.append({"모션 후 남은 쿨타임(초)": cd, "풀가동 허리케인 기대횟수": starts * float(hurricane_expected_count)})
+        if graph_rows:
+            st.line_chart(pd.DataFrame(graph_rows).set_index("모션 후 남은 쿨타임(초)"))
+
+
+_result_tab_prev_v160 = result_tab
+def result_tab() -> None:  # type: ignore[override]
+    _result_tab_prev_v160()
+    real_meta = st.session_state.get("real_meta", {}) or {}
+    real_elapsed = real_meta.get("elapsed_seconds") or st.session_state.get("real_elapsed_sec")
+    _render_predator_231_calculator_v160(real_elapsed)
 
 
 if __name__ == "__main__":
